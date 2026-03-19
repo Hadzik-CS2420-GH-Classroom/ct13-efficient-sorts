@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 370" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <!-- Title -->
+  <text x="430" y="32" text-anchor="middle" font-size="26" font-weight="bold" fill="#2c3e50">Why O(n log n): Divide and Conquer</text>
+  <!-- Subtitle -->
+  <text x="430" y="52" text-anchor="middle" font-size="13" fill="#888">Split the problem in half at each level (log n levels), do O(n) work at each level</text>
+
+  <!-- Connecting lines drawn BEFORE bars -->
+
+  <!-- Level 0 -> Level 1 -->
+  <line x1="430" y1="98" x2="362" y2="138" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="430" y1="98" x2="498" y2="138" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <!-- Level 1 bar1 center=362 -> Level 2 bar1 center=330, bar2 center=390 -->
+  <line x1="362" y1="166" x2="330" y2="206" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="362" y1="166" x2="390" y2="206" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <!-- Level 1 bar2 center=498 -> Level 2 bar3 center=470, bar4 center=530 -->
+  <line x1="498" y1="166" x2="470" y2="206" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="498" y1="166" x2="530" y2="206" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <!-- Level 2 bar1 center=330 -> Level 3 box1 center=318, box2 center=350 -->
+  <line x1="330" y1="234" x2="318" y2="274" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="330" y1="234" x2="350" y2="274" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <!-- Level 2 bar2 center=390 -> Level 3 box3 center=382, box4 center=414 -->
+  <line x1="390" y1="234" x2="382" y2="274" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="390" y1="234" x2="414" y2="274" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <!-- Level 2 bar3 center=470 -> Level 3 box5 center=446, box6 center=478 -->
+  <line x1="470" y1="234" x2="446" y2="274" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="470" y1="234" x2="478" y2="274" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <!-- Level 2 bar4 center=530 -> Level 3 box7 center=510, box8 center=542 -->
+  <line x1="530" y1="234" x2="510" y2="274" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="530" y1="234" x2="542" y2="274" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <!-- Level 0: one bar x=305 to x=555, y=70-98 -->
+  <rect x="305" y="70" width="250" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="430" y="89" text-anchor="middle" font-size="12" fill="white" font-weight="bold">[ 38  27  43  3  9  82  10  1 ]</text>
+
+  <!-- Level 1: y=138-166 -->
+  <!-- Bar1: x=305 to x=419, width=114, center=362 -->
+  <rect x="305" y="138" width="114" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="362" y="157" text-anchor="middle" font-size="11" fill="white" font-weight="bold">[ 38  27  43  3 ]</text>
+  <!-- Bar2: x=441 to x=555, width=114, center=498 -->
+  <rect x="441" y="138" width="114" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="498" y="157" text-anchor="middle" font-size="11" fill="white" font-weight="bold">[ 9  82  10  1 ]</text>
+
+  <!-- Level 2: y=206-234, four bars width=50, color #e67e22 -->
+  <!-- bar1: x=305-355, center=330 -->
+  <rect x="305" y="206" width="50" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="330" y="225" text-anchor="middle" font-size="11" fill="white">38 27</text>
+  <!-- bar2: x=365-415, center=390 -->
+  <rect x="365" y="206" width="50" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="390" y="225" text-anchor="middle" font-size="11" fill="white">43  3</text>
+  <!-- bar3: x=445-495, center=470 -->
+  <rect x="445" y="206" width="50" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="470" y="225" text-anchor="middle" font-size="11" fill="white"> 9 82</text>
+  <!-- bar4: x=505-555, center=530 -->
+  <rect x="505" y="206" width="50" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="530" y="225" text-anchor="middle" font-size="11" fill="white">10  1</text>
+
+  <!-- Level 3: y=274-300, eight small boxes width=26 height=26 rx=3, color #8e44ad -->
+  <!-- Positions: 305, 337, 369, 401, 433, 465, 497, 529 -->
+  <!-- Centers:   318, 350, 382, 414, 446, 478, 510, 542 -->
+  <rect x="305" y="274" width="26" height="26" rx="3" fill="#8e44ad" stroke="#7d3c98" stroke-width="1.5"/>
+  <text x="318" y="291" text-anchor="middle" font-size="11" fill="white">38</text>
+
+  <rect x="337" y="274" width="26" height="26" rx="3" fill="#8e44ad" stroke="#7d3c98" stroke-width="1.5"/>
+  <text x="350" y="291" text-anchor="middle" font-size="11" fill="white">27</text>
+
+  <rect x="369" y="274" width="26" height="26" rx="3" fill="#8e44ad" stroke="#7d3c98" stroke-width="1.5"/>
+  <text x="382" y="291" text-anchor="middle" font-size="11" fill="white">43</text>
+
+  <rect x="401" y="274" width="26" height="26" rx="3" fill="#8e44ad" stroke="#7d3c98" stroke-width="1.5"/>
+  <text x="414" y="291" text-anchor="middle" font-size="11" fill="white">3</text>
+
+  <rect x="433" y="274" width="26" height="26" rx="3" fill="#8e44ad" stroke="#7d3c98" stroke-width="1.5"/>
+  <text x="446" y="291" text-anchor="middle" font-size="11" fill="white">9</text>
+
+  <rect x="465" y="274" width="26" height="26" rx="3" fill="#8e44ad" stroke="#7d3c98" stroke-width="1.5"/>
+  <text x="478" y="291" text-anchor="middle" font-size="11" fill="white">82</text>
+
+  <rect x="497" y="274" width="26" height="26" rx="3" fill="#8e44ad" stroke="#7d3c98" stroke-width="1.5"/>
+  <text x="510" y="291" text-anchor="middle" font-size="11" fill="white">10</text>
+
+  <rect x="529" y="274" width="26" height="26" rx="3" fill="#8e44ad" stroke="#7d3c98" stroke-width="1.5"/>
+  <text x="542" y="291" text-anchor="middle" font-size="11" fill="white">1</text>
+
+  <!-- Left labels -->
+  <text x="38" y="88" font-size="11" font-weight="bold" fill="#888">Level 0</text>
+  <text x="38" y="156" font-size="11" font-weight="bold" fill="#888">Level 1</text>
+  <text x="38" y="224" font-size="11" font-weight="bold" fill="#888">Level 2</text>
+  <text x="38" y="291" font-size="11" font-weight="bold" fill="#888">Level 3</text>
+
+  <!-- Right annotations -->
+  <text x="600" y="88" font-size="12" font-weight="bold" fill="#2980b9">&#x2190; O(n) comparisons</text>
+  <text x="600" y="156" font-size="12" font-weight="bold" fill="#219a52">&#x2190; O(n) comparisons</text>
+  <text x="600" y="224" font-size="12" font-weight="bold" fill="#ca6f1e">&#x2190; O(n) comparisons</text>
+  <text x="600" y="291" font-size="12" fill="#7d3c98">&#x2190; base cases (n=1)</text>
+
+  <!-- Footer -->
+  <rect x="30" y="310" width="800" height="48" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="430" y="332" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">log n = 3 levels  &#xd7;  O(n) work per level  =  O(n log n)</text>
+  <text x="430" y="350" text-anchor="middle" font-size="12" fill="#555">When n = 1,000: efficient sorts &#x2248; 10,000 ops  vs  O(n&#xb2;) sorts: &#x2248; 1,000,000 ops</text>
+</svg>

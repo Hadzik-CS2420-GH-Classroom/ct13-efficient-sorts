@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 480" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <!-- Title -->
+  <text x="430" y="32" text-anchor="middle" font-size="26" font-weight="bold" fill="#2c3e50">Merge Sort -- Divide and Conquer Tree</text>
+  <!-- Subtitle -->
+  <text x="430" y="52" text-anchor="middle" font-size="13" fill="#888">Split until single elements (trivially sorted), then merge sorted halves back up</text>
+
+  <!-- ===== CONNECTING LINES (drawn BEFORE boxes) ===== -->
+
+  <!-- L1 center (430,100) -> L2 group1 center (350,152) and L2 group2 center (510,152) -->
+  <line x1="430" y1="100" x2="350" y2="152" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="430" y1="100" x2="510" y2="152" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <!-- L2 group1 (350,182) -> L3 box1 (323,234) and L3 box2 (377,234) -->
+  <line x1="350" y1="182" x2="323" y2="234" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="350" y1="182" x2="377" y2="234" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <!-- L2 group2 (510,182) -> L3 box3 (483,234) and L3 box4 (537,234) -->
+  <line x1="510" y1="182" x2="483" y2="234" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="510" y1="182" x2="537" y2="234" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <!-- MERGE converging: L3 -> L4 -->
+  <!-- L3 box1 (323,264) -> L4 group1 center (350,316) -->
+  <line x1="323" y1="264" x2="350" y2="316" stroke="#bdc3c7" stroke-width="1.5"/>
+  <!-- L3 box2 (377,264) -> L4 group1 center (350,316) -->
+  <line x1="377" y1="264" x2="350" y2="316" stroke="#bdc3c7" stroke-width="1.5"/>
+  <!-- L3 box3 (483,264) -> L4 group2 center (510,316) -->
+  <line x1="483" y1="264" x2="510" y2="316" stroke="#bdc3c7" stroke-width="1.5"/>
+  <!-- L3 box4 (537,264) -> L4 group2 center (510,316) -->
+  <line x1="537" y1="264" x2="510" y2="316" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <!-- L4 group1 (350,346) -> L5 center (430,398) -->
+  <line x1="350" y1="346" x2="430" y2="398" stroke="#bdc3c7" stroke-width="1.5"/>
+  <!-- L4 group2 (510,346) -> L5 center (430,398) -->
+  <line x1="510" y1="346" x2="430" y2="398" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <!-- ===== LEVEL 1: Unsorted input y=70, 4 boxes [38,27,43,3] blue ===== -->
+  <!-- 4 boxes: total width = 4*50 + 3*4 = 212, center = 430, start x = 430 - 106 = 324 -->
+  <rect x="324" y="70" width="50" height="30" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="349" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
+  <rect x="378" y="70" width="50" height="30" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="403" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="white">27</text>
+  <rect x="432" y="70" width="50" height="30" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="457" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="white">43</text>
+  <rect x="486" y="70" width="50" height="30" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="511" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="white">3</text>
+
+  <!-- ===== LEVEL 2: Split halves y=152, 2 groups of 2 ===== -->
+  <!-- Group1 [38,27] at x=298: 2 boxes, center=(298+50+4+25)=377 => group center=350 -->
+  <!-- Box1: x=298, Box2: x=352, group width=104, center x=298+52=350 -->
+  <rect x="298" y="152" width="50" height="30" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="323" y="172" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
+  <rect x="352" y="152" width="50" height="30" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="377" y="172" text-anchor="middle" font-size="13" font-weight="bold" fill="white">27</text>
+
+  <!-- Group2 [43,3] at x=458: center=458+52=510 -->
+  <rect x="458" y="152" width="50" height="30" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="483" y="172" text-anchor="middle" font-size="13" font-weight="bold" fill="white">43</text>
+  <rect x="512" y="152" width="50" height="30" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="537" y="172" text-anchor="middle" font-size="13" font-weight="bold" fill="white">3</text>
+
+  <!-- ===== LEVEL 3: Base cases y=234 -- single elements, orange ===== -->
+  <!-- [38] at x=298, center=323 -->
+  <rect x="298" y="234" width="50" height="30" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="323" y="254" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
+  <!-- [27] at x=352, center=377 -->
+  <rect x="352" y="234" width="50" height="30" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="377" y="254" text-anchor="middle" font-size="13" font-weight="bold" fill="white">27</text>
+  <!-- [43] at x=458, center=483 -->
+  <rect x="458" y="234" width="50" height="30" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="483" y="254" text-anchor="middle" font-size="13" font-weight="bold" fill="white">43</text>
+  <!-- [3] at x=512, center=537 -->
+  <rect x="512" y="234" width="50" height="30" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="537" y="254" text-anchor="middle" font-size="13" font-weight="bold" fill="white">3</text>
+
+  <!-- ===== LEVEL 4: Merged pairs sorted y=316, green ===== -->
+  <!-- Group1 [27,38] at x=298, center=350 -->
+  <rect x="298" y="316" width="50" height="30" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="323" y="336" text-anchor="middle" font-size="13" font-weight="bold" fill="white">27</text>
+  <rect x="352" y="316" width="50" height="30" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="377" y="336" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
+
+  <!-- Group2 [3,43] at x=458, center=510 -->
+  <rect x="458" y="316" width="50" height="30" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="483" y="336" text-anchor="middle" font-size="13" font-weight="bold" fill="white">3</text>
+  <rect x="512" y="316" width="50" height="30" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="537" y="336" text-anchor="middle" font-size="13" font-weight="bold" fill="white">43</text>
+
+  <!-- ===== LEVEL 5: Final sorted y=398, bright green ===== -->
+  <!-- 4 boxes: start x=324, center=430 -->
+  <rect x="324" y="398" width="50" height="30" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="349" y="418" text-anchor="middle" font-size="13" font-weight="bold" fill="white">3</text>
+  <rect x="378" y="398" width="50" height="30" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="403" y="418" text-anchor="middle" font-size="13" font-weight="bold" fill="white">27</text>
+  <rect x="432" y="398" width="50" height="30" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="457" y="418" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
+  <rect x="486" y="398" width="50" height="30" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="511" y="418" text-anchor="middle" font-size="13" font-weight="bold" fill="white">43</text>
+
+  <!-- ===== DIVIDE / MERGE LABELS ===== -->
+  <text x="60" y="190" font-size="12" font-weight="bold" fill="#3498db" text-anchor="middle">DIVIDE</text>
+  <text x="60" y="208" font-size="14" fill="#3498db" text-anchor="middle">&#x2193;</text>
+
+  <!-- Dashed separator line at y=280 -->
+  <line x1="60" y1="280" x2="800" y2="280" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="5,4"/>
+
+  <text x="60" y="310" font-size="12" font-weight="bold" fill="#27ae60" text-anchor="middle">MERGE</text>
+  <text x="60" y="328" font-size="14" fill="#27ae60" text-anchor="middle">&#x2191;</text>
+
+  <!-- Base cases label -->
+  <text x="430" y="280" text-anchor="middle" font-size="11" fill="#888" font-style="italic">(base cases -- trivially sorted)</text>
+
+  <!-- Sorted! label -->
+  <text x="430" y="445" text-anchor="middle" font-size="13" font-weight="bold" fill="#27ae60">&#x2713; [3, 27, 38, 43] -- sorted!</text>
+</svg>

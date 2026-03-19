@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 430" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <!-- Title -->
+  <text x="430" y="32" text-anchor="middle" font-size="26" font-weight="bold" fill="#2c3e50">Heapify Down -- Restoring the Max-Heap</text>
+  <!-- Subtitle -->
+  <text x="430" y="52" text-anchor="middle" font-size="13" fill="#888">Compare node with children. If a child is larger, swap and continue down.</text>
+
+  <!-- ===== LEFT TREE (Before) centered at x=200 ===== -->
+  <text x="200" y="82" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">Before heapify_down(0)</text>
+
+  <!-- Tree edges (drawn before nodes) -->
+  <!-- Node0 (200,113) -> Node1 (130,195) -->
+  <line x1="200" y1="130" x2="130" y2="178" stroke="#bdc3c7" stroke-width="1.5"/>
+  <!-- Node0 (200,113) -> Node2 (270,195) -->
+  <line x1="200" y1="130" x2="270" y2="178" stroke="#bdc3c7" stroke-width="1.5"/>
+  <!-- Node1 (130,212) -> Node3 (100,260) -->
+  <line x1="130" y1="212" x2="100" y2="260" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <!-- Dashed swap path from node0 to node2 -->
+  <line x1="200" y1="113" x2="270" y2="178" stroke="#e74c3c" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Node 0 (55) - red, violation -->
+  <text x="200" y="93" text-anchor="middle" font-size="10" fill="#888">(0)</text>
+  <rect x="174" y="96" width="52" height="34" rx="4" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="200" y="118" text-anchor="middle" font-size="16" font-weight="bold" fill="white">55</text>
+
+  <!-- Node 1 (62) - blue -->
+  <text x="130" y="175" text-anchor="middle" font-size="10" fill="#888">(1)</text>
+  <rect x="104" y="178" width="52" height="34" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="130" y="200" text-anchor="middle" font-size="16" font-weight="bold" fill="white">62</text>
+
+  <!-- Node 2 (72) - green, largest child -->
+  <text x="270" y="175" text-anchor="middle" font-size="10" fill="#888">(2)</text>
+  <rect x="244" y="178" width="52" height="34" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="2.5"/>
+  <text x="270" y="200" text-anchor="middle" font-size="16" font-weight="bold" fill="white">72</text>
+
+  <!-- Node 3 (38) - blue -->
+  <text x="100" y="257" text-anchor="middle" font-size="10" fill="#888">(3)</text>
+  <rect x="74" y="260" width="52" height="34" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="100" y="282" text-anchor="middle" font-size="16" font-weight="bold" fill="white">38</text>
+
+  <!-- "largest child" annotation -->
+  <text x="310" y="202" font-size="11" fill="#219a52">largest child = 72</text>
+
+  <!-- Array below left tree: y=310, 4 boxes, x positions: 66, 124, 182, 240 -->
+  <text x="30" y="330" font-size="11" fill="#888">Array:</text>
+  <!-- [55] red, [62][72][38] colored matching nodes -->
+  <rect x="66" y="310" width="52" height="32" rx="4" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="92" y="331" text-anchor="middle" font-size="14" font-weight="bold" fill="white">55</text>
+  <rect x="124" y="310" width="52" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="150" y="331" text-anchor="middle" font-size="14" font-weight="bold" fill="white">62</text>
+  <rect x="182" y="310" width="52" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="208" y="331" text-anchor="middle" font-size="14" font-weight="bold" fill="white">72</text>
+  <rect x="240" y="310" width="52" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="266" y="331" text-anchor="middle" font-size="14" font-weight="bold" fill="white">38</text>
+
+  <!-- Index labels -->
+  <text x="92" y="354" text-anchor="middle" font-size="10" fill="#888">0</text>
+  <text x="150" y="354" text-anchor="middle" font-size="10" fill="#888">1</text>
+  <text x="208" y="354" text-anchor="middle" font-size="10" fill="#888">2</text>
+  <text x="266" y="354" text-anchor="middle" font-size="10" fill="#888">3</text>
+
+  <!-- ===== MIDDLE ARROW ===== -->
+  <line x1="395" y1="220" x2="455" y2="220" stroke="#e74c3c" stroke-width="2.5"/>
+  <!-- Arrowhead -->
+  <polygon points="455,214 465,220 455,226" fill="#e74c3c"/>
+  <text x="430" y="214" text-anchor="middle" font-size="12" font-weight="bold" fill="#e74c3c">swap</text>
+  <text x="430" y="232" text-anchor="middle" font-size="11" fill="#555">55 &#x21d4; 72</text>
+
+  <!-- ===== RIGHT TREE (After) centered at x=660 ===== -->
+  <text x="660" y="82" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">After heapify_down(0)</text>
+
+  <!-- Tree edges (shifted right by 460 from left tree) -->
+  <!-- Node0 (660,113) -> Node1 (590,195) -->
+  <line x1="660" y1="130" x2="590" y2="178" stroke="#bdc3c7" stroke-width="1.5"/>
+  <!-- Node0 (660,113) -> Node2 (730,195) -->
+  <line x1="660" y1="130" x2="730" y2="178" stroke="#bdc3c7" stroke-width="1.5"/>
+  <!-- Node1 (590,212) -> Node3 (560,260) -->
+  <line x1="590" y1="212" x2="560" y2="260" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <!-- Node 0 (72) - green -->
+  <text x="660" y="93" text-anchor="middle" font-size="10" fill="#888">(0)</text>
+  <rect x="634" y="96" width="52" height="34" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="660" y="118" text-anchor="middle" font-size="16" font-weight="bold" fill="white">72</text>
+
+  <!-- Node 1 (62) - blue -->
+  <text x="590" y="175" text-anchor="middle" font-size="10" fill="#888">(1)</text>
+  <rect x="564" y="178" width="52" height="34" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="590" y="200" text-anchor="middle" font-size="16" font-weight="bold" fill="white">62</text>
+
+  <!-- Node 2 (55) - blue (moved down) -->
+  <text x="730" y="175" text-anchor="middle" font-size="10" fill="#888">(2)</text>
+  <rect x="704" y="178" width="52" height="34" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="730" y="200" text-anchor="middle" font-size="16" font-weight="bold" fill="white">55</text>
+
+  <!-- Node 3 (38) - blue -->
+  <text x="560" y="257" text-anchor="middle" font-size="10" fill="#888">(3)</text>
+  <rect x="534" y="260" width="52" height="34" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="560" y="282" text-anchor="middle" font-size="16" font-weight="bold" fill="white">38</text>
+
+  <!-- "children out of bounds" annotation -->
+  <text x="790" y="195" font-size="10" fill="#888">children out of</text>
+  <text x="790" y="207" font-size="10" fill="#888">bounds -- done</text>
+
+  <!-- Array below right tree: x positions: 594, 652, 710, 768 -->
+  <text x="556" y="330" font-size="11" fill="#888">Array:</text>
+  <rect x="594" y="310" width="52" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="620" y="331" text-anchor="middle" font-size="14" font-weight="bold" fill="white">72</text>
+  <rect x="652" y="310" width="52" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="678" y="331" text-anchor="middle" font-size="14" font-weight="bold" fill="white">62</text>
+  <rect x="710" y="310" width="52" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="736" y="331" text-anchor="middle" font-size="14" font-weight="bold" fill="white">55</text>
+  <rect x="768" y="310" width="52" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="794" y="331" text-anchor="middle" font-size="14" font-weight="bold" fill="white">38</text>
+
+  <!-- Index labels -->
+  <text x="620" y="354" text-anchor="middle" font-size="10" fill="#888">0</text>
+  <text x="678" y="354" text-anchor="middle" font-size="10" fill="#888">1</text>
+  <text x="736" y="354" text-anchor="middle" font-size="10" fill="#888">2</text>
+  <text x="794" y="354" text-anchor="middle" font-size="10" fill="#888">3</text>
+
+  <!-- Footer -->
+  <rect x="30" y="368" width="800" height="52" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="430" y="388" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">Array formula: left child of i = 2i+1,  right child of i = 2i+2,  parent of i = (i-1)/2</text>
+  <text x="430" y="406" text-anchor="middle" font-size="12" fill="#555">heapify_down() runs in O(log n) -- at most the height of the tree</text>
+</svg>

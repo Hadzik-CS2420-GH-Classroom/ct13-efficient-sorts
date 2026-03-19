@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 400" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <!-- Title -->
+  <text x="430" y="32" text-anchor="middle" font-size="26" font-weight="bold" fill="#2c3e50">Quick Sort -- Partition Step</text>
+  <!-- Subtitle -->
+  <text x="430" y="52" text-anchor="middle" font-size="13" fill="#888">Pick a pivot, rearrange: elements &#x2264; pivot go left, elements &gt; pivot go right</text>
+
+  <!-- 7 boxes: width=52 height=32 rx=4 gap=4, total=7*52+6*4=388, center=430, start x=236 -->
+  <!-- x positions: 236, 292, 348, 404, 460, 516, 572 -->
+  <!-- centers:     262, 318, 374, 430, 486, 542, 598 -->
+
+  <!-- ===== STATE 1: Initial state -- pivot selected ===== -->
+  <text x="30" y="95" font-size="12" font-weight="bold" fill="#888">1.</text>
+  <text x="60" y="95" font-size="12" fill="#333">Pivot = 62 (last element -- moved to end)</text>
+
+  <!-- y=74 for boxes -->
+  <!-- [72][55][38][95][78][42] blue, [62] gold -->
+  <rect x="236" y="74" width="52" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="262" y="95" text-anchor="middle" font-size="14" font-weight="bold" fill="white">72</text>
+
+  <rect x="292" y="74" width="52" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="318" y="95" text-anchor="middle" font-size="14" font-weight="bold" fill="white">55</text>
+
+  <rect x="348" y="74" width="52" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="374" y="95" text-anchor="middle" font-size="14" font-weight="bold" fill="white">38</text>
+
+  <rect x="404" y="74" width="52" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="430" y="95" text-anchor="middle" font-size="14" font-weight="bold" fill="white">95</text>
+
+  <rect x="460" y="74" width="52" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="486" y="95" text-anchor="middle" font-size="14" font-weight="bold" fill="white">78</text>
+
+  <rect x="516" y="74" width="52" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="542" y="95" text-anchor="middle" font-size="14" font-weight="bold" fill="white">42</text>
+
+  <!-- Pivot box gold #f39c12 -->
+  <rect x="572" y="74" width="52" height="32" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+  <text x="598" y="95" text-anchor="middle" font-size="14" font-weight="bold" fill="white">62</text>
+
+  <!-- Labels below state 1 -->
+  <text x="236" y="120" font-size="10" fill="#888">i = -1</text>
+  <text x="598" y="120" text-anchor="middle" font-size="11" font-weight="bold" fill="#e67e22">pivot</text>
+
+  <!-- ===== STATE 2: After scan ===== -->
+  <text x="30" y="187" font-size="12" font-weight="bold" fill="#888">2.</text>
+  <text x="60" y="187" font-size="12" fill="#333">After scan: elements &#x2264; 62 are in positions 0-2  (i = 2)</text>
+
+  <!-- y=166 for boxes -->
+  <!-- [55][38][42] green, [95][78][72] blue, [62] gold -->
+  <rect x="236" y="166" width="52" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="262" y="187" text-anchor="middle" font-size="14" font-weight="bold" fill="white">55</text>
+
+  <rect x="292" y="166" width="52" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="318" y="187" text-anchor="middle" font-size="14" font-weight="bold" fill="white">38</text>
+
+  <rect x="348" y="166" width="52" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="374" y="187" text-anchor="middle" font-size="14" font-weight="bold" fill="white">42</text>
+
+  <rect x="404" y="166" width="52" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="430" y="187" text-anchor="middle" font-size="14" font-weight="bold" fill="white">95</text>
+
+  <rect x="460" y="166" width="52" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="486" y="187" text-anchor="middle" font-size="14" font-weight="bold" fill="white">78</text>
+
+  <rect x="516" y="166" width="52" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="542" y="187" text-anchor="middle" font-size="14" font-weight="bold" fill="white">72</text>
+
+  <rect x="572" y="166" width="52" height="32" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+  <text x="598" y="187" text-anchor="middle" font-size="14" font-weight="bold" fill="white">62</text>
+
+  <!-- Labels below state 2 -->
+  <text x="374" y="212" text-anchor="middle" font-size="11" fill="#27ae60">&#x2264; pivot (i = 2)</text>
+  <text x="486" y="212" text-anchor="middle" font-size="11" fill="#2980b9">&gt; pivot</text>
+  <text x="598" y="212" text-anchor="middle" font-size="11" font-weight="bold" fill="#e67e22">pivot</text>
+
+  <!-- ===== STATE 3: Pivot placed in final position ===== -->
+  <text x="30" y="279" font-size="12" font-weight="bold" fill="#888">3.</text>
+  <text x="60" y="279" font-size="12" fill="#333">Swap pivot into position i+1 = 3 -- pivot is now in its FINAL sorted index</text>
+
+  <!-- y=258 for boxes -->
+  <!-- [55][38][42] green, [62] gold thick, [78][72][95] blue -->
+  <rect x="236" y="258" width="52" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="262" y="279" text-anchor="middle" font-size="14" font-weight="bold" fill="white">55</text>
+
+  <rect x="292" y="258" width="52" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="318" y="279" text-anchor="middle" font-size="14" font-weight="bold" fill="white">38</text>
+
+  <rect x="348" y="258" width="52" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="374" y="279" text-anchor="middle" font-size="14" font-weight="bold" fill="white">42</text>
+
+  <!-- Pivot in final position -- gold with thick stroke -->
+  <rect x="404" y="255" width="52" height="38" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="3"/>
+  <text x="430" y="279" text-anchor="middle" font-size="14" font-weight="bold" fill="white">62</text>
+
+  <rect x="460" y="258" width="52" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="486" y="279" text-anchor="middle" font-size="14" font-weight="bold" fill="white">78</text>
+
+  <rect x="516" y="258" width="52" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="542" y="279" text-anchor="middle" font-size="14" font-weight="bold" fill="white">72</text>
+
+  <rect x="572" y="258" width="52" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="598" y="279" text-anchor="middle" font-size="14" font-weight="bold" fill="white">95</text>
+
+  <!-- Labels below state 3 -->
+  <text x="430" y="304" text-anchor="middle" font-size="11" font-weight="bold" fill="#e67e22">FINAL POSITION</text>
+  <text x="306" y="310" text-anchor="middle" font-size="10" fill="#27ae60">recurse on left</text>
+  <text x="530" y="310" text-anchor="middle" font-size="10" fill="#2980b9">recurse on right</text>
+
+  <!-- Footer -->
+  <rect x="30" y="320" width="800" height="64" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="430" y="342" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">After partition: pivot (62) is at its correct final position in the sorted array</text>
+  <text x="430" y="360" text-anchor="middle" font-size="12" fill="#555">Everything left of pivot is &#x2264; 62. Everything right is &gt; 62.</text>
+  <text x="430" y="377" text-anchor="middle" font-size="12" fill="#888">Recursively sort each side -- pivot itself never moves again</text>
+</svg>
