@@ -4,35 +4,21 @@ Code-block diagrams referenced from `EfficientSorts.cpp`.
 
 ---
 
-## 1. Merge -- Merging Two Sorted Halves
-*`EfficientSorts.cpp::merge()` -- compare front of each half, pick smaller, repeat*
+## 1. Merge -- Combining Two Sorted Halves
+*`EfficientSorts.cpp::merge()` -- copy halves to temp vectors, interleave back in sorted order*
 
-![Merge -- Merging Two Sorted Halves](svgs/merge_step.svg)
-
----
-
-## 2. Merge Sort -- Divide and Conquer Tree
-*`EfficientSorts.cpp::merge_sort_recursive()` -- split until single elements, merge back up*
-
-![Merge Sort -- Divide and Conquer Tree](svgs/merge_sort_tree.svg)
+![Merge -- Combining Two Sorted Halves](svgs/merge_step.svg)
 
 ---
 
-## 3. Quick Sort -- Partition Step
-*`EfficientSorts.cpp::partition()` -- pivot chosen, i tracks boundary, j scans, pivot placed*
+## 2. Partition -- Rearranging Around a Pivot
+*`EfficientSorts.cpp::partition()` -- scan, swap smaller elements left, place pivot in final position*
 
-![Quick Sort -- Partition Step](svgs/partition_step.svg)
-
----
-
-## 4. Heap Sort -- Heapify Down
-*`EfficientSorts.cpp::heapify_down()` -- small root sinks to correct level in max-heap*
-
-![Heap Sort -- Heapify Down](svgs/heapify_down.svg)
+![Partition -- Rearranging Around a Pivot](svgs/partition_impl.svg)
 
 ---
 
-## 5. Heap Sort -- Two Phases
-*`EfficientSorts.cpp::heap_sort()` -- Phase 1: build max-heap. Phase 2: extract max repeatedly*
+## 3. Heapify Down -- Restoring the Max-Heap
+*`EfficientSorts.cpp::heapify_down()` -- compare with children, swap with largest, sink down*
 
-![Heap Sort -- Two Phases](svgs/heap_sort_phases.svg)
+![Heapify Down -- Restoring the Max-Heap](svgs/heapify_down.svg)

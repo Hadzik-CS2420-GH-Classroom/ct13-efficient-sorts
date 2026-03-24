@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <!-- Title -->
+  <text x="450" y="32" text-anchor="middle" fill="#1a1a1a" font-size="24" font-weight="bold">The Three O(n log n) Sorts</text>
+  <text x="450" y="54" text-anchor="middle" fill="#777" font-size="13">All three use divide-and-conquer to break the problem into smaller pieces</text>
+
+  <!-- ===== MERGE SORT ===== -->
+  <rect x="20" y="74" width="860" height="140" rx="10" fill="#fff" stroke="#2980b9" stroke-width="2"/>
+  <rect x="20" y="74" width="860" height="32" rx="10" fill="#2980b9"/>
+  <rect x="20" y="90" width="860" height="16" fill="#2980b9"/>
+  <text x="450" y="96" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">Merge Sort</text>
+
+  <text x="40" y="128" fill="#2c3e50" font-size="13" font-weight="bold">Strategy:</text>
+  <text x="130" y="128" fill="#555" font-size="12">Split the array in half. Recursively sort each half. Merge the two sorted halves back together.</text>
+
+  <text x="40" y="150" fill="#2c3e50" font-size="13" font-weight="bold">Key idea:</text>
+  <text x="130" y="150" fill="#555" font-size="12">Merging two sorted lists is easy &#x2014; just compare the fronts and take the smaller one each time.</text>
+
+  <text x="40" y="176" fill="#2c3e50" font-size="12" font-weight="bold">Time:</text>
+  <text x="88" y="176" fill="#27ae60" font-size="12" font-weight="bold">O(n log n) always</text>
+  <text x="260" y="176" fill="#2c3e50" font-size="12" font-weight="bold">Space:</text>
+  <text x="312" y="176" fill="#e67e22" font-size="12" font-weight="bold">O(n)</text>
+  <text x="360" y="176" fill="#888" font-size="11">(needs a temp array)</text>
+  <text x="540" y="176" fill="#2c3e50" font-size="12" font-weight="bold">Stable:</text>
+  <text x="596" y="176" fill="#27ae60" font-size="12" font-weight="bold">Yes</text>
+
+  <text x="40" y="200" fill="#888" font-size="11" font-style="italic">Think: Split a deck of cards in half, sort each pile, then merge them by comparing top cards.</text>
+
+  <!-- ===== QUICK SORT ===== -->
+  <rect x="20" y="224" width="860" height="140" rx="10" fill="#fff" stroke="#8e44ad" stroke-width="2"/>
+  <rect x="20" y="224" width="860" height="32" rx="10" fill="#8e44ad"/>
+  <rect x="20" y="240" width="860" height="16" fill="#8e44ad"/>
+  <text x="450" y="246" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">Quick Sort</text>
+
+  <text x="40" y="278" fill="#2c3e50" font-size="13" font-weight="bold">Strategy:</text>
+  <text x="130" y="278" fill="#555" font-size="12">Pick a pivot element. Partition: everything smaller goes left, everything larger goes right. Recurse on each side.</text>
+
+  <text x="40" y="300" fill="#2c3e50" font-size="13" font-weight="bold">Key idea:</text>
+  <text x="130" y="300" fill="#555" font-size="12">After partitioning, the pivot is in its final sorted position. No merging needed &#x2014; elements are already on the correct side.</text>
+
+  <text x="40" y="326" fill="#2c3e50" font-size="12" font-weight="bold">Time:</text>
+  <text x="88" y="326" fill="#27ae60" font-size="12" font-weight="bold">O(n log n) avg</text>
+  <text x="220" y="326" fill="#888" font-size="11">|</text>
+  <text x="232" y="326" fill="#e74c3c" font-size="12" font-weight="bold">O(n&#xB2;) worst</text>
+  <text x="340" y="326" fill="#888" font-size="11">(bad pivot)</text>
+  <text x="460" y="326" fill="#2c3e50" font-size="12" font-weight="bold">Space:</text>
+  <text x="512" y="326" fill="#27ae60" font-size="12" font-weight="bold">O(log n)</text>
+  <text x="580" y="326" fill="#888" font-size="11">(call stack)</text>
+  <text x="680" y="326" fill="#2c3e50" font-size="12" font-weight="bold">Stable:</text>
+  <text x="736" y="326" fill="#e74c3c" font-size="12" font-weight="bold">No</text>
+
+  <text x="40" y="350" fill="#888" font-size="11" font-style="italic">Think: Pick someone in line, everyone shorter goes left, everyone taller goes right. Repeat in each group.</text>
+
+  <!-- ===== HEAP SORT ===== -->
+  <rect x="20" y="374" width="860" height="140" rx="10" fill="#fff" stroke="#e67e22" stroke-width="2"/>
+  <rect x="20" y="374" width="860" height="32" rx="10" fill="#e67e22"/>
+  <rect x="20" y="390" width="860" height="16" fill="#e67e22"/>
+  <text x="450" y="396" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">Heap Sort</text>
+
+  <text x="40" y="428" fill="#2c3e50" font-size="13" font-weight="bold">Strategy:</text>
+  <text x="130" y="428" fill="#555" font-size="12">Build a max-heap from the array. Repeatedly extract the maximum and place it at the end of the array.</text>
+
+  <text x="40" y="450" fill="#2c3e50" font-size="13" font-weight="bold">Key idea:</text>
+  <text x="130" y="450" fill="#555" font-size="12">A max-heap guarantees the largest element is always at the root. Extracting it and re-heapifying takes O(log n).</text>
+
+  <text x="40" y="476" fill="#2c3e50" font-size="12" font-weight="bold">Time:</text>
+  <text x="88" y="476" fill="#27ae60" font-size="12" font-weight="bold">O(n log n) always</text>
+  <text x="260" y="476" fill="#2c3e50" font-size="12" font-weight="bold">Space:</text>
+  <text x="312" y="476" fill="#27ae60" font-size="12" font-weight="bold">O(1)</text>
+  <text x="344" y="476" fill="#888" font-size="11">(in-place! the heap IS the array)</text>
+  <text x="580" y="476" fill="#2c3e50" font-size="12" font-weight="bold">Stable:</text>
+  <text x="636" y="476" fill="#e74c3c" font-size="12" font-weight="bold">No</text>
+
+  <text x="40" y="500" fill="#888" font-size="11" font-style="italic">Think: A priority queue that always gives you the biggest item. Keep taking the biggest and putting it at the end.</text>
+
+  <!-- ===== BOTTOM: Key Contrast ===== -->
+  <rect x="20" y="528" width="860" height="58" rx="10" fill="#f4f6f7" stroke="#bdc3c7" stroke-width="1.5"/>
+  <text x="450" y="548" text-anchor="middle" fill="#2c3e50" font-size="12">
+    <tspan x="450" dy="0"><tspan font-weight="bold" fill="#2980b9">Merge sort</tspan> guarantees O(n log n) but needs extra memory.</tspan>
+    <tspan x="450" dy="16"><tspan font-weight="bold" fill="#8e44ad">Quick sort</tspan> is fastest in practice but has a bad worst case.</tspan>
+    <tspan x="450" dy="16"><tspan font-weight="bold" fill="#e67e22">Heap sort</tspan> is O(n log n) in-place but slower in practice due to cache misses.</tspan>
+  </text>
+</svg>

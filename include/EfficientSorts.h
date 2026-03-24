@@ -7,27 +7,25 @@
 // EfficientSorts -- O(n log n) sorting algorithms
 // ---------------------------------------------------------------------------
 //
-// ! DISCUSSION: Why "n log n"?
-//   - These algorithms divide the problem in half at each level (log n levels)
-//   - At each level, they do O(n) work (merging, partitioning, or heapifying)
-//   - Total: n work * log n levels = O(n log n)
-//   - When n doubles, runtime roughly DOUBLES (not quadruples like O(n^2))
+// ? SEE DIAGRAM: images/header_diagrams.md #1 -- the three O(n log n) sorts at a high level
+// ? SEE DIAGRAM: images/header_diagrams.md #2 -- O(n log n) vs O(n^2) growth comparison
+// ? SEE DIAGRAM: images/header_diagrams.md #3 -- why O(n log n): divide and conquer
 //
-// ! DISCUSSION: Divide-and-conquer pattern.
-//   - Merge sort: split in half, sort each half, merge the results
-//   - Quick sort: pick a pivot, partition around it, sort each side
-//   - Heap sort: build a max-heap, repeatedly extract the maximum
-//   - All three reduce a big problem into smaller subproblems
+// ! DISCUSSION: Why "n log n"?
+//   - n work per level * log n levels = O(n log n)
+//   - When n doubles, runtime roughly DOUBLES (not quadruples like O(n^2))
 //
 // Key design decisions:
 //   - Free functions taking std::vector<int>& -- not class methods
 //   - Sort in ascending order (smallest first)
-//   - Merge sort uses O(n) extra space; quick sort and heap sort are in-place
 //
 
 // ---------------------------------------------------------------------------
 // Merge Sort
 // ---------------------------------------------------------------------------
+//
+// ? SEE DIAGRAM: images/header_diagrams.md #4 -- merge sort: divide and conquer tree
+//
 // - Divide array in half, recursively sort each half, merge the sorted halves
 // - Time: O(n log n) always (best, average, worst)
 // - Space: O(n) -- temporary array needed for merging
@@ -38,6 +36,9 @@ void merge_sort(std::vector<int>& data);
 // ---------------------------------------------------------------------------
 // Quick Sort
 // ---------------------------------------------------------------------------
+//
+// ? SEE DIAGRAM: images/header_diagrams.md #5 -- quick sort: partition step
+//
 // - Pick a pivot, partition: elements < pivot go left, elements > pivot go right
 // - Recursively sort the left and right partitions
 // - Time: O(n log n) average | O(n^2) worst (bad pivot on sorted data)
@@ -49,6 +50,10 @@ void quick_sort(std::vector<int>& data);
 // ---------------------------------------------------------------------------
 // Heap Sort
 // ---------------------------------------------------------------------------
+//
+// ? SEE DIAGRAM: images/header_diagrams.md #6 -- heap sort phase 1: build the max-heap
+// ? SEE DIAGRAM: images/header_diagrams.md #7 -- heap sort phase 2: extract max repeatedly
+//
 // - Build a max-heap from the array, then repeatedly extract the max
 // - Each extraction places the largest remaining element at the end
 // - Time: O(n log n) always (best, average, worst)
@@ -56,6 +61,8 @@ void quick_sort(std::vector<int>& data);
 // - Stable: No (heap operations move distant elements)
 //
 void heap_sort(std::vector<int>& data);
+
+// ? SEE DIAGRAM: images/header_diagrams.md #8 -- side-by-side comparison (time, space, stability)
 
 // ---------------------------------------------------------------------------
 // Utility: print a vector (for demo output)

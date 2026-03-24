@@ -1,131 +1,134 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" font-family="'Segoe UI', Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 540" font-family="'Segoe UI', Arial, sans-serif">
   <rect width="100%" height="100%" fill="white"/>
 
   <!-- Title -->
-  <text x="430" y="28" text-anchor="middle" font-size="26" font-weight="bold" fill="#2c3e50">Heap Sort -- Two Phases</text>
-  <!-- Subtitle -->
-  <text x="430" y="48" text-anchor="middle" font-size="13" fill="#888">Phase 1: Build max-heap (bottom-up). Phase 2: Extract max repeatedly into sorted position.</text>
+  <text x="430" y="28" text-anchor="middle" font-size="24" font-weight="bold" fill="#2c3e50">Heap Sort: Two Phases</text>
+  <text x="430" y="48" text-anchor="middle" font-size="13" fill="#888">Build a max-heap from the array, then extract the maximum repeatedly</text>
 
   <!-- 5 boxes: width=60 height=28 rx=4 gap=4, total=5*60+4*4=316, center=430, start x=272 -->
   <!-- x positions: 272, 336, 400, 464, 528. Centers: 302, 366, 430, 494, 558 -->
 
-  <!-- ===== ROW 0: Input y=66 ===== -->
-  <text x="60" y="86" font-size="12" fill="#888" text-anchor="end">Input:</text>
-  <!-- [38][55][72][95][62] all blue -->
-  <rect x="272" y="66" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="302" y="85" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
-  <rect x="336" y="66" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="366" y="85" text-anchor="middle" font-size="13" font-weight="bold" fill="white">55</text>
-  <rect x="400" y="66" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="430" y="85" text-anchor="middle" font-size="13" font-weight="bold" fill="white">72</text>
-  <rect x="464" y="66" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="494" y="85" text-anchor="middle" font-size="13" font-weight="bold" fill="white">95</text>
-  <rect x="528" y="66" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="558" y="85" text-anchor="middle" font-size="13" font-weight="bold" fill="white">62</text>
+  <!-- ===== INPUT ROW y=68 ===== -->
+  <text x="100" y="88" font-size="12" fill="#888" text-anchor="end">Unsorted input:</text>
+  <rect x="272" y="68" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="302" y="87" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
+  <rect x="336" y="68" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="366" y="87" text-anchor="middle" font-size="13" font-weight="bold" fill="white">55</text>
+  <rect x="400" y="68" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="430" y="87" text-anchor="middle" font-size="13" font-weight="bold" fill="white">72</text>
+  <rect x="464" y="68" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="494" y="87" text-anchor="middle" font-size="13" font-weight="bold" fill="white">95</text>
+  <rect x="528" y="68" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="558" y="87" text-anchor="middle" font-size="13" font-weight="bold" fill="white">62</text>
 
-  <!-- ===== ROW 1: After Phase 1 y=112 ===== -->
-  <text x="60" y="132" font-size="12" fill="#888" text-anchor="end">Phase 1:</text>
-  <!-- [95][62][72][55][38] all blue -->
-  <rect x="272" y="112" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="302" y="131" text-anchor="middle" font-size="13" font-weight="bold" fill="white">95</text>
-  <rect x="336" y="112" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="366" y="131" text-anchor="middle" font-size="13" font-weight="bold" fill="white">62</text>
-  <rect x="400" y="112" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="430" y="131" text-anchor="middle" font-size="13" font-weight="bold" fill="white">72</text>
-  <rect x="464" y="112" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="494" y="131" text-anchor="middle" font-size="13" font-weight="bold" fill="white">55</text>
-  <rect x="528" y="112" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="558" y="131" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
-  <!-- Annotation -->
-  <text x="608" y="130" font-size="12" fill="#2980b9">max-heap built  (data[0] = max)</text>
+  <!-- ===== PHASE 1 HEADER ===== -->
+  <rect x="30" y="108" width="800" height="24" rx="6" fill="#2980b9"/>
+  <text x="430" y="125" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Phase 1: Build Max-Heap</text>
 
-  <!-- Phase 2 separator -->
-  <text x="430" y="158" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">-- Phase 2: Extract max repeatedly --</text>
+  <!-- Phase 1 result y=144 -->
+  <text x="100" y="164" font-size="12" fill="#888" text-anchor="end">Result:</text>
+  <rect x="272" y="144" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="302" y="163" text-anchor="middle" font-size="13" font-weight="bold" fill="white">95</text>
+  <rect x="336" y="144" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="366" y="163" text-anchor="middle" font-size="13" font-weight="bold" fill="white">62</text>
+  <rect x="400" y="144" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="430" y="163" text-anchor="middle" font-size="13" font-weight="bold" fill="white">72</text>
+  <rect x="464" y="144" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="494" y="163" text-anchor="middle" font-size="13" font-weight="bold" fill="white">55</text>
+  <rect x="528" y="144" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="558" y="163" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
+  <text x="608" y="162" font-size="11" fill="#2980b9">data[0] = max (heap property)</text>
 
-  <!-- ===== ROW 2: Step 1 y=172 ===== -->
-  <text x="60" y="192" font-size="11" fill="#888" text-anchor="end">Step 1:</text>
-  <!-- 4 blue [72][62][38][55] then 1 gold [95] -->
-  <rect x="272" y="172" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="302" y="191" text-anchor="middle" font-size="13" font-weight="bold" fill="white">72</text>
-  <rect x="336" y="172" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="366" y="191" text-anchor="middle" font-size="13" font-weight="bold" fill="white">62</text>
-  <rect x="400" y="172" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="430" y="191" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
-  <rect x="464" y="172" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="494" y="191" text-anchor="middle" font-size="13" font-weight="bold" fill="white">55</text>
-  <!-- Dashed boundary line -->
-  <line x1="524" y1="172" x2="524" y2="200" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="3,2"/>
-  <rect x="528" y="172" width="60" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
-  <text x="558" y="191" text-anchor="middle" font-size="13" font-weight="bold" fill="white">95</text>
-  <!-- Annotation -->
-  <text x="608" y="190" font-size="11" fill="#e67e22">extract 95 &#x2192; sorted</text>
+  <!-- ===== PHASE 2 HEADER ===== -->
+  <rect x="30" y="186" width="800" height="24" rx="6" fill="#e67e22"/>
+  <text x="430" y="203" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Phase 2: Extract Max Repeatedly</text>
 
-  <!-- ===== ROW 3: Step 2 y=218 ===== -->
-  <text x="60" y="238" font-size="11" fill="#888" text-anchor="end">Step 2:</text>
-  <!-- 3 blue [62][55][38] then gold [72][95] -->
-  <rect x="272" y="218" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="302" y="237" text-anchor="middle" font-size="13" font-weight="bold" fill="white">62</text>
-  <rect x="336" y="218" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="366" y="237" text-anchor="middle" font-size="13" font-weight="bold" fill="white">55</text>
-  <rect x="400" y="218" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="430" y="237" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
-  <line x1="460" y1="218" x2="460" y2="246" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="3,2"/>
-  <rect x="464" y="218" width="60" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
-  <text x="494" y="237" text-anchor="middle" font-size="13" font-weight="bold" fill="white">72</text>
-  <rect x="528" y="218" width="60" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
-  <text x="558" y="237" text-anchor="middle" font-size="13" font-weight="bold" fill="white">95</text>
-  <text x="608" y="236" font-size="11" fill="#e67e22">extract 72 &#x2192; sorted</text>
+  <!-- Step 1 y=222 -->
+  <text x="100" y="242" font-size="11" fill="#888" text-anchor="end">Step 1:</text>
+  <rect x="272" y="222" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="302" y="241" text-anchor="middle" font-size="13" font-weight="bold" fill="white">72</text>
+  <rect x="336" y="222" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="366" y="241" text-anchor="middle" font-size="13" font-weight="bold" fill="white">62</text>
+  <rect x="400" y="222" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="430" y="241" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
+  <rect x="464" y="222" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="494" y="241" text-anchor="middle" font-size="13" font-weight="bold" fill="white">55</text>
+  <line x1="524" y1="222" x2="524" y2="250" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="3,2"/>
+  <rect x="528" y="222" width="60" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="558" y="241" text-anchor="middle" font-size="13" font-weight="bold" fill="white">95</text>
+  <text x="608" y="240" font-size="11" fill="#e67e22">swap max to end, re-heapify</text>
 
-  <!-- ===== ROW 4: Step 3 y=264 ===== -->
-  <text x="60" y="284" font-size="11" fill="#888" text-anchor="end">Step 3:</text>
-  <!-- 2 blue [55][38] then gold [62][72][95] -->
+  <!-- Step 2 y=264 -->
+  <text x="100" y="284" font-size="11" fill="#888" text-anchor="end">Step 2:</text>
   <rect x="272" y="264" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="302" y="283" text-anchor="middle" font-size="13" font-weight="bold" fill="white">55</text>
+  <text x="302" y="283" text-anchor="middle" font-size="13" font-weight="bold" fill="white">62</text>
   <rect x="336" y="264" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="366" y="283" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
-  <line x1="396" y1="264" x2="396" y2="292" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="3,2"/>
-  <rect x="400" y="264" width="60" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
-  <text x="430" y="283" text-anchor="middle" font-size="13" font-weight="bold" fill="white">62</text>
+  <text x="366" y="283" text-anchor="middle" font-size="13" font-weight="bold" fill="white">55</text>
+  <rect x="400" y="264" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="430" y="283" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
+  <line x1="460" y1="264" x2="460" y2="292" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="3,2"/>
   <rect x="464" y="264" width="60" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
   <text x="494" y="283" text-anchor="middle" font-size="13" font-weight="bold" fill="white">72</text>
   <rect x="528" y="264" width="60" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
   <text x="558" y="283" text-anchor="middle" font-size="13" font-weight="bold" fill="white">95</text>
-  <text x="608" y="282" font-size="11" fill="#e67e22">extract 62 &#x2192; sorted</text>
+  <text x="608" y="282" font-size="11" fill="#e67e22">swap max to end, re-heapify</text>
 
-  <!-- ===== ROW 5: Step 4 y=310 ===== -->
-  <text x="60" y="330" font-size="11" fill="#888" text-anchor="end">Step 4:</text>
-  <!-- 1 blue [38] then gold [55][62][72][95] -->
-  <rect x="272" y="310" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="302" y="329" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
-  <line x1="332" y1="310" x2="332" y2="338" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="3,2"/>
-  <rect x="336" y="310" width="60" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
-  <text x="366" y="329" text-anchor="middle" font-size="13" font-weight="bold" fill="white">55</text>
-  <rect x="400" y="310" width="60" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
-  <text x="430" y="329" text-anchor="middle" font-size="13" font-weight="bold" fill="white">62</text>
-  <rect x="464" y="310" width="60" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
-  <text x="494" y="329" text-anchor="middle" font-size="13" font-weight="bold" fill="white">72</text>
-  <rect x="528" y="310" width="60" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
-  <text x="558" y="329" text-anchor="middle" font-size="13" font-weight="bold" fill="white">95</text>
-  <text x="608" y="328" font-size="11" fill="#e67e22">extract 55 &#x2192; sorted</text>
+  <!-- Step 3 y=306 -->
+  <text x="100" y="326" font-size="11" fill="#888" text-anchor="end">Step 3:</text>
+  <rect x="272" y="306" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="302" y="325" text-anchor="middle" font-size="13" font-weight="bold" fill="white">55</text>
+  <rect x="336" y="306" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="366" y="325" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
+  <line x1="396" y1="306" x2="396" y2="334" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="3,2"/>
+  <rect x="400" y="306" width="60" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="430" y="325" text-anchor="middle" font-size="13" font-weight="bold" fill="white">62</text>
+  <rect x="464" y="306" width="60" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="494" y="325" text-anchor="middle" font-size="13" font-weight="bold" fill="white">72</text>
+  <rect x="528" y="306" width="60" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="558" y="325" text-anchor="middle" font-size="13" font-weight="bold" fill="white">95</text>
+  <text x="608" y="324" font-size="11" fill="#e67e22">swap max to end, re-heapify</text>
 
-  <!-- ===== ROW 6: Sorted output y=356 ===== -->
-  <text x="60" y="376" font-size="12" font-weight="bold" fill="#27ae60" text-anchor="end">Sorted:</text>
-  <!-- All 5 boxes bright green [38][55][62][72][95] -->
-  <rect x="272" y="356" width="60" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
-  <text x="302" y="375" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
-  <rect x="336" y="356" width="60" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
-  <text x="366" y="375" text-anchor="middle" font-size="13" font-weight="bold" fill="white">55</text>
-  <rect x="400" y="356" width="60" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
-  <text x="430" y="375" text-anchor="middle" font-size="13" font-weight="bold" fill="white">62</text>
-  <rect x="464" y="356" width="60" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
-  <text x="494" y="375" text-anchor="middle" font-size="13" font-weight="bold" fill="white">72</text>
-  <rect x="528" y="356" width="60" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
-  <text x="558" y="375" text-anchor="middle" font-size="13" font-weight="bold" fill="white">95</text>
-  <!-- Annotation -->
-  <text x="608" y="374" font-size="13" font-weight="bold" fill="#27ae60">&#x2713; sorted!</text>
+  <!-- Step 4 y=348 -->
+  <text x="100" y="368" font-size="11" fill="#888" text-anchor="end">Step 4:</text>
+  <rect x="272" y="348" width="60" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="302" y="367" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
+  <line x1="332" y1="348" x2="332" y2="376" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="3,2"/>
+  <rect x="336" y="348" width="60" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="366" y="367" text-anchor="middle" font-size="13" font-weight="bold" fill="white">55</text>
+  <rect x="400" y="348" width="60" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="430" y="367" text-anchor="middle" font-size="13" font-weight="bold" fill="white">62</text>
+  <rect x="464" y="348" width="60" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="494" y="367" text-anchor="middle" font-size="13" font-weight="bold" fill="white">72</text>
+  <rect x="528" y="348" width="60" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="558" y="367" text-anchor="middle" font-size="13" font-weight="bold" fill="white">95</text>
+  <text x="608" y="366" font-size="11" fill="#e67e22">swap max to end, re-heapify</text>
+
+  <!-- ===== SORTED ROW y=394 ===== -->
+  <text x="100" y="414" font-size="12" font-weight="bold" fill="#27ae60" text-anchor="end">Sorted:</text>
+  <rect x="272" y="394" width="60" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="302" y="413" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
+  <rect x="336" y="394" width="60" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="366" y="413" text-anchor="middle" font-size="13" font-weight="bold" fill="white">55</text>
+  <rect x="400" y="394" width="60" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="430" y="413" text-anchor="middle" font-size="13" font-weight="bold" fill="white">62</text>
+  <rect x="464" y="394" width="60" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="494" y="413" text-anchor="middle" font-size="13" font-weight="bold" fill="white">72</text>
+  <rect x="528" y="394" width="60" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="558" y="413" text-anchor="middle" font-size="13" font-weight="bold" fill="white">95</text>
+  <text x="608" y="412" font-size="13" font-weight="bold" fill="#27ae60">&#x2713; sorted!</text>
 
   <!-- Footer -->
-  <rect x="30" y="396" width="800" height="52" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
-  <text x="430" y="416" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">Phase 1 (build heap): O(n) -- heapify each non-leaf from bottom up</text>
-  <text x="430" y="434" text-anchor="middle" font-size="12" fill="#555">Phase 2 (extract max): O(n log n) -- n extractions, each O(log n) heapify</text>
+  <rect x="30" y="436" width="800" height="90" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="430" y="458" text-anchor="middle" font-size="12" fill="#555">
+    <tspan font-weight="bold" fill="#2980b9">Phase 1 (build heap):</tspan> Rearrange array so data[0] is always the max. Takes O(n).
+  </text>
+  <text x="430" y="478" text-anchor="middle" font-size="12" fill="#555">
+    <tspan font-weight="bold" fill="#e67e22">Phase 2 (extract max):</tspan> Swap data[0] to end, shrink heap by 1, re-heapify. Repeat n times.
+  </text>
+  <text x="430" y="498" text-anchor="middle" font-size="12" fill="#555">
+    Each extraction takes O(log n) to re-heapify. n extractions = <tspan font-weight="bold" fill="#e67e22">O(n log n)</tspan>
+  </text>
+  <text x="430" y="518" text-anchor="middle" font-size="12" fill="#27ae60">
+    <tspan font-weight="bold">Bonus:</tspan> Everything happens in the original array. No extra memory needed = <tspan font-weight="bold">O(1) space</tspan>
+  </text>
 </svg>

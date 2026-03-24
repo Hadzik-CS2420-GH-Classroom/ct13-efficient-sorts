@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 540" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <!-- Title -->
+  <text x="460" y="32" text-anchor="middle" fill="#1a1a1a" font-size="24" font-weight="bold">O(n log n) vs O(n&#xB2;): Why Efficient Sorts Matter</text>
+  <text x="460" y="54" text-anchor="middle" fill="#777" font-size="13">As input size grows, quadratic sorts become dramatically slower</text>
+
+  <!-- ===== GRAPH AREA ===== -->
+  <!-- Pixel mapping: px_x = 80 + (n/100)*480, px_y = 460 - (val/10000)*380 -->
+  <rect x="80" y="80" width="480" height="380" fill="#fafbfc" stroke="#ddd" stroke-width="1"/>
+
+  <!-- Axis labels -->
+  <text x="28" y="270" text-anchor="middle" fill="#555" font-size="13" font-weight="bold" transform="rotate(-90, 28, 270)">Operations</text>
+  <text x="320" y="490" text-anchor="middle" fill="#555" font-size="13" font-weight="bold">Input Size (n)</text>
+
+  <!-- Y-axis ticks -->
+  <text x="72" y="464" text-anchor="end" fill="#888" font-size="11">0</text>
+  <text x="72" y="369" text-anchor="end" fill="#888" font-size="11">2,500</text>
+  <text x="72" y="274" text-anchor="end" fill="#888" font-size="11">5,000</text>
+  <text x="72" y="179" text-anchor="end" fill="#888" font-size="11">7,500</text>
+  <text x="72" y="88" text-anchor="end" fill="#888" font-size="11">10,000</text>
+
+  <!-- Y grid lines -->
+  <line x1="80" y1="365" x2="560" y2="365" stroke="#eee" stroke-width="1"/>
+  <line x1="80" y1="270" x2="560" y2="270" stroke="#eee" stroke-width="1"/>
+  <line x1="80" y1="175" x2="560" y2="175" stroke="#eee" stroke-width="1"/>
+
+  <!-- X-axis ticks -->
+  <text x="80" y="478" text-anchor="middle" fill="#888" font-size="11">0</text>
+  <text x="200" y="478" text-anchor="middle" fill="#888" font-size="11">25</text>
+  <text x="320" y="478" text-anchor="middle" fill="#888" font-size="11">50</text>
+  <text x="440" y="478" text-anchor="middle" fill="#888" font-size="11">75</text>
+  <text x="560" y="478" text-anchor="middle" fill="#888" font-size="11">100</text>
+
+  <!-- X grid lines -->
+  <line x1="200" y1="80" x2="200" y2="460" stroke="#eee" stroke-width="1"/>
+  <line x1="320" y1="80" x2="320" y2="460" stroke="#eee" stroke-width="1"/>
+  <line x1="440" y1="80" x2="440" y2="460" stroke="#eee" stroke-width="1"/>
+
+  <!-- Shaded area between curves -->
+  <path d="M80,460 L128,456.2 L176,444.8 L224,425.8 L272,399.2 L320,365 L368,323.2 L416,273.8 L464,216.8 L512,152.2 L560,80
+           L560,434.8 L512,437.8 L464,440.8 L416,443.7 L368,446.5 L320,449.3 L272,451.9 L224,454.4 L176,456.7 L128,458.7 L80,460 Z"
+    fill="#e74c3c" opacity="0.07"/>
+
+  <!-- O(n^2) curve — red -->
+  <path d="M80,460 L128,456.2 L176,444.8 L224,425.8 L272,399.2 L320,365 L368,323.2 L416,273.8 L464,216.8 L512,152.2 L560,80"
+    fill="none" stroke="#e74c3c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- O(n log n) curve — green -->
+  <path d="M80,460 L128,458.7 L176,456.7 L224,454.4 L272,451.9 L320,449.3 L368,446.5 L416,443.7 L464,440.8 L512,437.8 L560,434.8"
+    fill="none" stroke="#27ae60" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- O(n) reference — blue dashed -->
+  <line x1="80" y1="460" x2="560" y2="456.2" stroke="#3498db" stroke-width="2" stroke-dasharray="8,5" opacity="0.5"/>
+
+  <!-- Curve labels — placed in clear areas away from lines -->
+  <!-- O(n^2) label: above the curve around n=85 -->
+  <rect x="488" y="130" width="52" height="20" rx="3" fill="white" opacity="0.85"/>
+  <text x="490" y="146" fill="#e74c3c" font-size="15" font-weight="bold">O(n&#xB2;)</text>
+
+  <!-- O(n log n) label: bottom-right inside graph, above the green line -->
+  <rect x="460" y="416" width="90" height="18" rx="3" fill="white" opacity="0.85"/>
+  <text x="462" y="430" fill="#27ae60" font-size="14" font-weight="bold">O(n log n)</text>
+
+  <!-- O(n) label: far bottom-right -->
+  <text x="462" y="452" fill="#3498db" font-size="11" opacity="0.6">O(n)</text>
+
+  <!-- "Wasted work" annotation at n=60: O(n^2)=y323.2, O(n log n)=y446.5 -->
+  <!-- Vertical arrow with triangle arrowheads drawn explicitly -->
+  <line x1="368" y1="330" x2="368" y2="440" stroke="#555" stroke-width="1.5"/>
+  <!-- Top arrowhead (pointing up) -->
+  <polygon points="368,326 363,336 373,336" fill="#555"/>
+  <!-- Bottom arrowhead (pointing down) -->
+  <polygon points="368,444 363,434 373,434" fill="#555"/>
+
+  <!-- "wasted work" text to the right of arrow -->
+  <text x="380" y="380" fill="#555" font-size="12" font-weight="bold">wasted</text>
+  <text x="380" y="395" fill="#555" font-size="12" font-weight="bold">work</text>
+
+  <!-- ===== RIGHT PANEL: concrete numbers ===== -->
+  <rect x="590" y="80" width="320" height="380" rx="10" fill="#f8f9fa" stroke="#ddd" stroke-width="1.5"/>
+  <text x="750" y="108" text-anchor="middle" fill="#1a1a1a" font-size="15" font-weight="bold">Concrete Comparison</text>
+  <text x="750" y="126" text-anchor="middle" fill="#888" font-size="11">Operations to sort n items</text>
+
+  <!-- Table headers -->
+  <text x="614" y="156" fill="#555" font-size="12" font-weight="bold">n</text>
+  <text x="680" y="156" fill="#e74c3c" font-size="12" font-weight="bold">n&#xB2;</text>
+  <text x="800" y="156" fill="#27ae60" font-size="12" font-weight="bold">n log n</text>
+  <text x="880" y="156" fill="#888" font-size="10" font-weight="bold">gap</text>
+  <line x1="604" y1="164" x2="900" y2="164" stroke="#ddd" stroke-width="1"/>
+
+  <!-- n=10 -->
+  <text x="614" y="188" fill="#555" font-size="12">10</text>
+  <text x="680" y="188" fill="#e74c3c" font-size="12">100</text>
+  <text x="800" y="188" fill="#27ae60" font-size="12">33</text>
+  <text x="880" y="188" fill="#888" font-size="10">3x</text>
+
+  <!-- n=100 -->
+  <text x="614" y="214" fill="#555" font-size="12">100</text>
+  <text x="680" y="214" fill="#e74c3c" font-size="12">10,000</text>
+  <text x="800" y="214" fill="#27ae60" font-size="12">664</text>
+  <text x="880" y="214" fill="#888" font-size="10">15x</text>
+
+  <!-- n=1,000 -->
+  <text x="614" y="240" fill="#555" font-size="12">1,000</text>
+  <text x="680" y="240" fill="#e74c3c" font-size="12">1,000,000</text>
+  <text x="800" y="240" fill="#27ae60" font-size="12">9,966</text>
+  <text x="880" y="240" fill="#888" font-size="10">100x</text>
+
+  <!-- n=10,000 -->
+  <text x="614" y="266" fill="#555" font-size="12">10,000</text>
+  <text x="680" y="266" fill="#e74c3c" font-size="12">100,000,000</text>
+  <text x="800" y="266" fill="#27ae60" font-size="12">132,877</text>
+  <text x="880" y="266" fill="#888" font-size="10">753x</text>
+
+  <!-- n=100,000 -->
+  <text x="614" y="292" fill="#555" font-size="12">100k</text>
+  <text x="680" y="292" fill="#e74c3c" font-size="12">10 billion</text>
+  <text x="800" y="292" fill="#27ae60" font-size="12">1.66M</text>
+  <text x="880" y="292" fill="#888" font-size="10">6,021x</text>
+
+  <line x1="604" y1="304" x2="900" y2="304" stroke="#ddd" stroke-width="1"/>
+
+  <!-- Insight callout — two lines for breathing room -->
+  <rect x="604" y="318" width="292" height="66" rx="8" fill="#fff3e0" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="750" y="340" text-anchor="middle" fill="#e67e22" font-size="12" font-weight="bold">The gap explodes!</text>
+  <text x="750" y="358" text-anchor="middle" fill="#555" font-size="11">At 100k items, O(n&#xB2;) does</text>
+  <text x="750" y="374" text-anchor="middle" fill="#555" font-size="11">6,000x more work than O(n log n)</text>
+
+  <!-- Real-world callout -->
+  <rect x="604" y="396" width="292" height="56" rx="8" fill="#e8f5e9" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="750" y="416" text-anchor="middle" fill="#27ae60" font-size="12" font-weight="bold">Real-world impact</text>
+  <text x="750" y="434" text-anchor="middle" fill="#555" font-size="11">Sorting 1M records:</text>
+  <text x="750" y="448" text-anchor="middle" font-size="11">
+    <tspan fill="#e74c3c">O(n&#xB2;) &#x2248; 11.5 days</tspan>
+    <tspan fill="#555"> vs </tspan>
+    <tspan fill="#27ae60">O(n log n) &#x2248; 20 seconds</tspan>
+  </text>
+</svg>

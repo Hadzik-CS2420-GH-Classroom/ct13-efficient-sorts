@@ -1,110 +1,110 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 420" font-family="'Segoe UI', Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 520" font-family="'Segoe UI', Arial, sans-serif">
   <rect width="100%" height="100%" fill="white"/>
 
   <!-- Title -->
-  <text x="430" y="32" text-anchor="middle" font-size="26" font-weight="bold" fill="#2c3e50">Merge -- Combining Two Sorted Halves</text>
-  <!-- Subtitle -->
-  <text x="430" y="52" text-anchor="middle" font-size="13" fill="#888">Compare the front of each half, pick the smaller element, advance that pointer</text>
+  <text x="430" y="30" text-anchor="middle" fill="#1a1a1a" font-size="24" font-weight="bold">Merge: Combining Two Sorted Halves</text>
+  <text x="430" y="50" text-anchor="middle" fill="#555" font-size="13">Compare the front of each half, pick the smaller element, advance that pointer</text>
 
-  <!-- ===== STATE 1: Initial ===== -->
-  <text x="30" y="100" font-size="12" font-weight="bold" fill="#888">Start:</text>
+  <!-- ===== CODE BLOCK ===== -->
+  <rect x="30" y="64" width="800" height="130" rx="8" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="11" fill="#ddd">
+    <tspan x="50" y="84" fill="#888">// Copy both halves into temp vectors</tspan>
+    <tspan x="50" y="100" fill="#9cdcfe">vector</tspan><tspan fill="#ddd">&lt;</tspan><tspan fill="#4ec9b0">int</tspan><tspan fill="#ddd">&gt; left_half(data.</tspan><tspan fill="#dcdcaa">begin</tspan><tspan fill="#ddd">() + left, data.</tspan><tspan fill="#dcdcaa">begin</tspan><tspan fill="#ddd">() + mid + 1);</tspan>
+    <tspan x="50" y="116" fill="#9cdcfe">vector</tspan><tspan fill="#ddd">&lt;</tspan><tspan fill="#4ec9b0">int</tspan><tspan fill="#ddd">&gt; right_half(data.</tspan><tspan fill="#dcdcaa">begin</tspan><tspan fill="#ddd">() + mid + 1, data.</tspan><tspan fill="#dcdcaa">begin</tspan><tspan fill="#ddd">() + right + 1);</tspan>
+    <tspan x="50" y="136" fill="#888">// Merge back: compare fronts, pick smaller</tspan>
+    <tspan x="50" y="152" fill="#c586c0">while</tspan><tspan fill="#ddd"> (i &lt; left_half.</tspan><tspan fill="#dcdcaa">size</tspan><tspan fill="#ddd">() &amp;&amp; j &lt; right_half.</tspan><tspan fill="#dcdcaa">size</tspan><tspan fill="#ddd">()) {</tspan>
+    <tspan x="70" y="168" fill="#c586c0">if</tspan><tspan fill="#ddd"> (left_half[i] &lt;= right_half[j])</tspan>
+    <tspan x="90" y="184" fill="#ddd">data[k++] = left_half[i++];</tspan>
+  </text>
 
-  <!-- Left half label -->
-  <text x="193" y="72" text-anchor="middle" font-size="11" fill="#2980b9">left half (sorted)</text>
-  <!-- Left half boxes: width=54 height=32 rx=4, gap=4 -->
-  <rect x="100" y="80" width="54" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="127" y="101" text-anchor="middle" font-size="14" font-weight="bold" fill="white">55</text>
-  <rect x="158" y="80" width="54" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="185" y="101" text-anchor="middle" font-size="14" font-weight="bold" fill="white">78</text>
-  <rect x="216" y="80" width="54" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="243" y="101" text-anchor="middle" font-size="14" font-weight="bold" fill="white">88</text>
+  <!-- ===== VISUAL: STATE 1 - Start ===== -->
+  <text x="30" y="218" fill="#888" font-size="12" font-weight="bold">Start:</text>
 
-  <!-- Right half label -->
-  <text x="433" y="72" text-anchor="middle" font-size="11" fill="#ca6f1e">right half (sorted)</text>
-  <!-- Right half boxes: x=340 -->
-  <rect x="340" y="80" width="54" height="32" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
-  <text x="367" y="101" text-anchor="middle" font-size="14" font-weight="bold" fill="white">62</text>
-  <rect x="398" y="80" width="54" height="32" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
-  <text x="425" y="101" text-anchor="middle" font-size="14" font-weight="bold" fill="white">72</text>
-  <rect x="456" y="80" width="54" height="32" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
-  <text x="483" y="101" text-anchor="middle" font-size="14" font-weight="bold" fill="white">95</text>
+  <!-- Left half -->
+  <text x="193" y="214" text-anchor="middle" font-size="11" fill="#2980b9">left_half (sorted)</text>
+  <rect x="100" y="222" width="54" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="127" y="243" text-anchor="middle" fill="white" font-size="14" font-weight="bold">55</text>
+  <rect x="158" y="222" width="54" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="185" y="243" text-anchor="middle" fill="white" font-size="14" font-weight="bold">78</text>
+  <rect x="216" y="222" width="54" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="243" y="243" text-anchor="middle" fill="white" font-size="14" font-weight="bold">88</text>
 
-  <!-- Output label -->
-  <text x="635" y="72" text-anchor="middle" font-size="11" fill="#888">output</text>
-  <!-- Output boxes (empty, dashed): x=580, 638, 696 -->
-  <rect x="580" y="80" width="54" height="32" rx="4" fill="none" stroke="#bdc3c7" stroke-width="1.5" stroke-dasharray="5,3"/>
-  <rect x="638" y="80" width="54" height="32" rx="4" fill="none" stroke="#bdc3c7" stroke-width="1.5" stroke-dasharray="5,3"/>
-  <rect x="696" y="80" width="54" height="32" rx="4" fill="none" stroke="#bdc3c7" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <!-- Right half -->
+  <text x="433" y="214" text-anchor="middle" font-size="11" fill="#ca6f1e">right_half (sorted)</text>
+  <rect x="340" y="222" width="54" height="32" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="367" y="243" text-anchor="middle" fill="white" font-size="14" font-weight="bold">62</text>
+  <rect x="398" y="222" width="54" height="32" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="425" y="243" text-anchor="middle" fill="white" font-size="14" font-weight="bold">72</text>
+  <rect x="456" y="222" width="54" height="32" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="483" y="243" text-anchor="middle" fill="white" font-size="14" font-weight="bold">95</text>
 
-  <!-- ===== STATE 2: Mid-merge (after picking 55 and 62) ===== -->
-  <text x="30" y="206" font-size="12" font-weight="bold" fill="#888">Mid:</text>
+  <!-- Output -->
+  <text x="635" y="214" text-anchor="middle" font-size="11" fill="#888">data[left..right]</text>
+  <rect x="580" y="222" width="54" height="32" rx="4" fill="none" stroke="#bdc3c7" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <rect x="638" y="222" width="54" height="32" rx="4" fill="none" stroke="#bdc3c7" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <rect x="696" y="222" width="54" height="32" rx="4" fill="none" stroke="#bdc3c7" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- Pointer labels -->
+  <text x="127" y="268" text-anchor="middle" font-size="10" fill="#2980b9" font-weight="bold">i=0</text>
+  <text x="367" y="268" text-anchor="middle" font-size="10" fill="#ca6f1e" font-weight="bold">j=0</text>
+  <text x="607" y="268" text-anchor="middle" font-size="10" fill="#888" font-weight="bold">k=0</text>
+
+  <!-- ===== STATE 2: Mid-merge ===== -->
+  <text x="30" y="302" fill="#888" font-size="12" font-weight="bold">Mid:</text>
 
   <!-- Left: gray [55] then blue [78][88] -->
-  <rect x="100" y="186" width="54" height="32" rx="4" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1.5"/>
-  <text x="127" y="207" text-anchor="middle" font-size="14" font-weight="bold" fill="#95a5a6">55</text>
-  <rect x="158" y="186" width="54" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="185" y="207" text-anchor="middle" font-size="14" font-weight="bold" fill="white">78</text>
-  <rect x="216" y="186" width="54" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="243" y="207" text-anchor="middle" font-size="14" font-weight="bold" fill="white">88</text>
+  <rect x="100" y="308" width="54" height="32" rx="4" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1.5"/>
+  <text x="127" y="329" text-anchor="middle" fill="#95a5a6" font-size="14" font-weight="bold">55</text>
+  <rect x="158" y="308" width="54" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="185" y="329" text-anchor="middle" fill="white" font-size="14" font-weight="bold">78</text>
+  <rect x="216" y="308" width="54" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="243" y="329" text-anchor="middle" fill="white" font-size="14" font-weight="bold">88</text>
 
   <!-- Right: gray [62] then orange [72][95] -->
-  <rect x="340" y="186" width="54" height="32" rx="4" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1.5"/>
-  <text x="367" y="207" text-anchor="middle" font-size="14" font-weight="bold" fill="#95a5a6">62</text>
-  <rect x="398" y="186" width="54" height="32" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
-  <text x="425" y="207" text-anchor="middle" font-size="14" font-weight="bold" fill="white">72</text>
-  <rect x="456" y="186" width="54" height="32" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
-  <text x="483" y="207" text-anchor="middle" font-size="14" font-weight="bold" fill="white">95</text>
+  <rect x="340" y="308" width="54" height="32" rx="4" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1.5"/>
+  <text x="367" y="329" text-anchor="middle" fill="#95a5a6" font-size="14" font-weight="bold">62</text>
+  <rect x="398" y="308" width="54" height="32" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="425" y="329" text-anchor="middle" fill="white" font-size="14" font-weight="bold">72</text>
+  <rect x="456" y="308" width="54" height="32" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="483" y="329" text-anchor="middle" fill="white" font-size="14" font-weight="bold">95</text>
 
-  <!-- Output: green [55][62] then 1 empty dashed box -->
-  <rect x="580" y="186" width="54" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="607" y="207" text-anchor="middle" font-size="14" font-weight="bold" fill="white">55</text>
-  <rect x="638" y="186" width="54" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="665" y="207" text-anchor="middle" font-size="14" font-weight="bold" fill="white">62</text>
-  <rect x="696" y="186" width="54" height="32" rx="4" fill="none" stroke="#bdc3c7" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <!-- Output: green [55][62] then 1 empty -->
+  <rect x="580" y="308" width="54" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="607" y="329" text-anchor="middle" fill="white" font-size="14" font-weight="bold">55</text>
+  <rect x="638" y="308" width="54" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="665" y="329" text-anchor="middle" fill="white" font-size="14" font-weight="bold">62</text>
+  <rect x="696" y="308" width="54" height="32" rx="4" fill="none" stroke="#bdc3c7" stroke-width="1.5" stroke-dasharray="5,3"/>
 
-  <!-- Annotations for state 2 -->
-  <text x="760" y="182" font-size="11" fill="#333" text-anchor="middle">compare</text>
-  <text x="760" y="196" font-size="11" fill="#333" text-anchor="middle">78 vs 72</text>
-  <text x="760" y="214" font-size="11" fill="#27ae60" text-anchor="middle">78 &gt; 72</text>
-  <text x="760" y="228" font-size="11" fill="#27ae60" text-anchor="middle">pick 72 next</text>
+  <!-- Pointer labels -->
+  <text x="185" y="354" text-anchor="middle" font-size="10" fill="#2980b9" font-weight="bold">i=1</text>
+  <text x="425" y="354" text-anchor="middle" font-size="10" fill="#ca6f1e" font-weight="bold">j=1</text>
+  <text x="723" y="354" text-anchor="middle" font-size="10" fill="#888" font-weight="bold">k=2</text>
 
-  <!-- ===== STATE 3: After merge complete ===== -->
-  <text x="30" y="310" font-size="12" font-weight="bold" fill="#888">Done:</text>
+  <!-- Annotation -->
+  <text x="760" y="320" font-size="11" fill="#333" text-anchor="middle">78 vs 72</text>
+  <text x="760" y="336" font-size="11" fill="#27ae60" text-anchor="middle">pick 72 next</text>
 
-  <!-- Left: all gray (consumed) -->
-  <rect x="100" y="292" width="54" height="32" rx="4" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1.5"/>
-  <text x="127" y="313" text-anchor="middle" font-size="14" font-weight="bold" fill="#95a5a6">55</text>
-  <rect x="158" y="292" width="54" height="32" rx="4" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1.5"/>
-  <text x="185" y="313" text-anchor="middle" font-size="14" font-weight="bold" fill="#95a5a6">78</text>
-  <rect x="216" y="292" width="54" height="32" rx="4" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1.5"/>
-  <text x="243" y="313" text-anchor="middle" font-size="14" font-weight="bold" fill="#95a5a6">88</text>
+  <!-- ===== STATE 3: Done ===== -->
+  <text x="30" y="392" fill="#888" font-size="12" font-weight="bold">Done:</text>
 
-  <!-- Right: all gray (consumed) -->
-  <rect x="340" y="292" width="54" height="32" rx="4" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1.5"/>
-  <text x="367" y="313" text-anchor="middle" font-size="14" font-weight="bold" fill="#95a5a6">62</text>
-  <rect x="398" y="292" width="54" height="32" rx="4" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1.5"/>
-  <text x="425" y="313" text-anchor="middle" font-size="14" font-weight="bold" fill="#95a5a6">72</text>
-  <rect x="456" y="292" width="54" height="32" rx="4" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1.5"/>
-  <text x="483" y="313" text-anchor="middle" font-size="14" font-weight="bold" fill="#95a5a6">95</text>
+  <!-- All 6 green boxes centered -->
+  <rect x="258" y="398" width="54" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="285" y="419" text-anchor="middle" fill="white" font-size="13" font-weight="bold">55</text>
+  <rect x="316" y="398" width="54" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="343" y="419" text-anchor="middle" fill="white" font-size="13" font-weight="bold">62</text>
+  <rect x="374" y="398" width="54" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="401" y="419" text-anchor="middle" fill="white" font-size="13" font-weight="bold">72</text>
+  <rect x="432" y="398" width="54" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="459" y="419" text-anchor="middle" fill="white" font-size="13" font-weight="bold">78</text>
+  <rect x="490" y="398" width="54" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="517" y="419" text-anchor="middle" fill="white" font-size="13" font-weight="bold">88</text>
+  <rect x="548" y="398" width="54" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="575" y="419" text-anchor="middle" fill="white" font-size="13" font-weight="bold">95</text>
 
-  <!-- Output: all 6 green boxes. 6 boxes * 54 + 5 gaps * 4 = 344. Center at 430, start x=258 -->
-  <rect x="258" y="292" width="54" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="285" y="313" text-anchor="middle" font-size="13" font-weight="bold" fill="white">55</text>
-  <rect x="316" y="292" width="54" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="343" y="313" text-anchor="middle" font-size="13" font-weight="bold" fill="white">62</text>
-  <rect x="374" y="292" width="54" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="401" y="313" text-anchor="middle" font-size="13" font-weight="bold" fill="white">72</text>
-  <rect x="432" y="292" width="54" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="459" y="313" text-anchor="middle" font-size="13" font-weight="bold" fill="white">78</text>
-  <rect x="490" y="292" width="54" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="517" y="313" text-anchor="middle" font-size="13" font-weight="bold" fill="white">88</text>
-  <rect x="548" y="292" width="54" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="575" y="313" text-anchor="middle" font-size="13" font-weight="bold" fill="white">95</text>
-
-  <!-- Result annotation -->
-  <text x="430" y="352" text-anchor="middle" font-size="14" font-weight="bold" fill="#27ae60">Result: fully sorted [55, 62, 72, 78, 88, 95]</text>
+  <text x="430" y="450" text-anchor="middle" font-size="13" font-weight="bold" fill="#27ae60">data[left..right] is now sorted</text>
 
   <!-- Footer -->
-  <rect x="30" y="366" width="800" height="40" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
-  <text x="430" y="391" text-anchor="middle" font-size="12" fill="#555">merge() copies both halves to temp vectors, then interleaves them in sorted order into data[left..right]</text>
+  <rect x="30" y="466" width="800" height="44" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="430" y="486" text-anchor="middle" fill="#333" font-size="12" font-weight="bold">Why O(n) extra space? We copy both halves before merging back.</text>
+  <text x="430" y="502" text-anchor="middle" fill="#555" font-size="12">Without copies, merging in-place would overwrite elements we haven't compared yet.</text>
 </svg>

@@ -1,0 +1,262 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 760" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <!-- Title -->
+  <text x="430" y="28" text-anchor="middle" font-size="24" font-weight="bold" fill="#2c3e50">Heap Sort Phase 1: Build the Max-Heap</text>
+  <text x="430" y="48" text-anchor="middle" font-size="13" fill="#888">Rearrange the array so every parent is larger than its children</text>
+
+  <!-- What is a max-heap? -->
+  <rect x="30" y="62" width="800" height="56" rx="8" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="430" y="80" text-anchor="middle" font-size="12" font-weight="bold" fill="#2980b9">What is a max-heap?</text>
+  <text x="430" y="96" text-anchor="middle" font-size="11" fill="#555">A binary tree stored in an array. Parent of index i has children at 2i+1 (left) and 2i+2 (right).</text>
+  <text x="430" y="112" text-anchor="middle" font-size="11" fill="#555">Max-heap rule: every parent must be <tspan font-weight="bold">&#x2265;</tspan> both its children. The largest value ends up at data[0].</text>
+
+  <!-- ===== STARTING ARRAY (aligned with "before:" at x=72) ===== -->
+  <text x="30" y="142" font-size="12" font-weight="bold" fill="#333">Starting array (not a heap yet):</text>
+
+  <!-- Array y=154, starting at x=72 to align with before: rows -->
+  <rect x="72" y="154" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="90" y="172" text-anchor="middle" font-size="11" font-weight="bold" fill="white">38</text>
+  <rect x="110" y="154" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="128" y="172" text-anchor="middle" font-size="11" font-weight="bold" fill="white">55</text>
+  <rect x="148" y="154" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="166" y="172" text-anchor="middle" font-size="11" font-weight="bold" fill="white">32</text>
+  <rect x="186" y="154" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="204" y="172" text-anchor="middle" font-size="11" font-weight="bold" fill="white">95</text>
+  <rect x="224" y="154" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="242" y="172" text-anchor="middle" font-size="11" font-weight="bold" fill="white">62</text>
+  <rect x="262" y="154" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="280" y="172" text-anchor="middle" font-size="11" font-weight="bold" fill="white">27</text>
+  <rect x="300" y="154" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="318" y="172" text-anchor="middle" font-size="11" font-weight="bold" fill="white">43</text>
+
+  <!-- Indices -->
+  <text x="90" y="194" text-anchor="middle" font-size="8" fill="#888">[0]</text>
+  <text x="128" y="194" text-anchor="middle" font-size="8" fill="#888">[1]</text>
+  <text x="166" y="194" text-anchor="middle" font-size="8" fill="#888">[2]</text>
+  <text x="204" y="194" text-anchor="middle" font-size="8" fill="#888">[3]</text>
+  <text x="242" y="194" text-anchor="middle" font-size="8" fill="#888">[4]</text>
+  <text x="280" y="194" text-anchor="middle" font-size="8" fill="#888">[5]</text>
+  <text x="318" y="194" text-anchor="middle" font-size="8" fill="#888">[6]</text>
+
+  <!-- Parent/child annotations -->
+  <text x="90" y="205" text-anchor="middle" font-size="7" fill="#2980b9">parent</text>
+  <text x="128" y="205" text-anchor="middle" font-size="7" fill="#2980b9">L child</text>
+  <text x="166" y="205" text-anchor="middle" font-size="7" fill="#2980b9">R child</text>
+  <text x="204" y="205" text-anchor="middle" font-size="7" fill="#888">L of [1]</text>
+  <text x="242" y="205" text-anchor="middle" font-size="7" fill="#888">R of [1]</text>
+  <text x="280" y="205" text-anchor="middle" font-size="7" fill="#888">L of [2]</text>
+  <text x="318" y="205" text-anchor="middle" font-size="7" fill="#888">R of [2]</text>
+
+  <!-- Starting tree (right side, extra space for index labels) -->
+  <text x="580" y="142" text-anchor="middle" font-size="10" fill="#888">Same data as a tree:</text>
+
+  <!-- Tree lines (drawn before nodes) -->
+  <line x1="580" y1="178" x2="520" y2="212" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="580" y1="178" x2="640" y2="212" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="520" y1="240" x2="490" y2="274" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="520" y1="240" x2="550" y2="274" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="640" y1="240" x2="610" y2="274" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="640" y1="240" x2="670" y2="274" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <!-- Tree nodes with index labels centered above each node -->
+  <text x="580" y="152" text-anchor="middle" font-size="8" fill="#888">[0]</text>
+  <circle cx="580" cy="172" r="15" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="580" y="177" text-anchor="middle" font-size="10" font-weight="bold" fill="white">38</text>
+
+  <text x="520" y="205" text-anchor="middle" font-size="8" fill="#888">[1]</text>
+  <circle cx="520" cy="225" r="15" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="520" y="230" text-anchor="middle" font-size="10" font-weight="bold" fill="white">55</text>
+
+  <text x="640" y="205" text-anchor="middle" font-size="8" fill="#888">[2]</text>
+  <circle cx="640" cy="225" r="15" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="640" y="230" text-anchor="middle" font-size="10" font-weight="bold" fill="white">32</text>
+
+  <text x="490" y="260" text-anchor="middle" font-size="8" fill="#888">[3]</text>
+  <circle cx="490" cy="280" r="15" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="490" y="285" text-anchor="middle" font-size="10" font-weight="bold" fill="white">95</text>
+  <text x="550" y="260" text-anchor="middle" font-size="8" fill="#888">[4]</text>
+  <circle cx="550" cy="280" r="15" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="550" y="285" text-anchor="middle" font-size="10" font-weight="bold" fill="white">62</text>
+  <text x="610" y="260" text-anchor="middle" font-size="8" fill="#888">[5]</text>
+  <circle cx="610" cy="280" r="15" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="610" y="285" text-anchor="middle" font-size="10" font-weight="bold" fill="white">27</text>
+  <text x="670" y="260" text-anchor="middle" font-size="8" fill="#888">[6]</text>
+  <circle cx="670" cy="280" r="15" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="670" y="285" text-anchor="middle" font-size="10" font-weight="bold" fill="white">43</text>
+
+  <!-- Heapify direction bar -->
+  <rect x="30" y="310" width="800" height="22" rx="6" fill="#2980b9"/>
+  <text x="430" y="325" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Heapify bottom-up: start at last non-leaf [2], work toward root [0]</text>
+
+  <!-- ===== STEP 1: Heapify index 2 ===== -->
+  <text x="30" y="360" font-size="12" font-weight="bold" fill="#888">Step 1:</text>
+  <text x="86" y="360" font-size="11" fill="#333">Heapify [2] = <tspan font-weight="bold">32</tspan>. Children: 27, <tspan font-weight="bold">43</tspan>. 43 &gt; 32 &#x2192; swap.</text>
+
+  <text x="36" y="388" font-size="9" fill="#888">before:</text>
+  <rect x="72" y="372" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="90" y="390" text-anchor="middle" font-size="11" font-weight="bold" fill="white">38</text>
+  <rect x="110" y="372" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="128" y="390" text-anchor="middle" font-size="11" font-weight="bold" fill="white">55</text>
+  <rect x="148" y="372" width="36" height="26" rx="4" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="166" y="390" text-anchor="middle" font-size="11" font-weight="bold" fill="white">32</text>
+  <rect x="186" y="372" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="204" y="390" text-anchor="middle" font-size="11" font-weight="bold" fill="white">95</text>
+  <rect x="224" y="372" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="242" y="390" text-anchor="middle" font-size="11" font-weight="bold" fill="white">62</text>
+  <rect x="262" y="372" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="280" y="390" text-anchor="middle" font-size="11" font-weight="bold" fill="white">27</text>
+  <rect x="300" y="372" width="36" height="26" rx="4" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="318" y="390" text-anchor="middle" font-size="11" font-weight="bold" fill="white">43</text>
+
+  <text x="360" y="389" font-size="16" fill="#888">&#x2192;</text>
+
+  <text x="390" y="388" font-size="9" fill="#888">after:</text>
+  <rect x="418" y="372" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="436" y="390" text-anchor="middle" font-size="11" font-weight="bold" fill="white">38</text>
+  <rect x="456" y="372" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="474" y="390" text-anchor="middle" font-size="11" font-weight="bold" fill="white">55</text>
+  <rect x="494" y="372" width="36" height="26" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="2"/>
+  <text x="512" y="390" text-anchor="middle" font-size="11" font-weight="bold" fill="white">43</text>
+  <rect x="532" y="372" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="550" y="390" text-anchor="middle" font-size="11" font-weight="bold" fill="white">95</text>
+  <rect x="570" y="372" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="588" y="390" text-anchor="middle" font-size="11" font-weight="bold" fill="white">62</text>
+  <rect x="608" y="372" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="626" y="390" text-anchor="middle" font-size="11" font-weight="bold" fill="white">27</text>
+  <rect x="646" y="372" width="36" height="26" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="2"/>
+  <text x="664" y="390" text-anchor="middle" font-size="11" font-weight="bold" fill="white">32</text>
+
+  <!-- ===== STEP 2: Heapify index 1 ===== -->
+  <text x="30" y="432" font-size="12" font-weight="bold" fill="#888">Step 2:</text>
+  <text x="86" y="432" font-size="11" fill="#333">Heapify [1] = <tspan font-weight="bold">55</tspan>. Children: <tspan font-weight="bold">95</tspan>, 62. 95 &gt; 55 &#x2192; swap.</text>
+
+  <text x="36" y="460" font-size="9" fill="#888">before:</text>
+  <rect x="72" y="444" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="90" y="462" text-anchor="middle" font-size="11" font-weight="bold" fill="white">38</text>
+  <rect x="110" y="444" width="36" height="26" rx="4" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="128" y="462" text-anchor="middle" font-size="11" font-weight="bold" fill="white">55</text>
+  <rect x="148" y="444" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="166" y="462" text-anchor="middle" font-size="11" font-weight="bold" fill="white">43</text>
+  <rect x="186" y="444" width="36" height="26" rx="4" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="204" y="462" text-anchor="middle" font-size="11" font-weight="bold" fill="white">95</text>
+  <rect x="224" y="444" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="242" y="462" text-anchor="middle" font-size="11" font-weight="bold" fill="white">62</text>
+  <rect x="262" y="444" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="280" y="462" text-anchor="middle" font-size="11" font-weight="bold" fill="white">27</text>
+  <rect x="300" y="444" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="318" y="462" text-anchor="middle" font-size="11" font-weight="bold" fill="white">32</text>
+
+  <text x="360" y="461" font-size="16" fill="#888">&#x2192;</text>
+
+  <text x="390" y="460" font-size="9" fill="#888">after:</text>
+  <rect x="418" y="444" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="436" y="462" text-anchor="middle" font-size="11" font-weight="bold" fill="white">38</text>
+  <rect x="456" y="444" width="36" height="26" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="2"/>
+  <text x="474" y="462" text-anchor="middle" font-size="11" font-weight="bold" fill="white">95</text>
+  <rect x="494" y="444" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="512" y="462" text-anchor="middle" font-size="11" font-weight="bold" fill="white">43</text>
+  <rect x="532" y="444" width="36" height="26" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="2"/>
+  <text x="550" y="462" text-anchor="middle" font-size="11" font-weight="bold" fill="white">55</text>
+  <rect x="570" y="444" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="588" y="462" text-anchor="middle" font-size="11" font-weight="bold" fill="white">62</text>
+  <rect x="608" y="444" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="626" y="462" text-anchor="middle" font-size="11" font-weight="bold" fill="white">27</text>
+  <rect x="646" y="444" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="664" y="462" text-anchor="middle" font-size="11" font-weight="bold" fill="white">32</text>
+
+  <!-- ===== STEP 3: Heapify index 0 (two swaps) ===== -->
+  <text x="30" y="504" font-size="12" font-weight="bold" fill="#888">Step 3:</text>
+  <text x="86" y="504" font-size="11" fill="#333">Heapify [0] = <tspan font-weight="bold">38</tspan>. Children: <tspan font-weight="bold">95</tspan>, 43. Swap with 95. Then 38 sinks: children 55, <tspan font-weight="bold">62</tspan>. Swap with 62.</text>
+
+  <text x="36" y="532" font-size="9" fill="#888">before:</text>
+  <rect x="72" y="516" width="36" height="26" rx="4" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="90" y="534" text-anchor="middle" font-size="11" font-weight="bold" fill="white">38</text>
+  <rect x="110" y="516" width="36" height="26" rx="4" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="128" y="534" text-anchor="middle" font-size="11" font-weight="bold" fill="white">95</text>
+  <rect x="148" y="516" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="166" y="534" text-anchor="middle" font-size="11" font-weight="bold" fill="white">43</text>
+  <rect x="186" y="516" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="204" y="534" text-anchor="middle" font-size="11" font-weight="bold" fill="white">55</text>
+  <rect x="224" y="516" width="36" height="26" rx="4" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="242" y="534" text-anchor="middle" font-size="11" font-weight="bold" fill="white">62</text>
+  <rect x="262" y="516" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="280" y="534" text-anchor="middle" font-size="11" font-weight="bold" fill="white">27</text>
+  <rect x="300" y="516" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="318" y="534" text-anchor="middle" font-size="11" font-weight="bold" fill="white">32</text>
+
+  <text x="360" y="533" font-size="16" fill="#888">&#x2192;</text>
+
+  <text x="390" y="532" font-size="9" fill="#888">after:</text>
+  <rect x="418" y="516" width="36" height="26" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="2"/>
+  <text x="436" y="534" text-anchor="middle" font-size="11" font-weight="bold" fill="white">95</text>
+  <rect x="456" y="516" width="36" height="26" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="2"/>
+  <text x="474" y="534" text-anchor="middle" font-size="11" font-weight="bold" fill="white">62</text>
+  <rect x="494" y="516" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="512" y="534" text-anchor="middle" font-size="11" font-weight="bold" fill="white">43</text>
+  <rect x="532" y="516" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="550" y="534" text-anchor="middle" font-size="11" font-weight="bold" fill="white">55</text>
+  <rect x="570" y="516" width="36" height="26" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="2"/>
+  <text x="588" y="534" text-anchor="middle" font-size="11" font-weight="bold" fill="white">38</text>
+  <rect x="608" y="516" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="626" y="534" text-anchor="middle" font-size="11" font-weight="bold" fill="white">27</text>
+  <rect x="646" y="516" width="36" height="26" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="664" y="534" text-anchor="middle" font-size="11" font-weight="bold" fill="white">32</text>
+
+  <!-- ===== RESULT: MAX-HEAP BUILT ===== -->
+  <rect x="30" y="564" width="800" height="22" rx="6" fill="#27ae60"/>
+  <text x="430" y="579" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Result: Max-Heap Built!</text>
+
+  <!-- Final array y=602 (aligned with before: at x=72) -->
+  <rect x="72" y="602" width="36" height="26" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="90" y="620" text-anchor="middle" font-size="11" font-weight="bold" fill="white">95</text>
+  <rect x="110" y="602" width="36" height="26" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="128" y="620" text-anchor="middle" font-size="11" font-weight="bold" fill="white">62</text>
+  <rect x="148" y="602" width="36" height="26" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="166" y="620" text-anchor="middle" font-size="11" font-weight="bold" fill="white">43</text>
+  <rect x="186" y="602" width="36" height="26" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="204" y="620" text-anchor="middle" font-size="11" font-weight="bold" fill="white">55</text>
+  <rect x="224" y="602" width="36" height="26" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="242" y="620" text-anchor="middle" font-size="11" font-weight="bold" fill="white">38</text>
+  <rect x="262" y="602" width="36" height="26" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="280" y="620" text-anchor="middle" font-size="11" font-weight="bold" fill="white">27</text>
+  <rect x="300" y="602" width="36" height="26" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="318" y="620" text-anchor="middle" font-size="11" font-weight="bold" fill="white">32</text>
+  <text x="350" y="620" font-size="11" fill="#27ae60" font-weight="bold">data[0] = 95 (max) &#x2713;</text>
+
+  <!-- Final tree (inside result section, with breathing room from header) -->
+  <line x1="580" y1="624" x2="520" y2="658" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="580" y1="624" x2="640" y2="658" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="520" y1="686" x2="490" y2="716" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="520" y1="686" x2="550" y2="716" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="640" y1="686" x2="610" y2="716" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="640" y1="686" x2="670" y2="716" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <text x="580" y="598" text-anchor="middle" font-size="8" fill="#27ae60">[0]</text>
+  <circle cx="580" cy="618" r="15" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="580" y="623" text-anchor="middle" font-size="10" font-weight="bold" fill="white">95</text>
+
+  <text x="520" y="651" text-anchor="middle" font-size="8" fill="#27ae60">[1]</text>
+  <circle cx="520" cy="671" r="15" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="520" y="676" text-anchor="middle" font-size="10" font-weight="bold" fill="white">62</text>
+
+  <text x="640" y="651" text-anchor="middle" font-size="8" fill="#27ae60">[2]</text>
+  <circle cx="640" cy="671" r="15" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="640" y="676" text-anchor="middle" font-size="10" font-weight="bold" fill="white">43</text>
+
+  <text x="490" y="706" text-anchor="middle" font-size="8" fill="#27ae60">[3]</text>
+  <circle cx="490" cy="726" r="15" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="490" y="731" text-anchor="middle" font-size="10" font-weight="bold" fill="white">55</text>
+  <text x="550" y="706" text-anchor="middle" font-size="8" fill="#27ae60">[4]</text>
+  <circle cx="550" cy="726" r="15" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="550" y="731" text-anchor="middle" font-size="10" font-weight="bold" fill="white">38</text>
+  <text x="610" y="706" text-anchor="middle" font-size="8" fill="#27ae60">[5]</text>
+  <circle cx="610" cy="726" r="15" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="610" y="731" text-anchor="middle" font-size="10" font-weight="bold" fill="white">27</text>
+  <text x="670" y="706" text-anchor="middle" font-size="8" fill="#27ae60">[6]</text>
+  <circle cx="670" cy="726" r="15" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="670" y="731" text-anchor="middle" font-size="10" font-weight="bold" fill="white">32</text>
+
+  <!-- Footer -->
+  <rect x="30" y="750" width="800" height="0" rx="0" fill="none"/>
+</svg>

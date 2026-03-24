@@ -1,0 +1,252 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 730" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <!-- Title -->
+  <text x="430" y="28" text-anchor="middle" font-size="24" font-weight="bold" fill="#2c3e50">Heap Sort Phase 2: Extract Max Repeatedly</text>
+  <text x="430" y="48" text-anchor="middle" font-size="13" fill="#888">Swap data[0] (the max) to the end, shrink the heap by 1, re-heapify. Repeat.</text>
+
+  <!-- 7 boxes: width=44 height=28, gap=4. Start=134 -->
+
+  <!-- ===== Starting max-heap ===== -->
+  <text x="80" y="82" font-size="12" fill="#888" text-anchor="end">Max-heap:</text>
+  <rect x="134" y="62" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="156" y="81" text-anchor="middle" font-size="12" font-weight="bold" fill="white">95</text>
+  <rect x="182" y="62" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="204" y="81" text-anchor="middle" font-size="12" font-weight="bold" fill="white">62</text>
+  <rect x="230" y="62" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="252" y="81" text-anchor="middle" font-size="12" font-weight="bold" fill="white">43</text>
+  <rect x="278" y="62" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="300" y="81" text-anchor="middle" font-size="12" font-weight="bold" fill="white">55</text>
+  <rect x="326" y="62" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="348" y="81" text-anchor="middle" font-size="12" font-weight="bold" fill="white">38</text>
+  <rect x="374" y="62" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="396" y="81" text-anchor="middle" font-size="12" font-weight="bold" fill="white">27</text>
+  <rect x="422" y="62" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="444" y="81" text-anchor="middle" font-size="12" font-weight="bold" fill="white">32</text>
+  <text x="480" y="80" font-size="11" fill="#2980b9">data[0] = 95 (max)</text>
+
+  <!-- Phase 2 header bar -->
+  <rect x="30" y="100" width="800" height="24" rx="6" fill="#e67e22"/>
+  <text x="430" y="117" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Each step: swap data[0] to end of unsorted region, shrink heap, re-heapify to restore max at [0]</text>
+
+  <!-- ===== STEP 1 EXPANDED ===== -->
+  <text x="30" y="148" font-size="12" font-weight="bold" fill="#888">Step 1:</text>
+  <text x="86" y="148" font-size="11" fill="#333">Swap data[0] (<tspan font-weight="bold">95</tspan>) with last element (<tspan font-weight="bold">32</tspan>). 95 is now in its final position.</text>
+
+  <!-- Step 1a: after swap array y=162 -->
+  <text x="80" y="180" font-size="9" fill="#888" text-anchor="end">after swap:</text>
+  <rect x="134" y="162" width="44" height="28" rx="4" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="156" y="181" text-anchor="middle" font-size="12" font-weight="bold" fill="white">32</text>
+  <rect x="182" y="162" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="204" y="181" text-anchor="middle" font-size="12" font-weight="bold" fill="white">62</text>
+  <rect x="230" y="162" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="252" y="181" text-anchor="middle" font-size="12" font-weight="bold" fill="white">43</text>
+  <rect x="278" y="162" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="300" y="181" text-anchor="middle" font-size="12" font-weight="bold" fill="white">55</text>
+  <rect x="326" y="162" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="348" y="181" text-anchor="middle" font-size="12" font-weight="bold" fill="white">38</text>
+  <rect x="374" y="162" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="396" y="181" text-anchor="middle" font-size="12" font-weight="bold" fill="white">27</text>
+  <line x1="418" y1="162" x2="418" y2="190" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="3,2"/>
+  <rect x="422" y="162" width="44" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="444" y="181" text-anchor="middle" font-size="12" font-weight="bold" fill="white">95</text>
+
+  <!-- After-swap tree: [32, 62, 43, 55, 38, 27], 32 at root is wrong -->
+  <!-- Tree centered at x=620. Root y=160, L1 y=195, L2 y=230 -->
+  <text x="620" y="150" text-anchor="middle" font-size="9" fill="#e74c3c">32 at root -- not the max!</text>
+  <line x1="620" y1="168" x2="580" y2="192" stroke="#bdc3c7" stroke-width="1.2"/>
+  <line x1="620" y1="168" x2="660" y2="192" stroke="#bdc3c7" stroke-width="1.2"/>
+  <line x1="580" y1="210" x2="560" y2="232" stroke="#bdc3c7" stroke-width="1.2"/>
+  <line x1="580" y1="210" x2="600" y2="232" stroke="#bdc3c7" stroke-width="1.2"/>
+  <line x1="660" y1="210" x2="640" y2="232" stroke="#bdc3c7" stroke-width="1.2"/>
+  <!-- Root: 32 red -->
+  <circle cx="620" cy="163" r="13" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="620" y="168" text-anchor="middle" font-size="9" font-weight="bold" fill="white">32</text>
+  <!-- L1 -->
+  <circle cx="580" cy="201" r="13" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="580" y="206" text-anchor="middle" font-size="9" font-weight="bold" fill="white">62</text>
+  <circle cx="660" cy="201" r="13" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="660" y="206" text-anchor="middle" font-size="9" font-weight="bold" fill="white">43</text>
+  <!-- L2 -->
+  <circle cx="560" cy="241" r="13" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="560" y="246" text-anchor="middle" font-size="9" font-weight="bold" fill="white">55</text>
+  <circle cx="600" cy="241" r="13" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="600" y="246" text-anchor="middle" font-size="9" font-weight="bold" fill="white">38</text>
+  <circle cx="640" cy="241" r="13" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="640" y="246" text-anchor="middle" font-size="9" font-weight="bold" fill="white">27</text>
+  <!-- Sink arrow -->
+  <text x="700" y="188" font-size="10" fill="#e74c3c">&#x2193; sink</text>
+
+  <!-- Heapify note -->
+  <text x="86" y="274" font-size="11" fill="#333">Re-heapify: 32 sinks down (same as Phase 1). 32 &lt; <tspan font-weight="bold">62</tspan> &#x2192; swap. Then 32 &lt; <tspan font-weight="bold">55</tspan> &#x2192; swap again.</text>
+
+  <!-- Step 1b: heapified array y=288 -->
+  <text x="80" y="306" font-size="9" fill="#27ae60" text-anchor="end">heapified:</text>
+  <rect x="134" y="288" width="44" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="2"/>
+  <text x="156" y="307" text-anchor="middle" font-size="12" font-weight="bold" fill="white">62</text>
+  <rect x="182" y="288" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="204" y="307" text-anchor="middle" font-size="12" font-weight="bold" fill="white">55</text>
+  <rect x="230" y="288" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="252" y="307" text-anchor="middle" font-size="12" font-weight="bold" fill="white">43</text>
+  <rect x="278" y="288" width="44" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="2"/>
+  <text x="300" y="307" text-anchor="middle" font-size="12" font-weight="bold" fill="white">32</text>
+  <rect x="326" y="288" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="348" y="307" text-anchor="middle" font-size="12" font-weight="bold" fill="white">38</text>
+  <rect x="374" y="288" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="396" y="307" text-anchor="middle" font-size="12" font-weight="bold" fill="white">27</text>
+  <line x1="418" y1="288" x2="418" y2="316" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="3,2"/>
+  <rect x="422" y="288" width="44" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="444" y="307" text-anchor="middle" font-size="12" font-weight="bold" fill="white">95</text>
+
+  <!-- Heapified tree: [62, 55, 43, 32, 38, 27], 62 is new root -->
+  <text x="620" y="278" text-anchor="middle" font-size="9" fill="#27ae60">62 is new max &#x2713;</text>
+  <line x1="620" y1="296" x2="580" y2="320" stroke="#bdc3c7" stroke-width="1.2"/>
+  <line x1="620" y1="296" x2="660" y2="320" stroke="#bdc3c7" stroke-width="1.2"/>
+  <line x1="580" y1="338" x2="560" y2="360" stroke="#bdc3c7" stroke-width="1.2"/>
+  <line x1="580" y1="338" x2="600" y2="360" stroke="#bdc3c7" stroke-width="1.2"/>
+  <line x1="660" y1="338" x2="640" y2="360" stroke="#bdc3c7" stroke-width="1.2"/>
+  <!-- Root: 62 green -->
+  <circle cx="620" cy="291" r="13" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="620" y="296" text-anchor="middle" font-size="9" font-weight="bold" fill="white">62</text>
+  <!-- L1 -->
+  <circle cx="580" cy="329" r="13" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="580" y="334" text-anchor="middle" font-size="9" font-weight="bold" fill="white">55</text>
+  <circle cx="660" cy="329" r="13" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="660" y="334" text-anchor="middle" font-size="9" font-weight="bold" fill="white">43</text>
+  <!-- L2: 32 landed here (green) -->
+  <circle cx="560" cy="369" r="13" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="560" y="374" text-anchor="middle" font-size="9" font-weight="bold" fill="white">32</text>
+  <circle cx="600" cy="369" r="13" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="600" y="374" text-anchor="middle" font-size="9" font-weight="bold" fill="white">38</text>
+  <circle cx="640" cy="369" r="13" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="640" y="374" text-anchor="middle" font-size="9" font-weight="bold" fill="white">27</text>
+
+  <!-- Separator note -->
+  <rect x="134" y="392" width="332" height="18" rx="4" fill="#f0f0f0" stroke="#ddd" stroke-width="1"/>
+  <text x="300" y="405" text-anchor="middle" font-size="10" fill="#888">Steps 2-6: same process -- swap, shrink, re-heapify</text>
+
+  <!-- Step 2 y=424 -->
+  <text x="80" y="442" font-size="11" fill="#888" text-anchor="end">Step 2:</text>
+  <rect x="134" y="424" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="156" y="443" text-anchor="middle" font-size="12" font-weight="bold" fill="white">55</text>
+  <rect x="182" y="424" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="204" y="443" text-anchor="middle" font-size="12" font-weight="bold" fill="white">38</text>
+  <rect x="230" y="424" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="252" y="443" text-anchor="middle" font-size="12" font-weight="bold" fill="white">43</text>
+  <rect x="278" y="424" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="300" y="443" text-anchor="middle" font-size="12" font-weight="bold" fill="white">32</text>
+  <rect x="326" y="424" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="348" y="443" text-anchor="middle" font-size="12" font-weight="bold" fill="white">27</text>
+  <line x1="370" y1="424" x2="370" y2="452" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="3,2"/>
+  <rect x="374" y="424" width="44" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="396" y="443" text-anchor="middle" font-size="12" font-weight="bold" fill="white">62</text>
+  <rect x="422" y="424" width="44" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="444" y="443" text-anchor="middle" font-size="12" font-weight="bold" fill="white">95</text>
+  <text x="480" y="442" font-size="10" fill="#e67e22">62 placed, heapify [0..4]</text>
+
+  <!-- Step 3 y=466 -->
+  <text x="80" y="484" font-size="11" fill="#888" text-anchor="end">Step 3:</text>
+  <rect x="134" y="466" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="156" y="485" text-anchor="middle" font-size="12" font-weight="bold" fill="white">43</text>
+  <rect x="182" y="466" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="204" y="485" text-anchor="middle" font-size="12" font-weight="bold" fill="white">38</text>
+  <rect x="230" y="466" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="252" y="485" text-anchor="middle" font-size="12" font-weight="bold" fill="white">27</text>
+  <rect x="278" y="466" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="300" y="485" text-anchor="middle" font-size="12" font-weight="bold" fill="white">32</text>
+  <line x1="322" y1="466" x2="322" y2="494" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="3,2"/>
+  <rect x="326" y="466" width="44" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="348" y="485" text-anchor="middle" font-size="12" font-weight="bold" fill="white">55</text>
+  <rect x="374" y="466" width="44" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="396" y="485" text-anchor="middle" font-size="12" font-weight="bold" fill="white">62</text>
+  <rect x="422" y="466" width="44" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="444" y="485" text-anchor="middle" font-size="12" font-weight="bold" fill="white">95</text>
+  <text x="480" y="484" font-size="10" fill="#e67e22">55 placed, heapify [0..3]</text>
+
+  <!-- Step 4 y=508 -->
+  <text x="80" y="526" font-size="11" fill="#888" text-anchor="end">Step 4:</text>
+  <rect x="134" y="508" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="156" y="527" text-anchor="middle" font-size="12" font-weight="bold" fill="white">38</text>
+  <rect x="182" y="508" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="204" y="527" text-anchor="middle" font-size="12" font-weight="bold" fill="white">32</text>
+  <rect x="230" y="508" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="252" y="527" text-anchor="middle" font-size="12" font-weight="bold" fill="white">27</text>
+  <line x1="274" y1="508" x2="274" y2="536" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="3,2"/>
+  <rect x="278" y="508" width="44" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="300" y="527" text-anchor="middle" font-size="12" font-weight="bold" fill="white">43</text>
+  <rect x="326" y="508" width="44" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="348" y="527" text-anchor="middle" font-size="12" font-weight="bold" fill="white">55</text>
+  <rect x="374" y="508" width="44" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="396" y="527" text-anchor="middle" font-size="12" font-weight="bold" fill="white">62</text>
+  <rect x="422" y="508" width="44" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="444" y="527" text-anchor="middle" font-size="12" font-weight="bold" fill="white">95</text>
+  <text x="480" y="526" font-size="10" fill="#e67e22">43 placed, heapify [0..2]</text>
+
+  <!-- Step 5 y=550 -->
+  <text x="80" y="568" font-size="11" fill="#888" text-anchor="end">Step 5:</text>
+  <rect x="134" y="550" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="156" y="569" text-anchor="middle" font-size="12" font-weight="bold" fill="white">32</text>
+  <rect x="182" y="550" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="204" y="569" text-anchor="middle" font-size="12" font-weight="bold" fill="white">27</text>
+  <line x1="226" y1="550" x2="226" y2="578" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="3,2"/>
+  <rect x="230" y="550" width="44" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="252" y="569" text-anchor="middle" font-size="12" font-weight="bold" fill="white">38</text>
+  <rect x="278" y="550" width="44" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="300" y="569" text-anchor="middle" font-size="12" font-weight="bold" fill="white">43</text>
+  <rect x="326" y="550" width="44" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="348" y="569" text-anchor="middle" font-size="12" font-weight="bold" fill="white">55</text>
+  <rect x="374" y="550" width="44" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="396" y="569" text-anchor="middle" font-size="12" font-weight="bold" fill="white">62</text>
+  <rect x="422" y="550" width="44" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="444" y="569" text-anchor="middle" font-size="12" font-weight="bold" fill="white">95</text>
+  <text x="480" y="568" font-size="10" fill="#e67e22">38 placed, heapify [0..1]</text>
+
+  <!-- Step 6 y=592 -->
+  <text x="80" y="610" font-size="11" fill="#888" text-anchor="end">Step 6:</text>
+  <rect x="134" y="592" width="44" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="156" y="611" text-anchor="middle" font-size="12" font-weight="bold" fill="white">27</text>
+  <line x1="178" y1="592" x2="178" y2="620" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="3,2"/>
+  <rect x="182" y="592" width="44" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="204" y="611" text-anchor="middle" font-size="12" font-weight="bold" fill="white">32</text>
+  <rect x="230" y="592" width="44" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="252" y="611" text-anchor="middle" font-size="12" font-weight="bold" fill="white">38</text>
+  <rect x="278" y="592" width="44" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="300" y="611" text-anchor="middle" font-size="12" font-weight="bold" fill="white">43</text>
+  <rect x="326" y="592" width="44" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="348" y="611" text-anchor="middle" font-size="12" font-weight="bold" fill="white">55</text>
+  <rect x="374" y="592" width="44" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="396" y="611" text-anchor="middle" font-size="12" font-weight="bold" fill="white">62</text>
+  <rect x="422" y="592" width="44" height="28" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/>
+  <text x="444" y="611" text-anchor="middle" font-size="12" font-weight="bold" fill="white">95</text>
+  <text x="480" y="610" font-size="10" fill="#e67e22">32 placed, 27 is last</text>
+
+  <!-- Sorted row y=638 -->
+  <text x="80" y="656" font-size="12" font-weight="bold" fill="#27ae60" text-anchor="end">Sorted:</text>
+  <rect x="134" y="638" width="44" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="156" y="657" text-anchor="middle" font-size="12" font-weight="bold" fill="white">27</text>
+  <rect x="182" y="638" width="44" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="204" y="657" text-anchor="middle" font-size="12" font-weight="bold" fill="white">32</text>
+  <rect x="230" y="638" width="44" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="252" y="657" text-anchor="middle" font-size="12" font-weight="bold" fill="white">38</text>
+  <rect x="278" y="638" width="44" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="300" y="657" text-anchor="middle" font-size="12" font-weight="bold" fill="white">43</text>
+  <rect x="326" y="638" width="44" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="348" y="657" text-anchor="middle" font-size="12" font-weight="bold" fill="white">55</text>
+  <rect x="374" y="638" width="44" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="396" y="657" text-anchor="middle" font-size="12" font-weight="bold" fill="white">62</text>
+  <rect x="422" y="638" width="44" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="444" y="657" text-anchor="middle" font-size="12" font-weight="bold" fill="white">95</text>
+  <text x="480" y="656" font-size="13" font-weight="bold" fill="#27ae60">&#x2713; sorted!</text>
+
+  <!-- Key -->
+  <rect x="134" y="680" width="16" height="16" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="156" y="693" font-size="11" fill="#555">Heap (unsorted)</text>
+  <rect x="290" y="680" width="16" height="16" rx="3" fill="#f39c12" stroke="#e67e22" stroke-width="1"/>
+  <text x="312" y="693" font-size="11" fill="#555">Sorted (final position)</text>
+  <rect x="460" y="680" width="16" height="16" rx="3" fill="#e74c3c" stroke="#c0392b" stroke-width="1"/>
+  <text x="482" y="693" font-size="11" fill="#555">Needs to sink</text>
+
+  <!-- Footer -->
+  <rect x="30" y="706" width="800" height="18" rx="6" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="430" y="719" text-anchor="middle" font-size="11" fill="#555">Each extraction: swap + re-heapify = O(log n). Done n times = <tspan font-weight="bold" fill="#e67e22">O(n log n)</tspan>. All in-place = <tspan font-weight="bold" fill="#27ae60">O(1) space</tspan></text>
+</svg>

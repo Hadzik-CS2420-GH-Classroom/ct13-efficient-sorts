@@ -1,116 +1,259 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 480" font-family="'Segoe UI', Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 636" font-family="'Segoe UI', Arial, sans-serif">
   <rect width="100%" height="100%" fill="white"/>
 
   <!-- Title -->
-  <text x="430" y="32" text-anchor="middle" font-size="26" font-weight="bold" fill="#2c3e50">Merge Sort -- Divide and Conquer Tree</text>
-  <!-- Subtitle -->
-  <text x="430" y="52" text-anchor="middle" font-size="13" fill="#888">Split until single elements (trivially sorted), then merge sorted halves back up</text>
+  <text x="430" y="28" text-anchor="middle" font-size="24" font-weight="bold" fill="#2c3e50">Merge Sort: Divide and Conquer</text>
+  <text x="430" y="48" text-anchor="middle" font-size="13" fill="#888">Split in half until single elements, then merge sorted halves back together</text>
 
-  <!-- ===== CONNECTING LINES (drawn BEFORE boxes) ===== -->
+  <!-- Layout: Box 40w x 28h, level spacing=62 -->
+  <!-- DIVIDE -->
+  <!-- L1 y=72:  8 elements (gap=3) -->
+  <!-- L2 y=134: 4+4 (two groups, gap=28 between) -->
+  <!-- L3 y=196: 2+2+2+2 (four pairs, gap=16 within half, gap=28 between halves) -->
+  <!-- L4 y=258: 8 singles (gap=24 each, wide spacing) -->
+  <!-- separator y=304 -->
+  <!-- MERGE -->
+  <!-- L5 y=326: merged pairs (same layout as L3) -->
+  <!-- L6 y=388: merged quads (same layout as L2) -->
+  <!-- L7 y=450: final sorted (same layout as L1) -->
 
-  <!-- L1 center (430,100) -> L2 group1 center (350,152) and L2 group2 center (510,152) -->
-  <line x1="430" y1="100" x2="350" y2="152" stroke="#bdc3c7" stroke-width="1.5"/>
-  <line x1="430" y1="100" x2="510" y2="152" stroke="#bdc3c7" stroke-width="1.5"/>
+  <!-- L2 group centers: G1=332, G2=529 -->
+  <!-- L3 pair centers: P1=276, P2=375, P3=486, P4=585 -->
+  <!-- L4 singles centers (gap=24): 196, 260, 324, 388, 452, 516, 580, 644 -->
 
-  <!-- L2 group1 (350,182) -> L3 box1 (323,234) and L3 box2 (377,234) -->
-  <line x1="350" y1="182" x2="323" y2="234" stroke="#bdc3c7" stroke-width="1.5"/>
-  <line x1="350" y1="182" x2="377" y2="234" stroke="#bdc3c7" stroke-width="1.5"/>
+  <!-- ===== CONNECTING LINES ===== -->
+  <!-- Divide: L1 to L2 -->
+  <line x1="430" y1="100" x2="332" y2="134" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="430" y1="100" x2="529" y2="134" stroke="#bdc3c7" stroke-width="1.5"/>
 
-  <!-- L2 group2 (510,182) -> L3 box3 (483,234) and L3 box4 (537,234) -->
-  <line x1="510" y1="182" x2="483" y2="234" stroke="#bdc3c7" stroke-width="1.5"/>
-  <line x1="510" y1="182" x2="537" y2="234" stroke="#bdc3c7" stroke-width="1.5"/>
+  <!-- Divide: L2 to L3 -->
+  <line x1="332" y1="162" x2="276" y2="196" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="332" y1="162" x2="375" y2="196" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="529" y1="162" x2="486" y2="196" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="529" y1="162" x2="585" y2="196" stroke="#bdc3c7" stroke-width="1.5"/>
 
-  <!-- MERGE converging: L3 -> L4 -->
-  <!-- L3 box1 (323,264) -> L4 group1 center (350,316) -->
-  <line x1="323" y1="264" x2="350" y2="316" stroke="#bdc3c7" stroke-width="1.5"/>
-  <!-- L3 box2 (377,264) -> L4 group1 center (350,316) -->
-  <line x1="377" y1="264" x2="350" y2="316" stroke="#bdc3c7" stroke-width="1.5"/>
-  <!-- L3 box3 (483,264) -> L4 group2 center (510,316) -->
-  <line x1="483" y1="264" x2="510" y2="316" stroke="#bdc3c7" stroke-width="1.5"/>
-  <!-- L3 box4 (537,264) -> L4 group2 center (510,316) -->
-  <line x1="537" y1="264" x2="510" y2="316" stroke="#bdc3c7" stroke-width="1.5"/>
+  <!-- Divide: L3 to L4 -->
+  <line x1="276" y1="224" x2="196" y2="258" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="276" y1="224" x2="260" y2="258" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="375" y1="224" x2="324" y2="258" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="375" y1="224" x2="388" y2="258" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="486" y1="224" x2="452" y2="258" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="486" y1="224" x2="516" y2="258" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="585" y1="224" x2="580" y2="258" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="585" y1="224" x2="644" y2="258" stroke="#bdc3c7" stroke-width="1.5"/>
 
-  <!-- L4 group1 (350,346) -> L5 center (430,398) -->
-  <line x1="350" y1="346" x2="430" y2="398" stroke="#bdc3c7" stroke-width="1.5"/>
-  <!-- L4 group2 (510,346) -> L5 center (430,398) -->
-  <line x1="510" y1="346" x2="430" y2="398" stroke="#bdc3c7" stroke-width="1.5"/>
+  <!-- Merge: L4 to L5 -->
+  <line x1="196" y1="286" x2="276" y2="326" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="260" y1="286" x2="276" y2="326" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="324" y1="286" x2="375" y2="326" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="388" y1="286" x2="375" y2="326" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="452" y1="286" x2="486" y2="326" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="516" y1="286" x2="486" y2="326" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="580" y1="286" x2="585" y2="326" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="644" y1="286" x2="585" y2="326" stroke="#bdc3c7" stroke-width="1.5"/>
 
-  <!-- ===== LEVEL 1: Unsorted input y=70, 4 boxes [38,27,43,3] blue ===== -->
-  <!-- 4 boxes: total width = 4*50 + 3*4 = 212, center = 430, start x = 430 - 106 = 324 -->
-  <rect x="324" y="70" width="50" height="30" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="349" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
-  <rect x="378" y="70" width="50" height="30" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="403" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="white">27</text>
-  <rect x="432" y="70" width="50" height="30" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="457" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="white">43</text>
-  <rect x="486" y="70" width="50" height="30" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="511" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="white">3</text>
+  <!-- Merge: L5 to L6 -->
+  <line x1="276" y1="354" x2="332" y2="388" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="375" y1="354" x2="332" y2="388" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="486" y1="354" x2="529" y2="388" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="585" y1="354" x2="529" y2="388" stroke="#bdc3c7" stroke-width="1.5"/>
 
-  <!-- ===== LEVEL 2: Split halves y=152, 2 groups of 2 ===== -->
-  <!-- Group1 [38,27] at x=298: 2 boxes, center=(298+50+4+25)=377 => group center=350 -->
-  <!-- Box1: x=298, Box2: x=352, group width=104, center x=298+52=350 -->
-  <rect x="298" y="152" width="50" height="30" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="323" y="172" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
-  <rect x="352" y="152" width="50" height="30" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="377" y="172" text-anchor="middle" font-size="13" font-weight="bold" fill="white">27</text>
+  <!-- Merge: L6 to L7 -->
+  <line x1="332" y1="416" x2="430" y2="450" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="529" y1="416" x2="430" y2="450" stroke="#bdc3c7" stroke-width="1.5"/>
 
-  <!-- Group2 [43,3] at x=458: center=458+52=510 -->
-  <rect x="458" y="152" width="50" height="30" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="483" y="172" text-anchor="middle" font-size="13" font-weight="bold" fill="white">43</text>
-  <rect x="512" y="152" width="50" height="30" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="537" y="172" text-anchor="middle" font-size="13" font-weight="bold" fill="white">3</text>
+  <!-- ===== LEFT ROW LABELS ===== -->
+  <text x="100" y="90" text-anchor="end" font-size="11" fill="#888">n = 8</text>
+  <text x="100" y="152" text-anchor="end" font-size="11" fill="#888">n = 4</text>
+  <text x="100" y="214" text-anchor="end" font-size="11" fill="#888">n = 2</text>
+  <text x="100" y="276" text-anchor="end" font-size="11" fill="#888">n = 1</text>
+  <text x="100" y="344" text-anchor="end" font-size="11" fill="#888">n = 2</text>
+  <text x="100" y="406" text-anchor="end" font-size="11" fill="#888">n = 4</text>
+  <text x="100" y="468" text-anchor="end" font-size="11" fill="#888">n = 8</text>
 
-  <!-- ===== LEVEL 3: Base cases y=234 -- single elements, orange ===== -->
-  <!-- [38] at x=298, center=323 -->
-  <rect x="298" y="234" width="50" height="30" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
-  <text x="323" y="254" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
-  <!-- [27] at x=352, center=377 -->
-  <rect x="352" y="234" width="50" height="30" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
-  <text x="377" y="254" text-anchor="middle" font-size="13" font-weight="bold" fill="white">27</text>
-  <!-- [43] at x=458, center=483 -->
-  <rect x="458" y="234" width="50" height="30" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
-  <text x="483" y="254" text-anchor="middle" font-size="13" font-weight="bold" fill="white">43</text>
-  <!-- [3] at x=512, center=537 -->
-  <rect x="512" y="234" width="50" height="30" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
-  <text x="537" y="254" text-anchor="middle" font-size="13" font-weight="bold" fill="white">3</text>
+  <!-- DIVIDE / MERGE labels -->
+  <text x="55" y="175" font-size="12" font-weight="bold" fill="#3498db" text-anchor="middle">DIVIDE</text>
+  <text x="55" y="191" font-size="14" fill="#3498db" text-anchor="middle">&#x2193;</text>
+  <text x="55" y="390" font-size="12" font-weight="bold" fill="#27ae60" text-anchor="middle">MERGE</text>
+  <text x="55" y="376" font-size="14" fill="#27ae60" text-anchor="middle">&#x2191;</text>
 
-  <!-- ===== LEVEL 4: Merged pairs sorted y=316, green ===== -->
-  <!-- Group1 [27,38] at x=298, center=350 -->
-  <rect x="298" y="316" width="50" height="30" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="323" y="336" text-anchor="middle" font-size="13" font-weight="bold" fill="white">27</text>
-  <rect x="352" y="316" width="50" height="30" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="377" y="336" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
+  <!-- ===== L1: [38,27,43,3,82,9,51,16] ===== -->
+  <!-- 8 boxes, gap=3, start=260 -->
+  <rect x="260" y="72" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="280" y="91" text-anchor="middle" font-size="12" font-weight="bold" fill="white">38</text>
+  <rect x="303" y="72" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="323" y="91" text-anchor="middle" font-size="12" font-weight="bold" fill="white">27</text>
+  <rect x="346" y="72" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="366" y="91" text-anchor="middle" font-size="12" font-weight="bold" fill="white">43</text>
+  <rect x="389" y="72" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="409" y="91" text-anchor="middle" font-size="12" font-weight="bold" fill="white">3</text>
+  <rect x="432" y="72" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="452" y="91" text-anchor="middle" font-size="12" font-weight="bold" fill="white">82</text>
+  <rect x="475" y="72" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="495" y="91" text-anchor="middle" font-size="12" font-weight="bold" fill="white">9</text>
+  <rect x="518" y="72" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="538" y="91" text-anchor="middle" font-size="12" font-weight="bold" fill="white">51</text>
+  <rect x="561" y="72" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="581" y="91" text-anchor="middle" font-size="12" font-weight="bold" fill="white">16</text>
 
-  <!-- Group2 [3,43] at x=458, center=510 -->
-  <rect x="458" y="316" width="50" height="30" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="483" y="336" text-anchor="middle" font-size="13" font-weight="bold" fill="white">3</text>
-  <rect x="512" y="316" width="50" height="30" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="537" y="336" text-anchor="middle" font-size="13" font-weight="bold" fill="white">43</text>
+  <!-- ===== L2: [38,27,43,3] [82,9,51,16] ===== -->
+  <!-- G1: start=247 -->
+  <rect x="247" y="134" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="267" y="153" text-anchor="middle" font-size="12" font-weight="bold" fill="white">38</text>
+  <rect x="290" y="134" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="310" y="153" text-anchor="middle" font-size="12" font-weight="bold" fill="white">27</text>
+  <rect x="333" y="134" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="353" y="153" text-anchor="middle" font-size="12" font-weight="bold" fill="white">43</text>
+  <rect x="376" y="134" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="396" y="153" text-anchor="middle" font-size="12" font-weight="bold" fill="white">3</text>
+  <!-- G2: start=444 -->
+  <rect x="444" y="134" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="464" y="153" text-anchor="middle" font-size="12" font-weight="bold" fill="white">82</text>
+  <rect x="487" y="134" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="507" y="153" text-anchor="middle" font-size="12" font-weight="bold" fill="white">9</text>
+  <rect x="530" y="134" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="550" y="153" text-anchor="middle" font-size="12" font-weight="bold" fill="white">51</text>
+  <rect x="573" y="134" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="593" y="153" text-anchor="middle" font-size="12" font-weight="bold" fill="white">16</text>
 
-  <!-- ===== LEVEL 5: Final sorted y=398, bright green ===== -->
-  <!-- 4 boxes: start x=324, center=430 -->
-  <rect x="324" y="398" width="50" height="30" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
-  <text x="349" y="418" text-anchor="middle" font-size="13" font-weight="bold" fill="white">3</text>
-  <rect x="378" y="398" width="50" height="30" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
-  <text x="403" y="418" text-anchor="middle" font-size="13" font-weight="bold" fill="white">27</text>
-  <rect x="432" y="398" width="50" height="30" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
-  <text x="457" y="418" text-anchor="middle" font-size="13" font-weight="bold" fill="white">38</text>
-  <rect x="486" y="398" width="50" height="30" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
-  <text x="511" y="418" text-anchor="middle" font-size="13" font-weight="bold" fill="white">43</text>
+  <!-- ===== L3: [38,27] [43,3] [82,9] [51,16] ===== -->
+  <!-- P1: 234, 277 -->
+  <rect x="234" y="196" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="254" y="215" text-anchor="middle" font-size="12" font-weight="bold" fill="white">38</text>
+  <rect x="277" y="196" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="297" y="215" text-anchor="middle" font-size="12" font-weight="bold" fill="white">27</text>
+  <!-- P2: 333, 376 -->
+  <rect x="333" y="196" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="353" y="215" text-anchor="middle" font-size="12" font-weight="bold" fill="white">43</text>
+  <rect x="376" y="196" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="396" y="215" text-anchor="middle" font-size="12" font-weight="bold" fill="white">3</text>
+  <!-- P3: 444, 487 -->
+  <rect x="444" y="196" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="464" y="215" text-anchor="middle" font-size="12" font-weight="bold" fill="white">82</text>
+  <rect x="487" y="196" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="507" y="215" text-anchor="middle" font-size="12" font-weight="bold" fill="white">9</text>
+  <!-- P4: 543, 586 -->
+  <rect x="543" y="196" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="563" y="215" text-anchor="middle" font-size="12" font-weight="bold" fill="white">51</text>
+  <rect x="586" y="196" width="40" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="606" y="215" text-anchor="middle" font-size="12" font-weight="bold" fill="white">16</text>
 
-  <!-- ===== DIVIDE / MERGE LABELS ===== -->
-  <text x="60" y="190" font-size="12" font-weight="bold" fill="#3498db" text-anchor="middle">DIVIDE</text>
-  <text x="60" y="208" font-size="14" fill="#3498db" text-anchor="middle">&#x2193;</text>
+  <!-- ===== L4: 8 singles, wide spacing (gap=24), base case (orange) ===== -->
+  <!-- x: 176, 240, 304, 368, 432, 496, 560, 624. Centers: 196, 260, 324, 388, 452, 516, 580, 644 -->
+  <rect x="176" y="258" width="40" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="196" y="277" text-anchor="middle" font-size="12" font-weight="bold" fill="white">38</text>
+  <rect x="240" y="258" width="40" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="260" y="277" text-anchor="middle" font-size="12" font-weight="bold" fill="white">27</text>
+  <rect x="304" y="258" width="40" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="324" y="277" text-anchor="middle" font-size="12" font-weight="bold" fill="white">43</text>
+  <rect x="368" y="258" width="40" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="388" y="277" text-anchor="middle" font-size="12" font-weight="bold" fill="white">3</text>
+  <rect x="432" y="258" width="40" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="452" y="277" text-anchor="middle" font-size="12" font-weight="bold" fill="white">82</text>
+  <rect x="496" y="258" width="40" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="516" y="277" text-anchor="middle" font-size="12" font-weight="bold" fill="white">9</text>
+  <rect x="560" y="258" width="40" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="580" y="277" text-anchor="middle" font-size="12" font-weight="bold" fill="white">51</text>
+  <rect x="624" y="258" width="40" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="644" y="277" text-anchor="middle" font-size="12" font-weight="bold" fill="white">16</text>
 
-  <!-- Dashed separator line at y=280 -->
-  <line x1="60" y1="280" x2="800" y2="280" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="5,4"/>
+  <!-- Base case label -->
+  <text x="430" y="304" text-anchor="middle" font-size="11" fill="#888" font-style="italic">base cases: single elements are trivially sorted</text>
 
-  <text x="60" y="310" font-size="12" font-weight="bold" fill="#27ae60" text-anchor="middle">MERGE</text>
-  <text x="60" y="328" font-size="14" fill="#27ae60" text-anchor="middle">&#x2191;</text>
+  <!-- Dashed separator -->
+  <line x1="70" y1="312" x2="790" y2="312" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="5,4"/>
 
-  <!-- Base cases label -->
-  <text x="430" y="280" text-anchor="middle" font-size="11" fill="#888" font-style="italic">(base cases -- trivially sorted)</text>
+  <!-- ===== L5: Merged pairs [27,38] [3,43] [9,82] [16,51] (green) ===== -->
+  <!-- P1: 234, 277 -->
+  <rect x="234" y="326" width="40" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="254" y="345" text-anchor="middle" font-size="12" font-weight="bold" fill="white">27</text>
+  <rect x="277" y="326" width="40" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="297" y="345" text-anchor="middle" font-size="12" font-weight="bold" fill="white">38</text>
+  <!-- P2: 333, 376 -->
+  <rect x="333" y="326" width="40" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="353" y="345" text-anchor="middle" font-size="12" font-weight="bold" fill="white">3</text>
+  <rect x="376" y="326" width="40" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="396" y="345" text-anchor="middle" font-size="12" font-weight="bold" fill="white">43</text>
+  <!-- P3: 444, 487 -->
+  <rect x="444" y="326" width="40" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="464" y="345" text-anchor="middle" font-size="12" font-weight="bold" fill="white">9</text>
+  <rect x="487" y="326" width="40" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="507" y="345" text-anchor="middle" font-size="12" font-weight="bold" fill="white">82</text>
+  <!-- P4: 543, 586 -->
+  <rect x="543" y="326" width="40" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="563" y="345" text-anchor="middle" font-size="12" font-weight="bold" fill="white">16</text>
+  <rect x="586" y="326" width="40" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="606" y="345" text-anchor="middle" font-size="12" font-weight="bold" fill="white">51</text>
 
-  <!-- Sorted! label -->
-  <text x="430" y="445" text-anchor="middle" font-size="13" font-weight="bold" fill="#27ae60">&#x2713; [3, 27, 38, 43] -- sorted!</text>
+  <!-- ===== L6: Merged quads [3,27,38,43] [9,16,51,82] (green) ===== -->
+  <!-- G1: 247, 290, 333, 376 -->
+  <rect x="247" y="388" width="40" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="267" y="407" text-anchor="middle" font-size="12" font-weight="bold" fill="white">3</text>
+  <rect x="290" y="388" width="40" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="310" y="407" text-anchor="middle" font-size="12" font-weight="bold" fill="white">27</text>
+  <rect x="333" y="388" width="40" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="353" y="407" text-anchor="middle" font-size="12" font-weight="bold" fill="white">38</text>
+  <rect x="376" y="388" width="40" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="396" y="407" text-anchor="middle" font-size="12" font-weight="bold" fill="white">43</text>
+  <!-- G2: 444, 487, 530, 573 -->
+  <rect x="444" y="388" width="40" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="464" y="407" text-anchor="middle" font-size="12" font-weight="bold" fill="white">9</text>
+  <rect x="487" y="388" width="40" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="507" y="407" text-anchor="middle" font-size="12" font-weight="bold" fill="white">16</text>
+  <rect x="530" y="388" width="40" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="550" y="407" text-anchor="middle" font-size="12" font-weight="bold" fill="white">51</text>
+  <rect x="573" y="388" width="40" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="593" y="407" text-anchor="middle" font-size="12" font-weight="bold" fill="white">82</text>
+
+  <!-- ===== L7: Final sorted [3,9,16,27,38,43,51,82] (bright green) ===== -->
+  <!-- 8 boxes, gap=3, start=260 -->
+  <rect x="260" y="450" width="40" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="280" y="469" text-anchor="middle" font-size="12" font-weight="bold" fill="white">3</text>
+  <rect x="303" y="450" width="40" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="323" y="469" text-anchor="middle" font-size="12" font-weight="bold" fill="white">9</text>
+  <rect x="346" y="450" width="40" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="366" y="469" text-anchor="middle" font-size="12" font-weight="bold" fill="white">16</text>
+  <rect x="389" y="450" width="40" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="409" y="469" text-anchor="middle" font-size="12" font-weight="bold" fill="white">27</text>
+  <rect x="432" y="450" width="40" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="452" y="469" text-anchor="middle" font-size="12" font-weight="bold" fill="white">38</text>
+  <rect x="475" y="450" width="40" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="495" y="469" text-anchor="middle" font-size="12" font-weight="bold" fill="white">43</text>
+  <rect x="518" y="450" width="40" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="538" y="469" text-anchor="middle" font-size="12" font-weight="bold" fill="white">51</text>
+  <rect x="561" y="450" width="40" height="28" rx="4" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="581" y="469" text-anchor="middle" font-size="12" font-weight="bold" fill="white">82</text>
+
+  <!-- Sorted label -->
+  <text x="430" y="496" text-anchor="middle" font-size="13" font-weight="bold" fill="#27ae60">&#x2713; Sorted!</text>
+
+  <!-- ===== KEY ===== -->
+  <rect x="720" y="72" width="16" height="16" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="742" y="85" font-size="11" fill="#555">Unsorted</text>
+  <rect x="720" y="94" width="16" height="16" rx="3" fill="#e67e22" stroke="#ca6f1e" stroke-width="1"/>
+  <text x="742" y="107" font-size="11" fill="#555">Base case</text>
+  <rect x="720" y="116" width="16" height="16" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1"/>
+  <text x="742" y="129" font-size="11" fill="#555">Merged</text>
+  <rect x="720" y="138" width="16" height="16" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="1"/>
+  <text x="742" y="151" font-size="11" fill="#555">Final sorted</text>
+
+  <!-- ===== FOOTER ===== -->
+  <rect x="30" y="510" width="800" height="112" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+
+  <text x="430" y="532" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">Why O(n log n)?</text>
+
+  <text x="150" y="554" font-size="12" fill="#555">
+    <tspan font-weight="bold" fill="#3498db">How many levels?</tspan>
+    We split n in half each time: 8 &#x2192; 4 &#x2192; 2 &#x2192; 1.  That's log&#x2082;(8) = <tspan font-weight="bold">3 levels</tspan>
+  </text>
+
+  <text x="150" y="574" font-size="12" fill="#555">
+    <tspan font-weight="bold" fill="#27ae60">How much work per level?</tspan>
+    Every element gets compared/merged once per level = <tspan font-weight="bold">O(n) work</tspan>
+  </text>
+
+  <text x="150" y="600" font-size="13" fill="#333">
+    <tspan font-weight="bold">Total:</tspan>  O(n) work &#xD7; log&#x2082;(n) levels = <tspan font-weight="bold" fill="#e67e22">O(n log n)</tspan>
+  </text>
+
 </svg>

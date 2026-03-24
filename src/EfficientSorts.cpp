@@ -16,6 +16,10 @@
 // =============================================================================
 // 1. Merge Sort
 // =============================================================================
+//
+// ? SEE DIAGRAM: images/header_diagrams.md #4 -- merge sort: divide and conquer tree
+// ? SEE DIAGRAM: images/cpp_diagrams.md #1 -- merge(): combining two sorted halves (with code)
+//
 
 // ---------------------------------------------------------------------------
 // 1a. merge() -- merge two sorted halves into one sorted region
@@ -72,6 +76,10 @@ void merge_sort(std::vector<int>& data) {
 // =============================================================================
 // 2. Quick Sort
 // =============================================================================
+//
+// ? SEE DIAGRAM: images/header_diagrams.md #5 -- quick sort: partition step
+// ? SEE DIAGRAM: images/cpp_diagrams.md #2 -- partition(): scan, swap, place pivot (with code)
+//
 
 // ---------------------------------------------------------------------------
 // 2a. partition() -- rearrange around a pivot
@@ -143,6 +151,11 @@ void quick_sort(std::vector<int>& data) {
 // =============================================================================
 // 3. Heap Sort
 // =============================================================================
+//
+// ? SEE DIAGRAM: images/header_diagrams.md #6 -- heap sort phase 1: build the max-heap
+// ? SEE DIAGRAM: images/header_diagrams.md #7 -- heap sort phase 2: extract max repeatedly
+// ? SEE DIAGRAM: images/cpp_diagrams.md #3 -- heapify_down(): sink node to correct level (with code)
+//
 
 // ---------------------------------------------------------------------------
 // 3a. heapify_down() -- restore the max-heap property
@@ -209,6 +222,8 @@ void heap_sort(std::vector<int>& data) {
     //       swap data[0] and data[i]   (move max to its final position)
     //       heapify_down(data, i, 0)   (restore heap on the shrunk portion)
 }
+
+// ? SEE DIAGRAM: images/header_diagrams.md #8 -- side-by-side comparison (time, space, stability)
 
 // ---------------------------------------------------------------------------
 // Utility: print a vector
