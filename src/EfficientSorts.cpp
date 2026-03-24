@@ -18,7 +18,9 @@
 // =============================================================================
 //
 // ? SEE DIAGRAM: images/header_diagrams.md #4 -- merge sort: divide and conquer tree
-// ? SEE DIAGRAM: images/cpp_diagrams.md #1 -- merge(): combining two sorted halves (with code)
+// ? SEE DIAGRAM: images/cpp_diagrams.md #1 -- merge() step 1: copy halves to temp vectors
+// ? SEE DIAGRAM: images/cpp_diagrams.md #2 -- merge() step 2: compare fronts, pick smaller
+// ? SEE DIAGRAM: images/cpp_diagrams.md #3 -- merge() step 3: copy remaining elements
 //
 
 // ---------------------------------------------------------------------------
@@ -92,7 +94,7 @@ void merge_sort(std::vector<int>& data) {
 // =============================================================================
 //
 // ? SEE DIAGRAM: images/header_diagrams.md #5 -- quick sort: partition step
-// ? SEE DIAGRAM: images/cpp_diagrams.md #2 -- partition(): scan, swap, place pivot (with code)
+// ? SEE DIAGRAM: images/cpp_diagrams.md #4 -- partition(): scan, swap, place pivot (with code)
 //
 
 // ---------------------------------------------------------------------------
@@ -167,7 +169,7 @@ void quick_sort(std::vector<int>& data) {
 //
 // ? SEE DIAGRAM: images/header_diagrams.md #6 -- heap sort phase 1: build the max-heap
 // ? SEE DIAGRAM: images/header_diagrams.md #7 -- heap sort phase 2: extract max repeatedly
-// ? SEE DIAGRAM: images/cpp_diagrams.md #3 -- heapify_down(): sink node to correct level (with code)
+// ? SEE DIAGRAM: images/cpp_diagrams.md #5 -- heapify_down(): sink node to correct level (with code)
 //
 
 // ---------------------------------------------------------------------------

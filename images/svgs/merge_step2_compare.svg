@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 520" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <!-- Title -->
+  <text x="430" y="28" text-anchor="middle" fill="#1a1a1a" font-size="22" font-weight="bold">merge() Step 2: Compare Fronts, Pick Smaller</text>
+  <text x="430" y="48" text-anchor="middle" fill="#555" font-size="13">While both halves have elements, compare left_half[i] vs right_half[j], pick the smaller</text>
+
+  <!-- Code block -->
+  <rect x="30" y="62" width="800" height="96" rx="8" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="11" fill="#ddd">
+    <tspan x="50" y="82" fill="#c586c0">while</tspan><tspan fill="#ddd"> (i &lt; left_half.</tspan><tspan fill="#dcdcaa">size</tspan><tspan fill="#ddd">() &amp;&amp; j &lt; right_half.</tspan><tspan fill="#dcdcaa">size</tspan><tspan fill="#ddd">()) {</tspan>
+    <tspan x="70" y="100" fill="#c586c0">if</tspan><tspan fill="#ddd"> (left_half[i] &lt;= right_half[j]) {</tspan><tspan fill="#888">  // left is smaller (or equal)</tspan>
+    <tspan x="90" y="116" fill="#ddd">data[k++] = left_half[i++];</tspan><tspan fill="#888">       // pick from left, advance i and k</tspan>
+    <tspan x="70" y="132" fill="#ddd">} </tspan><tspan fill="#c586c0">else</tspan><tspan fill="#ddd"> {</tspan>
+    <tspan x="90" y="148" fill="#ddd">data[k++] = right_half[j++];</tspan><tspan fill="#888">      // pick from right, advance j and k</tspan>
+    <tspan x="70" y="160" fill="#ddd">} }</tspan>
+  </text>
+
+  <!-- 3 boxes per half, 6 output. box=52w, gap=4 -->
+
+  <!-- ===== ITERATION 1: compare 55 vs 62 ===== -->
+  <text x="30" y="192" font-size="12" font-weight="bold" fill="#888">Iter 1:</text>
+
+  <text x="90" y="192" font-size="11" fill="#2980b9" font-weight="bold">left_half</text>
+  <rect x="160" y="178" width="52" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+  <text x="186" y="197" text-anchor="middle" fill="white" font-size="12" font-weight="bold">55</text>
+  <rect x="216" y="178" width="52" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="242" y="197" text-anchor="middle" fill="white" font-size="12" font-weight="bold">78</text>
+  <rect x="272" y="178" width="52" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="298" y="197" text-anchor="middle" fill="white" font-size="12" font-weight="bold">88</text>
+
+  <text x="342" y="192" font-size="11" fill="#ca6f1e" font-weight="bold">right_half</text>
+  <rect x="420" y="178" width="52" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="2"/>
+  <text x="446" y="197" text-anchor="middle" fill="white" font-size="12" font-weight="bold">62</text>
+  <rect x="476" y="178" width="52" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="502" y="197" text-anchor="middle" fill="white" font-size="12" font-weight="bold">72</text>
+  <rect x="532" y="178" width="52" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="558" y="197" text-anchor="middle" fill="white" font-size="12" font-weight="bold">95</text>
+
+  <text x="610" y="192" font-size="11" fill="#888">data[k]</text>
+  <rect x="660" y="178" width="52" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="686" y="197" text-anchor="middle" fill="white" font-size="12" font-weight="bold">55</text>
+
+  <text x="730" y="197" font-size="10" fill="#27ae60">55 &lt;= 62, pick left</text>
+
+  <!-- ===== ITERATION 2: compare 78 vs 62 ===== -->
+  <text x="30" y="236" font-size="12" font-weight="bold" fill="#888">Iter 2:</text>
+
+  <rect x="160" y="222" width="52" height="28" rx="4" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="186" y="241" text-anchor="middle" fill="#aaa" font-size="12">55</text>
+  <rect x="216" y="222" width="52" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+  <text x="242" y="241" text-anchor="middle" fill="white" font-size="12" font-weight="bold">78</text>
+  <rect x="272" y="222" width="52" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="298" y="241" text-anchor="middle" fill="white" font-size="12" font-weight="bold">88</text>
+
+  <rect x="420" y="222" width="52" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="2"/>
+  <text x="446" y="241" text-anchor="middle" fill="white" font-size="12" font-weight="bold">62</text>
+  <rect x="476" y="222" width="52" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="502" y="241" text-anchor="middle" fill="white" font-size="12" font-weight="bold">72</text>
+  <rect x="532" y="222" width="52" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="558" y="241" text-anchor="middle" fill="white" font-size="12" font-weight="bold">95</text>
+
+  <rect x="660" y="222" width="52" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="686" y="241" text-anchor="middle" fill="white" font-size="12" font-weight="bold">55</text>
+  <rect x="716" y="222" width="52" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="742" y="241" text-anchor="middle" fill="white" font-size="12" font-weight="bold">62</text>
+
+  <text x="800" y="241" font-size="10" fill="#27ae60">62 &lt; 78, pick right</text>
+
+  <!-- ===== ITERATION 3: compare 78 vs 72 ===== -->
+  <text x="30" y="280" font-size="12" font-weight="bold" fill="#888">Iter 3:</text>
+
+  <rect x="160" y="266" width="52" height="28" rx="4" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="186" y="285" text-anchor="middle" fill="#aaa" font-size="12">55</text>
+  <rect x="216" y="266" width="52" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+  <text x="242" y="285" text-anchor="middle" fill="white" font-size="12" font-weight="bold">78</text>
+  <rect x="272" y="266" width="52" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="298" y="285" text-anchor="middle" fill="white" font-size="12" font-weight="bold">88</text>
+
+  <rect x="420" y="266" width="52" height="28" rx="4" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="446" y="285" text-anchor="middle" fill="#aaa" font-size="12">62</text>
+  <rect x="476" y="266" width="52" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="2"/>
+  <text x="502" y="285" text-anchor="middle" fill="white" font-size="12" font-weight="bold">72</text>
+  <rect x="532" y="266" width="52" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="558" y="285" text-anchor="middle" fill="white" font-size="12" font-weight="bold">95</text>
+
+  <rect x="660" y="266" width="52" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="686" y="285" text-anchor="middle" fill="white" font-size="12" font-weight="bold">55</text>
+  <rect x="716" y="266" width="52" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="742" y="285" text-anchor="middle" fill="white" font-size="12" font-weight="bold">62</text>
+  <rect x="772" y="266" width="52" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="798" y="285" text-anchor="middle" fill="white" font-size="12" font-weight="bold">72</text>
+
+  <!-- ===== ITERATION 4: compare 78 vs 95 ===== -->
+  <text x="30" y="324" font-size="12" font-weight="bold" fill="#888">Iter 4:</text>
+
+  <rect x="160" y="310" width="52" height="28" rx="4" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="186" y="329" text-anchor="middle" fill="#aaa" font-size="12">55</text>
+  <rect x="216" y="310" width="52" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+  <text x="242" y="329" text-anchor="middle" fill="white" font-size="12" font-weight="bold">78</text>
+  <rect x="272" y="310" width="52" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="298" y="329" text-anchor="middle" fill="white" font-size="12" font-weight="bold">88</text>
+
+  <rect x="420" y="310" width="52" height="28" rx="4" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="446" y="329" text-anchor="middle" fill="#aaa" font-size="12">62</text>
+  <rect x="476" y="310" width="52" height="28" rx="4" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="502" y="329" text-anchor="middle" fill="#aaa" font-size="12">72</text>
+  <rect x="532" y="310" width="52" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="2"/>
+  <text x="558" y="329" text-anchor="middle" fill="white" font-size="12" font-weight="bold">95</text>
+
+  <rect x="660" y="310" width="52" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="686" y="329" text-anchor="middle" fill="white" font-size="12" font-weight="bold">55</text>
+  <rect x="716" y="310" width="52" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="742" y="329" text-anchor="middle" fill="white" font-size="12" font-weight="bold">62</text>
+  <rect x="772" y="310" width="52" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="798" y="329" text-anchor="middle" fill="white" font-size="12" font-weight="bold">72</text>
+
+  <!-- Note: 78 picked from left -->
+  <text x="30" y="358" font-size="11" fill="#555">...continues: 78 &lt;= 95 pick left, 88 &lt;= 95 pick left, then right_half still has 95</text>
+
+  <!-- Key -->
+  <rect x="160" y="370" width="16" height="16" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="182" y="383" font-size="10" fill="#555">Current left pointer</text>
+  <rect x="320" y="370" width="16" height="16" rx="3" fill="#e67e22" stroke="#ca6f1e" stroke-width="1"/>
+  <text x="342" y="383" font-size="10" fill="#555">Current right pointer</text>
+  <rect x="480" y="370" width="16" height="16" rx="3" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="502" y="383" font-size="10" fill="#555">Already picked</text>
+  <rect x="620" y="370" width="16" height="16" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1"/>
+  <text x="642" y="383" font-size="10" fill="#555">Output (data[k])</text>
+
+  <!-- Stability callout -->
+  <rect x="30" y="398" width="800" height="52" rx="8" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="430" y="418" text-anchor="middle" fill="#2980b9" font-size="12" font-weight="bold">Why &lt;= instead of &lt;?  This is what makes merge sort STABLE.</text>
+  <text x="430" y="436" text-anchor="middle" fill="#555" font-size="11">When left_half[i] == right_half[j], we pick from the left half first, preserving original order of equal elements.</text>
+
+  <!-- Footer removed, stability box is the footer -->
+</svg>
