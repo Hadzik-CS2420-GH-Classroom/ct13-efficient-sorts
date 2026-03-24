@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 520" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <!-- Title -->
+  <text x="430" y="28" text-anchor="middle" fill="#1a1a1a" font-size="22" font-weight="bold">Merge Sort: How the Three Functions Work Together</text>
+  <text x="430" y="48" text-anchor="middle" fill="#555" font-size="13">The .h exposes merge_sort(). The .cpp hides merge_sort_recursive() and merge() as static helpers.</text>
+
+  <!-- ===== FUNCTION 1: merge_sort(), public wrapper ===== -->
+  <rect x="30" y="68" width="800" height="70" rx="8" fill="#f4ecf7" stroke="#8e44ad" stroke-width="2"/>
+  <text x="50" y="88" font-size="13" font-weight="bold" fill="#8e44ad">merge_sort(data)</text>
+  <text x="280" y="88" font-size="11" fill="#888">public (declared in .h)</text>
+
+  <rect x="50" y="96" width="760" height="34" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="70" y="112" fill="#c586c0">void</tspan><tspan fill="#dcdcaa"> merge_sort</tspan><tspan fill="#ddd">(vector&lt;int&gt;&amp; data) {</tspan>
+    <tspan x="90" y="126" fill="#c586c0">if</tspan><tspan fill="#ddd"> (data.size() &lt;= 1) </tspan><tspan fill="#c586c0">return</tspan><tspan fill="#ddd">;  merge_sort_recursive(data, 0, data.size()-1); }</tspan>
+  </text>
+
+  <!-- Arrow down -->
+  <line x1="430" y1="138" x2="430" y2="158" stroke="#8e44ad" stroke-width="2"/>
+  <polygon points="424,158 430,168 436,158" fill="#8e44ad"/>
+  <text x="450" y="156" font-size="10" fill="#8e44ad">calls</text>
+
+  <!-- ===== FUNCTION 2: merge_sort_recursive(), the recursion ===== -->
+  <rect x="30" y="170" width="800" height="126" rx="8" fill="#eaf2f8" stroke="#2980b9" stroke-width="2"/>
+  <text x="50" y="190" font-size="13" font-weight="bold" fill="#2980b9">merge_sort_recursive(data, left, right)</text>
+  <text x="430" y="190" font-size="11" fill="#888">static (hidden in .cpp, does the recursion)</text>
+
+  <rect x="50" y="198" width="760" height="88" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="70" y="214" fill="#c586c0">static void</tspan><tspan fill="#dcdcaa"> merge_sort_recursive</tspan><tspan fill="#ddd">(data, left, right) {</tspan>
+    <tspan x="90" y="230" fill="#c586c0">if</tspan><tspan fill="#ddd"> (left &gt;= right) </tspan><tspan fill="#c586c0">return</tspan><tspan fill="#ddd">;</tspan><tspan fill="#888">              // base case: 0 or 1 elements</tspan>
+    <tspan x="90" y="246" fill="#4ec9b0">int</tspan><tspan fill="#ddd"> mid = left + (right - left) / 2;</tspan>
+    <tspan x="90" y="262" fill="#dcdcaa">merge_sort_recursive</tspan><tspan fill="#ddd">(data, left, mid);</tspan><tspan fill="#888">  // sort left half</tspan>
+    <tspan x="90" y="278" fill="#dcdcaa">merge_sort_recursive</tspan><tspan fill="#ddd">(data, mid+1, right);</tspan><tspan fill="#888"> // sort right half</tspan>
+  </text>
+
+  <!-- Arrow down from recursive to merge -->
+  <line x1="430" y1="296" x2="430" y2="316" stroke="#2980b9" stroke-width="2"/>
+  <polygon points="424,316 430,326 436,316" fill="#2980b9"/>
+  <text x="450" y="312" font-size="10" fill="#2980b9">then calls</text>
+
+  <!-- Self-referencing recursion arrows on left side -->
+  <path d="M40,240 C10,240 10,270 40,270" fill="none" stroke="#e74c3c" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <polygon points="40,266 40,274 48,270" fill="#e74c3c"/>
+  <text x="4" y="258" font-size="8" fill="#e74c3c" text-anchor="middle" transform="rotate(-90, 4, 258)">recurse</text>
+
+  <!-- ===== FUNCTION 3: merge(), the actual work ===== -->
+  <rect x="30" y="328" width="800" height="104" rx="8" fill="#e8f8f5" stroke="#27ae60" stroke-width="2"/>
+  <text x="50" y="348" font-size="13" font-weight="bold" fill="#27ae60">merge(data, left, right)</text>
+  <text x="310" y="348" font-size="11" fill="#888">static (hidden in .cpp, does the merging work)</text>
+
+  <rect x="50" y="356" width="760" height="66" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="70" y="372" fill="#c586c0">static void</tspan><tspan fill="#dcdcaa"> merge</tspan><tspan fill="#ddd">(data, left, right) {</tspan>
+    <tspan x="90" y="388" fill="#888">// Step 1: calculate mid, copy halves to temp vectors</tspan>
+    <tspan x="90" y="404" fill="#888">// Step 2: compare fronts, pick smaller, write to data[k++]</tspan>
+    <tspan x="90" y="418" fill="#888">// Step 3: copy remaining elements from whichever half isn't empty }</tspan>
+  </text>
+
+  <!-- ===== FLOW SUMMARY ===== -->
+  <rect x="30" y="446" width="800" height="62" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="430" y="466" text-anchor="middle" fill="#333" font-size="12" font-weight="bold">The call flow:</text>
+  <text x="430" y="486" text-anchor="middle" font-size="11" fill="#555">
+    <tspan fill="#8e44ad" font-weight="bold">merge_sort(data)</tspan>
+    <tspan fill="#888"> &#x2192; </tspan>
+    <tspan fill="#2980b9" font-weight="bold">merge_sort_recursive(0, 5)</tspan>
+    <tspan fill="#888"> &#x2192; recurse on halves &#x2192; </tspan>
+    <tspan fill="#27ae60" font-weight="bold">merge()</tspan>
+    <tspan fill="#888"> at each level</tspan>
+  </text>
+  <text x="430" y="502" text-anchor="middle" font-size="11" fill="#555">The recursion splits the problem (log n levels). merge() does O(n) work at each level. Total: O(n log n).</text>
+</svg>

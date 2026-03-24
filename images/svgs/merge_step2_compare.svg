@@ -1,137 +1,163 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 520" font-family="'Segoe UI', Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 580" font-family="'Segoe UI', Arial, sans-serif">
   <rect width="100%" height="100%" fill="white"/>
 
   <!-- Title -->
   <text x="430" y="28" text-anchor="middle" fill="#1a1a1a" font-size="22" font-weight="bold">merge() Step 2: Compare Fronts, Pick Smaller</text>
-  <text x="430" y="48" text-anchor="middle" fill="#555" font-size="13">While both halves have elements, compare left_half[i] vs right_half[j], pick the smaller</text>
+  <text x="430" y="48" text-anchor="middle" fill="#555" font-size="13">While both halves have elements, compare left_half[i] vs right_half[j], pick the smaller one</text>
 
-  <!-- Code block -->
-  <rect x="30" y="62" width="800" height="96" rx="8" fill="#2d2d2d"/>
-  <text font-family="'Consolas', 'Courier New', monospace" font-size="11" fill="#ddd">
-    <tspan x="50" y="82" fill="#c586c0">while</tspan><tspan fill="#ddd"> (i &lt; left_half.</tspan><tspan fill="#dcdcaa">size</tspan><tspan fill="#ddd">() &amp;&amp; j &lt; right_half.</tspan><tspan fill="#dcdcaa">size</tspan><tspan fill="#ddd">()) {</tspan>
-    <tspan x="70" y="100" fill="#c586c0">if</tspan><tspan fill="#ddd"> (left_half[i] &lt;= right_half[j]) {</tspan><tspan fill="#888">  // left is smaller (or equal)</tspan>
-    <tspan x="90" y="116" fill="#ddd">data[k++] = left_half[i++];</tspan><tspan fill="#888">       // pick from left, advance i and k</tspan>
-    <tspan x="70" y="132" fill="#ddd">} </tspan><tspan fill="#c586c0">else</tspan><tspan fill="#ddd"> {</tspan>
-    <tspan x="90" y="148" fill="#ddd">data[k++] = right_half[j++];</tspan><tspan fill="#888">      // pick from right, advance j and k</tspan>
-    <tspan x="70" y="160" fill="#ddd">} }</tspan>
+  <!-- Column headers -->
+  <text x="195" y="72" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">CODE</text>
+  <text x="640" y="72" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">DATA STATE</text>
+
+  <!-- Row backgrounds -->
+  <rect x="20" y="78" width="820" height="56" rx="0" fill="#f9f9f9"/>
+  <rect x="20" y="134" width="820" height="70" rx="0" fill="white"/>
+  <rect x="20" y="204" width="820" height="70" rx="0" fill="#f9f9f9"/>
+  <rect x="20" y="274" width="820" height="70" rx="0" fill="white"/>
+  <rect x="20" y="344" width="820" height="70" rx="0" fill="#f9f9f9"/>
+  <rect x="20" y="414" width="820" height="50" rx="0" fill="white"/>
+
+  <!-- ===== ROW 1: Initialize pointers ===== -->
+  <rect x="30" y="84" width="350" height="40" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="100" fill="#4ec9b0">int</tspan><tspan fill="#ddd"> i = 0, j = 0, k = left;</tspan>
+    <tspan x="40" y="116" fill="#c586c0">while</tspan><tspan fill="#ddd"> (i &lt; left.size() &amp;&amp; j &lt; right.size())</tspan>
   </text>
 
-  <!-- 3 boxes per half, 6 output. box=52w, gap=4 -->
+  <!-- Connector -->
+  <line x1="380" y1="104" x2="438" y2="104" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="438,100 446,104 438,108" fill="#bdc3c7"/>
 
-  <!-- ===== ITERATION 1: compare 55 vs 62 ===== -->
-  <text x="30" y="192" font-size="12" font-weight="bold" fill="#888">Iter 1:</text>
+  <!-- Data: both halves with pointers, empty output -->
+  <text x="456" y="92" font-size="10" fill="#2980b9" font-weight="bold">left_half:</text>
+  <rect x="526" y="84" width="36" height="20" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="544" y="98" text-anchor="middle" fill="white" font-size="10" font-weight="bold">55</text>
+  <rect x="566" y="84" width="36" height="20" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="584" y="98" text-anchor="middle" fill="white" font-size="10" font-weight="bold">78</text>
+  <rect x="606" y="84" width="36" height="20" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="624" y="98" text-anchor="middle" fill="white" font-size="10" font-weight="bold">88</text>
+  <text x="544" y="114" text-anchor="middle" font-size="8" fill="#2980b9" font-weight="bold">i=0&#x2191;</text>
 
-  <text x="90" y="192" font-size="11" fill="#2980b9" font-weight="bold">left_half</text>
-  <rect x="160" y="178" width="52" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
-  <text x="186" y="197" text-anchor="middle" fill="white" font-size="12" font-weight="bold">55</text>
-  <rect x="216" y="178" width="52" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="242" y="197" text-anchor="middle" fill="white" font-size="12" font-weight="bold">78</text>
-  <rect x="272" y="178" width="52" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="298" y="197" text-anchor="middle" fill="white" font-size="12" font-weight="bold">88</text>
+  <text x="456" y="130" font-size="10" fill="#ca6f1e" font-weight="bold">right_half:</text>
+  <rect x="526" y="118" width="36" height="20" rx="3" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="544" y="132" text-anchor="middle" fill="white" font-size="10" font-weight="bold">62</text>
+  <rect x="566" y="118" width="36" height="20" rx="3" fill="#e67e22" stroke="#ca6f1e" stroke-width="1"/>
+  <text x="584" y="132" text-anchor="middle" fill="white" font-size="10" font-weight="bold">72</text>
+  <rect x="606" y="118" width="36" height="20" rx="3" fill="#e67e22" stroke="#ca6f1e" stroke-width="1"/>
+  <text x="624" y="132" text-anchor="middle" fill="white" font-size="10" font-weight="bold">95</text>
+  <text x="544" y="148" text-anchor="middle" font-size="8" fill="#ca6f1e" font-weight="bold">j=0&#x2191;</text>
 
-  <text x="342" y="192" font-size="11" fill="#ca6f1e" font-weight="bold">right_half</text>
-  <rect x="420" y="178" width="52" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="2"/>
-  <text x="446" y="197" text-anchor="middle" fill="white" font-size="12" font-weight="bold">62</text>
-  <rect x="476" y="178" width="52" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
-  <text x="502" y="197" text-anchor="middle" fill="white" font-size="12" font-weight="bold">72</text>
-  <rect x="532" y="178" width="52" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
-  <text x="558" y="197" text-anchor="middle" fill="white" font-size="12" font-weight="bold">95</text>
+  <text x="680" y="100" font-size="10" fill="#888">data[k] =</text>
+  <text x="680" y="114" font-size="10" fill="#888" font-style="italic">empty</text>
 
-  <text x="610" y="192" font-size="11" fill="#888">data[k]</text>
-  <rect x="660" y="178" width="52" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="686" y="197" text-anchor="middle" fill="white" font-size="12" font-weight="bold">55</text>
+  <!-- ===== ROW 2: Iter 1, compare 55 vs 62, pick 55 ===== -->
+  <rect x="30" y="144" width="350" height="26" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="162" fill="#ddd">left[0]=55 &lt;= right[0]=62 &#x2192; data[k++]=left[i++]</tspan>
+  </text>
 
-  <text x="730" y="197" font-size="10" fill="#27ae60">55 &lt;= 62, pick left</text>
+  <line x1="380" y1="157" x2="438" y2="157" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="438,153 446,157 438,161" fill="#bdc3c7"/>
 
-  <!-- ===== ITERATION 2: compare 78 vs 62 ===== -->
-  <text x="30" y="236" font-size="12" font-weight="bold" fill="#888">Iter 2:</text>
+  <!-- 55 picked from left, pointer advances -->
+  <text x="456" y="157" font-size="10" fill="#27ae60" font-weight="bold">55 &#x2264; 62, pick left</text>
+  <text x="456" y="175" font-size="10" fill="#888">data[k] =</text>
+  <rect x="510" y="163" width="36" height="20" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="528" y="177" text-anchor="middle" fill="white" font-size="10" font-weight="bold">55</text>
+  <text x="570" y="177" font-size="9" fill="#888">i=1, j=0, k=1</text>
 
-  <rect x="160" y="222" width="52" height="28" rx="4" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1"/>
-  <text x="186" y="241" text-anchor="middle" fill="#aaa" font-size="12">55</text>
-  <rect x="216" y="222" width="52" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
-  <text x="242" y="241" text-anchor="middle" fill="white" font-size="12" font-weight="bold">78</text>
-  <rect x="272" y="222" width="52" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="298" y="241" text-anchor="middle" fill="white" font-size="12" font-weight="bold">88</text>
+  <!-- ===== ROW 3: Iter 2, compare 78 vs 62, pick 62 ===== -->
+  <rect x="30" y="214" width="350" height="26" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="232" fill="#ddd">left[1]=78 &gt; right[0]=62  &#x2192; data[k++]=right[j++]</tspan>
+  </text>
 
-  <rect x="420" y="222" width="52" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="2"/>
-  <text x="446" y="241" text-anchor="middle" fill="white" font-size="12" font-weight="bold">62</text>
-  <rect x="476" y="222" width="52" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
-  <text x="502" y="241" text-anchor="middle" fill="white" font-size="12" font-weight="bold">72</text>
-  <rect x="532" y="222" width="52" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
-  <text x="558" y="241" text-anchor="middle" fill="white" font-size="12" font-weight="bold">95</text>
+  <line x1="380" y1="227" x2="438" y2="227" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="438,223 446,227 438,231" fill="#bdc3c7"/>
 
-  <rect x="660" y="222" width="52" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="686" y="241" text-anchor="middle" fill="white" font-size="12" font-weight="bold">55</text>
-  <rect x="716" y="222" width="52" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="742" y="241" text-anchor="middle" fill="white" font-size="12" font-weight="bold">62</text>
+  <text x="456" y="227" font-size="10" fill="#27ae60" font-weight="bold">78 &gt; 62, pick right</text>
+  <text x="456" y="245" font-size="10" fill="#888">data[k] =</text>
+  <rect x="510" y="233" width="36" height="20" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="528" y="247" text-anchor="middle" fill="white" font-size="10" font-weight="bold">55</text>
+  <rect x="550" y="233" width="36" height="20" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="568" y="247" text-anchor="middle" fill="white" font-size="10" font-weight="bold">62</text>
+  <text x="610" y="247" font-size="9" fill="#888">i=1, j=1, k=2</text>
 
-  <text x="800" y="241" font-size="10" fill="#27ae60">62 &lt; 78, pick right</text>
+  <!-- ===== ROW 4: Iter 3, compare 78 vs 72, pick 72 ===== -->
+  <rect x="30" y="284" width="350" height="26" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="302" fill="#ddd">left[1]=78 &gt; right[1]=72  &#x2192; data[k++]=right[j++]</tspan>
+  </text>
 
-  <!-- ===== ITERATION 3: compare 78 vs 72 ===== -->
-  <text x="30" y="280" font-size="12" font-weight="bold" fill="#888">Iter 3:</text>
+  <line x1="380" y1="297" x2="438" y2="297" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="438,293 446,297 438,301" fill="#bdc3c7"/>
 
-  <rect x="160" y="266" width="52" height="28" rx="4" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1"/>
-  <text x="186" y="285" text-anchor="middle" fill="#aaa" font-size="12">55</text>
-  <rect x="216" y="266" width="52" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
-  <text x="242" y="285" text-anchor="middle" fill="white" font-size="12" font-weight="bold">78</text>
-  <rect x="272" y="266" width="52" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="298" y="285" text-anchor="middle" fill="white" font-size="12" font-weight="bold">88</text>
+  <text x="456" y="297" font-size="10" fill="#27ae60" font-weight="bold">78 &gt; 72, pick right</text>
+  <text x="456" y="315" font-size="10" fill="#888">data[k] =</text>
+  <rect x="510" y="303" width="36" height="20" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="528" y="317" text-anchor="middle" fill="white" font-size="10" font-weight="bold">55</text>
+  <rect x="550" y="303" width="36" height="20" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="568" y="317" text-anchor="middle" fill="white" font-size="10" font-weight="bold">62</text>
+  <rect x="590" y="303" width="36" height="20" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="608" y="317" text-anchor="middle" fill="white" font-size="10" font-weight="bold">72</text>
+  <text x="650" y="317" font-size="9" fill="#888">i=1, j=2, k=3</text>
 
-  <rect x="420" y="266" width="52" height="28" rx="4" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1"/>
-  <text x="446" y="285" text-anchor="middle" fill="#aaa" font-size="12">62</text>
-  <rect x="476" y="266" width="52" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="2"/>
-  <text x="502" y="285" text-anchor="middle" fill="white" font-size="12" font-weight="bold">72</text>
-  <rect x="532" y="266" width="52" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
-  <text x="558" y="285" text-anchor="middle" fill="white" font-size="12" font-weight="bold">95</text>
+  <!-- ===== ROW 5: Iter 4, compare 78 vs 95, pick 78 ===== -->
+  <rect x="30" y="354" width="350" height="26" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="372" fill="#ddd">left[1]=78 &lt;= right[2]=95 &#x2192; data[k++]=left[i++]</tspan>
+  </text>
 
-  <rect x="660" y="266" width="52" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="686" y="285" text-anchor="middle" fill="white" font-size="12" font-weight="bold">55</text>
-  <rect x="716" y="266" width="52" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="742" y="285" text-anchor="middle" fill="white" font-size="12" font-weight="bold">62</text>
-  <rect x="772" y="266" width="52" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="798" y="285" text-anchor="middle" fill="white" font-size="12" font-weight="bold">72</text>
+  <line x1="380" y1="367" x2="438" y2="367" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="438,363 446,367 438,371" fill="#bdc3c7"/>
 
-  <!-- ===== ITERATION 4: compare 78 vs 95 ===== -->
-  <text x="30" y="324" font-size="12" font-weight="bold" fill="#888">Iter 4:</text>
+  <text x="456" y="367" font-size="10" fill="#27ae60" font-weight="bold">78 &#x2264; 95, pick left</text>
+  <text x="456" y="385" font-size="10" fill="#888">data[k] =</text>
+  <rect x="510" y="373" width="36" height="20" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="528" y="387" text-anchor="middle" fill="white" font-size="10" font-weight="bold">55</text>
+  <rect x="550" y="373" width="36" height="20" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="568" y="387" text-anchor="middle" fill="white" font-size="10" font-weight="bold">62</text>
+  <rect x="590" y="373" width="36" height="20" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="608" y="387" text-anchor="middle" fill="white" font-size="10" font-weight="bold">72</text>
+  <rect x="630" y="373" width="36" height="20" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="648" y="387" text-anchor="middle" fill="white" font-size="10" font-weight="bold">78</text>
+  <text x="690" y="387" font-size="9" fill="#888">i=2, j=2, k=4</text>
 
-  <rect x="160" y="310" width="52" height="28" rx="4" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1"/>
-  <text x="186" y="329" text-anchor="middle" fill="#aaa" font-size="12">55</text>
-  <rect x="216" y="310" width="52" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
-  <text x="242" y="329" text-anchor="middle" fill="white" font-size="12" font-weight="bold">78</text>
-  <rect x="272" y="310" width="52" height="28" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="298" y="329" text-anchor="middle" fill="white" font-size="12" font-weight="bold">88</text>
+  <!-- ===== ROW 6: Iter 5, compare 88 vs 95, pick 88 ===== -->
+  <rect x="30" y="424" width="350" height="26" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="442" fill="#ddd">left[2]=88 &lt;= right[2]=95 &#x2192; data[k++]=left[i++]</tspan>
+  </text>
 
-  <rect x="420" y="310" width="52" height="28" rx="4" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1"/>
-  <text x="446" y="329" text-anchor="middle" fill="#aaa" font-size="12">62</text>
-  <rect x="476" y="310" width="52" height="28" rx="4" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1"/>
-  <text x="502" y="329" text-anchor="middle" fill="#aaa" font-size="12">72</text>
-  <rect x="532" y="310" width="52" height="28" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="2"/>
-  <text x="558" y="329" text-anchor="middle" fill="white" font-size="12" font-weight="bold">95</text>
+  <line x1="380" y1="437" x2="438" y2="437" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="438,433 446,437 438,441" fill="#bdc3c7"/>
 
-  <rect x="660" y="310" width="52" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="686" y="329" text-anchor="middle" fill="white" font-size="12" font-weight="bold">55</text>
-  <rect x="716" y="310" width="52" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="742" y="329" text-anchor="middle" fill="white" font-size="12" font-weight="bold">62</text>
-  <rect x="772" y="310" width="52" height="28" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="798" y="329" text-anchor="middle" fill="white" font-size="12" font-weight="bold">72</text>
-
-  <!-- Note: 78 picked from left -->
-  <text x="30" y="358" font-size="11" fill="#555">...continues: 78 &lt;= 95 pick left, 88 &lt;= 95 pick left, then right_half still has 95</text>
-
-  <!-- Key -->
-  <rect x="160" y="370" width="16" height="16" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
-  <text x="182" y="383" font-size="10" fill="#555">Current left pointer</text>
-  <rect x="320" y="370" width="16" height="16" rx="3" fill="#e67e22" stroke="#ca6f1e" stroke-width="1"/>
-  <text x="342" y="383" font-size="10" fill="#555">Current right pointer</text>
-  <rect x="480" y="370" width="16" height="16" rx="3" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1"/>
-  <text x="502" y="383" font-size="10" fill="#555">Already picked</text>
-  <rect x="620" y="370" width="16" height="16" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1"/>
-  <text x="642" y="383" font-size="10" fill="#555">Output (data[k])</text>
+  <text x="456" y="437" font-size="10" fill="#27ae60" font-weight="bold">88 &#x2264; 95, pick left</text>
+  <text x="456" y="455" font-size="10" fill="#888">data[k] =</text>
+  <rect x="510" y="443" width="36" height="20" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="528" y="457" text-anchor="middle" fill="white" font-size="10" font-weight="bold">55</text>
+  <rect x="550" y="443" width="36" height="20" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="568" y="457" text-anchor="middle" fill="white" font-size="10" font-weight="bold">62</text>
+  <rect x="590" y="443" width="36" height="20" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="608" y="457" text-anchor="middle" fill="white" font-size="10" font-weight="bold">72</text>
+  <rect x="630" y="443" width="36" height="20" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="648" y="457" text-anchor="middle" fill="white" font-size="10" font-weight="bold">78</text>
+  <rect x="670" y="443" width="36" height="20" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="688" y="457" text-anchor="middle" fill="white" font-size="10" font-weight="bold">88</text>
+  <text x="730" y="457" font-size="9" fill="#e74c3c" font-weight="bold">i=3 (done!)</text>
 
   <!-- Stability callout -->
-  <rect x="30" y="398" width="800" height="52" rx="8" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="430" y="418" text-anchor="middle" fill="#2980b9" font-size="12" font-weight="bold">Why &lt;= instead of &lt;?  This is what makes merge sort STABLE.</text>
-  <text x="430" y="436" text-anchor="middle" fill="#555" font-size="11">When left_half[i] == right_half[j], we pick from the left half first, preserving original order of equal elements.</text>
+  <rect x="30" y="478" width="400" height="40" rx="8" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="230" y="496" text-anchor="middle" font-size="11" font-weight="bold" fill="#2980b9">Why &lt;= instead of &lt;?  This makes merge sort STABLE.</text>
+  <text x="230" y="512" text-anchor="middle" font-size="10" fill="#555">Equal elements: left is picked first, preserving original order.</text>
 
-  <!-- Footer removed, stability box is the footer -->
+  <!-- Loop exit note -->
+  <rect x="440" y="478" width="390" height="40" rx="8" fill="#fef9e7" stroke="#f39c12" stroke-width="1.5"/>
+  <text x="635" y="496" text-anchor="middle" font-size="11" font-weight="bold" fill="#e67e22">Loop exits: i reached end of left_half</text>
+  <text x="635" y="512" text-anchor="middle" font-size="10" fill="#555">right_half still has [95]. Step 3 copies it over.</text>
+
+  <!-- Footer -->
+  <rect x="30" y="530" width="800" height="40" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="430" y="548" text-anchor="middle" fill="#333" font-size="11" font-weight="bold">5 iterations to merge 6 elements. Each iteration does one comparison and one copy = O(n) total.</text>
+  <text x="430" y="564" text-anchor="middle" fill="#555" font-size="11">The output array data[k] grows by one element each iteration. Pointers only move forward.</text>
 </svg>
