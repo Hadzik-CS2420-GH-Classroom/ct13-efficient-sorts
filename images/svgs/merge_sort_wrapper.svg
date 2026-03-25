@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 340" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <!-- Title -->
+  <text x="430" y="28" text-anchor="middle" fill="#1a1a1a" font-size="22" font-weight="bold">merge_sort(): The Public Entry Point</text>
+  <text x="430" y="48" text-anchor="middle" fill="#555" font-size="13">This is what the caller uses. It delegates to the recursive helper with the full range.</text>
+
+  <!-- Column headers -->
+  <text x="195" y="72" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">CODE</text>
+  <text x="640" y="72" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">WHAT HAPPENS</text>
+
+  <!-- Row backgrounds -->
+  <rect x="20" y="78" width="820" height="56" rx="0" fill="#f9f9f9"/>
+  <rect x="20" y="134" width="820" height="56" rx="0" fill="white"/>
+  <rect x="20" y="190" width="820" height="56" rx="0" fill="#f9f9f9"/>
+
+  <!-- ===== ROW 1: Function signature ===== -->
+  <rect x="30" y="88" width="350" height="26" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="106" fill="#c586c0">void</tspan><tspan fill="#dcdcaa"> merge_sort</tspan><tspan fill="#ddd">(vector&lt;int&gt;&amp; data) {</tspan>
+  </text>
+
+  <line x1="380" y1="101" x2="438" y2="101" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="438,97 446,101 438,105" fill="#bdc3c7"/>
+
+  <text x="456" y="100" font-size="11" fill="#555">This is the only function declared in <tspan font-weight="bold" fill="#8e44ad">.h</tspan></text>
+  <text x="456" y="116" font-size="11" fill="#555">The caller just does: <tspan font-family="'Consolas', monospace" fill="#333">merge_sort(my_vector);</tspan></text>
+
+  <!-- ===== ROW 2: Guard clause ===== -->
+  <rect x="30" y="144" width="350" height="26" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="162" fill="#c586c0">if</tspan><tspan fill="#ddd"> (data.size() &lt;= 1) </tspan><tspan fill="#c586c0">return</tspan><tspan fill="#ddd">;</tspan>
+  </text>
+
+  <line x1="380" y1="157" x2="438" y2="157" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="438,153 446,157 438,161" fill="#bdc3c7"/>
+
+  <text x="456" y="156" font-size="11" fill="#555">0 or 1 elements? Already sorted. Nothing to do.</text>
+
+  <!-- ===== ROW 3: Delegate to recursive ===== -->
+  <rect x="30" y="200" width="350" height="26" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="218" fill="#dcdcaa">merge_sort_recursive</tspan><tspan fill="#ddd">(data, 0, data.size()-1);</tspan>
+  </text>
+
+  <line x1="380" y1="213" x2="438" y2="213" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="438,209 446,213 438,217" fill="#bdc3c7"/>
+
+  <text x="456" y="208" font-size="11" fill="#555">Hand off to the recursive helper with</text>
+  <text x="456" y="224" font-size="11" fill="#555"><tspan font-weight="bold">left=0</tspan> and <tspan font-weight="bold">right=last index</tspan> (the full array).</text>
+
+  <!-- Footer -->
+  <rect x="30" y="262" width="800" height="66" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="430" y="282" text-anchor="middle" fill="#333" font-size="12" font-weight="bold">Why a wrapper?</text>
+  <text x="430" y="300" text-anchor="middle" fill="#555" font-size="11">The recursive function needs left and right to track which subarray it's working on.</text>
+  <text x="430" y="316" text-anchor="middle" fill="#555" font-size="11">The caller shouldn't have to know that. merge_sort(data) is the clean public API.</text>
+</svg>

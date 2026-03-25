@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 560" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <!-- Title -->
+  <text x="430" y="28" text-anchor="middle" fill="#1a1a1a" font-size="22" font-weight="bold">merge_sort_recursive(): Tracing the Calls</text>
+  <text x="430" y="48" text-anchor="middle" fill="#555" font-size="13">Watch the recursion split [38, 55, 32, 95] down to single elements, then merge back up</text>
+
+  <!-- Column headers -->
+  <text x="195" y="72" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">CALL</text>
+  <text x="600" y="72" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">DATA STATE</text>
+
+  <!-- Row backgrounds -->
+  <rect x="20" y="78" width="820" height="46" rx="0" fill="#f9f9f9"/>
+  <rect x="20" y="124" width="820" height="46" rx="0" fill="white"/>
+  <rect x="20" y="170" width="820" height="46" rx="0" fill="#f9f9f9"/>
+  <rect x="20" y="216" width="820" height="46" rx="0" fill="white"/>
+  <rect x="20" y="262" width="820" height="46" rx="0" fill="#f9f9f9"/>
+  <rect x="20" y="308" width="820" height="46" rx="0" fill="white"/>
+  <rect x="20" y="354" width="820" height="46" rx="0" fill="#f9f9f9"/>
+  <rect x="20" y="400" width="820" height="46" rx="0" fill="white"/>
+  <rect x="20" y="446" width="820" height="46" rx="0" fill="#f9f9f9"/>
+
+  <!-- Indent guides to show call depth -->
+
+  <!-- ===== CALL 1: recursive(0, 3) ===== -->
+  <rect x="30" y="86" width="330" height="22" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="40" y="102" fill="#dcdcaa">merge_sort_recursive</tspan><tspan fill="#ddd">(data, 0, 3)</tspan>
+  </text>
+  <text x="380" y="102" font-size="10" fill="#888">mid = 1. Recurse left first...</text>
+
+  <line x1="370" y1="97" x2="430" y2="97" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="430,93 438,97 430,101" fill="#bdc3c7"/>
+
+  <!-- Data -->
+  <rect x="446" y="86" width="36" height="22" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="464" y="101" text-anchor="middle" fill="white" font-size="10" font-weight="bold">38</text>
+  <rect x="486" y="86" width="36" height="22" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="504" y="101" text-anchor="middle" fill="white" font-size="10" font-weight="bold">55</text>
+  <rect x="526" y="86" width="36" height="22" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="544" y="101" text-anchor="middle" fill="white" font-size="10" font-weight="bold">32</text>
+  <rect x="566" y="86" width="36" height="22" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="584" y="101" text-anchor="middle" fill="white" font-size="10" font-weight="bold">95</text>
+
+  <!-- ===== CALL 2: recursive(0, 1) ===== -->
+  <rect x="50" y="132" width="310" height="22" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="60" y="148" fill="#888">&#x21B3; </tspan><tspan fill="#dcdcaa">recursive</tspan><tspan fill="#ddd">(data, 0, 1)</tspan>
+  </text>
+  <text x="380" y="148" font-size="10" fill="#888">mid = 0. Recurse left...</text>
+
+  <line x1="370" y1="143" x2="430" y2="143" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="430,139 438,143 430,147" fill="#bdc3c7"/>
+
+  <rect x="446" y="132" width="36" height="22" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="464" y="147" text-anchor="middle" fill="white" font-size="10" font-weight="bold">38</text>
+  <rect x="486" y="132" width="36" height="22" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="504" y="147" text-anchor="middle" fill="white" font-size="10" font-weight="bold">55</text>
+
+  <!-- ===== CALL 3: recursive(0, 0) BASE CASE ===== -->
+  <rect x="70" y="178" width="290" height="22" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="80" y="194" fill="#888">&#x21B3; &#x21B3; </tspan><tspan fill="#dcdcaa">recursive</tspan><tspan fill="#ddd">(data, 0, 0)</tspan>
+  </text>
+
+  <line x1="370" y1="189" x2="430" y2="189" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="430,185 438,189 430,193" fill="#bdc3c7"/>
+
+  <rect x="446" y="178" width="36" height="22" rx="3" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="464" y="193" text-anchor="middle" fill="white" font-size="10" font-weight="bold">38</text>
+  <text x="500" y="193" font-size="10" fill="#e74c3c" font-weight="bold">BASE CASE (1 element, return)</text>
+
+  <!-- ===== CALL 4: recursive(1, 1) BASE CASE ===== -->
+  <rect x="70" y="224" width="290" height="22" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="80" y="240" fill="#888">&#x21B3; &#x21B3; </tspan><tspan fill="#dcdcaa">recursive</tspan><tspan fill="#ddd">(data, 1, 1)</tspan>
+  </text>
+
+  <line x1="370" y1="235" x2="430" y2="235" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="430,231 438,235 430,239" fill="#bdc3c7"/>
+
+  <rect x="446" y="224" width="36" height="22" rx="3" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="464" y="239" text-anchor="middle" fill="white" font-size="10" font-weight="bold">55</text>
+  <text x="500" y="239" font-size="10" fill="#e74c3c" font-weight="bold">BASE CASE (1 element, return)</text>
+
+  <!-- ===== MERGE(0, 1): merge [38] and [55] ===== -->
+  <rect x="50" y="270" width="310" height="22" rx="4" fill="#1a472a"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="60" y="286" fill="#888">&#x21B3; </tspan><tspan fill="#2ecc71">merge</tspan><tspan fill="#8fbc8f">(data, 0, 1)</tspan>
+  </text>
+
+  <line x1="370" y1="281" x2="430" y2="281" stroke="#27ae60" stroke-width="1.5"/>
+  <polygon points="430,277 438,281 430,285" fill="#27ae60"/>
+
+  <rect x="446" y="270" width="36" height="22" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="464" y="285" text-anchor="middle" fill="white" font-size="10" font-weight="bold">38</text>
+  <rect x="486" y="270" width="36" height="22" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="504" y="285" text-anchor="middle" fill="white" font-size="10" font-weight="bold">55</text>
+  <text x="540" y="285" font-size="10" fill="#27ae60" font-weight="bold">merged! [38, 55] sorted</text>
+
+  <!-- ===== CALL 5: recursive(2, 3) ===== -->
+  <rect x="50" y="316" width="310" height="22" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="60" y="332" fill="#888">&#x21B3; </tspan><tspan fill="#dcdcaa">recursive</tspan><tspan fill="#ddd">(data, 2, 3)</tspan>
+  </text>
+  <text x="380" y="332" font-size="10" fill="#888">mid = 2. Same process...</text>
+
+  <line x1="370" y1="327" x2="430" y2="327" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="430,323 438,327 430,331" fill="#bdc3c7"/>
+
+  <rect x="446" y="316" width="36" height="22" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="464" y="331" text-anchor="middle" fill="white" font-size="10" font-weight="bold">32</text>
+  <rect x="486" y="316" width="36" height="22" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="504" y="331" text-anchor="middle" fill="white" font-size="10" font-weight="bold">95</text>
+
+  <!-- ===== BASE CASES + MERGE for (2,3) compressed ===== -->
+  <rect x="70" y="362" width="290" height="22" rx="4" fill="#444"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="80" y="378" fill="#888">&#x21B3; &#x21B3; base(2,2) base(3,3)</tspan>
+  </text>
+
+  <line x1="370" y1="373" x2="430" y2="373" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="430,369 438,373 430,377" fill="#bdc3c7"/>
+
+  <rect x="446" y="362" width="36" height="22" rx="3" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="464" y="377" text-anchor="middle" fill="white" font-size="10" font-weight="bold">32</text>
+  <rect x="498" y="362" width="36" height="22" rx="3" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="516" y="377" text-anchor="middle" fill="white" font-size="10" font-weight="bold">95</text>
+  <text x="550" y="377" font-size="10" fill="#e74c3c">both base cases</text>
+
+  <!-- MERGE(2, 3) -->
+  <rect x="50" y="408" width="310" height="22" rx="4" fill="#1a472a"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="60" y="424" fill="#888">&#x21B3; </tspan><tspan fill="#2ecc71">merge</tspan><tspan fill="#8fbc8f">(data, 2, 3)</tspan>
+  </text>
+
+  <line x1="370" y1="419" x2="430" y2="419" stroke="#27ae60" stroke-width="1.5"/>
+  <polygon points="430,415 438,419 430,423" fill="#27ae60"/>
+
+  <rect x="446" y="408" width="36" height="22" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="464" y="423" text-anchor="middle" fill="white" font-size="10" font-weight="bold">32</text>
+  <rect x="486" y="408" width="36" height="22" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="504" y="423" text-anchor="middle" fill="white" font-size="10" font-weight="bold">95</text>
+  <text x="540" y="423" font-size="10" fill="#27ae60" font-weight="bold">merged! [32, 95] sorted</text>
+
+  <!-- ===== FINAL MERGE(0, 3) ===== -->
+  <rect x="30" y="454" width="330" height="22" rx="4" fill="#1a472a"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="40" y="470" fill="#2ecc71">merge</tspan><tspan fill="#8fbc8f">(data, 0, 3)</tspan>
+  </text>
+
+  <line x1="370" y1="465" x2="430" y2="465" stroke="#27ae60" stroke-width="1.5"/>
+  <polygon points="430,461 438,465 430,469" fill="#27ae60"/>
+
+  <rect x="446" y="454" width="36" height="22" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="464" y="469" text-anchor="middle" fill="white" font-size="10" font-weight="bold">32</text>
+  <rect x="486" y="454" width="36" height="22" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="504" y="469" text-anchor="middle" fill="white" font-size="10" font-weight="bold">38</text>
+  <rect x="526" y="454" width="36" height="22" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="544" y="469" text-anchor="middle" fill="white" font-size="10" font-weight="bold">55</text>
+  <rect x="566" y="454" width="36" height="22" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="584" y="469" text-anchor="middle" fill="white" font-size="10" font-weight="bold">95</text>
+  <text x="620" y="469" font-size="11" fill="#27ae60" font-weight="bold">&#x2713; fully sorted!</text>
+
+  <!-- Footer -->
+  <rect x="30" y="492" width="800" height="56" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="430" y="512" text-anchor="middle" fill="#333" font-size="11" font-weight="bold">The pattern: split all the way down, then merge on the way back up.</text>
+  <text x="430" y="530" text-anchor="middle" fill="#555" font-size="11">Indentation = call depth. Green rows = merge() doing actual work. Orange = base case (nothing to do).</text>
+  <text x="430" y="544" text-anchor="middle" fill="#555" font-size="11">With 4 elements: 2 levels of splitting, 3 merge calls. With n elements: log n levels, n work per level.</text>
+</svg>

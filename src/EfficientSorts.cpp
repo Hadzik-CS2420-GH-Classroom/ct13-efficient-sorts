@@ -18,12 +18,23 @@
 // =============================================================================
 //
 // ? SEE DIAGRAM: images/header_diagrams.md #4 -- merge sort: divide and conquer tree
-// ? SEE DIAGRAM: images/cpp_diagrams.md #1 -- merge(): combining two sorted halves (with code)
+// ? SEE DIAGRAM: images/cpp_diagrams.md #1 -- merge_sort(): the public entry point
+// ? SEE DIAGRAM: images/cpp_diagrams.md #2 -- merge_sort_recursive(): the recursion (code)
+// ? SEE DIAGRAM: images/cpp_diagrams.md #3 -- merge_sort_recursive(): tracing the calls
+// ? SEE DIAGRAM: images/cpp_diagrams.md #4 -- merge() step 1: copy halves to temp vectors
+// ? SEE DIAGRAM: images/cpp_diagrams.md #5 -- merge() step 2: compare fronts, pick smaller
+// ? SEE DIAGRAM: images/cpp_diagrams.md #6 -- merge() step 3: copy remaining elements
 //
 
 // ---------------------------------------------------------------------------
 // 1a. merge() -- merge two sorted halves into one sorted region
 // ---------------------------------------------------------------------------
+//
+// ! DISCUSSION: Why does merge() take left and right?
+//   - merge sort recurses on subarrays, not the whole vector
+//   - merge(data, 0, 3) merges one slice while merge(data, 4, 7) merges another
+//   - left and right tell the function which portion of data[] to work on
+//   - mid is calculated inside the function (always the midpoint of left..right)
 //
 // ! DISCUSSION: The merge step is where the real work happens.
 //   - left half: data[left..mid] is sorted
@@ -37,10 +48,11 @@
 //     we haven't compared yet)
 //   - this is the tradeoff: guaranteed O(n log n) time costs O(n) space
 //
-static void merge(std::vector<int>& data, int left, int mid, int right) {
+static void merge(std::vector<int>& data, int left, int right) {
     // TODO 1a: Merge two sorted halves
-    //   Step 1: Copy left half (data[left..mid]) into a temp vector left_half
-    //   Step 2: Copy right half (data[mid+1..right]) into a temp vector right_half
+    //   Step 1: Calculate mid = left + (right - left) / 2
+    //           Copy left half (data[left..mid]) into a temp vector left_half
+    //           Copy right half (data[mid+1..right]) into a temp vector right_half
     //   Step 3: Use three indices (i for left_half, j for right_half, k for data)
     //     - while both halves have elements: compare front of each, pick smaller
     //     - copy any remaining elements from left_half
@@ -64,7 +76,7 @@ static void merge_sort_recursive(std::vector<int>& data, int left, int right) {
     //   - find the midpoint: mid = left + (right - left) / 2
     //   - recursively sort the left half:  merge_sort_recursive(data, left, mid)
     //   - recursively sort the right half: merge_sort_recursive(data, mid + 1, right)
-    //   - merge the two sorted halves:     merge(data, left, mid, right)
+    //   - merge the two sorted halves:     merge(data, left, right)
 }
 
 // Public wrapper
@@ -78,7 +90,7 @@ void merge_sort(std::vector<int>& data) {
 // =============================================================================
 //
 // ? SEE DIAGRAM: images/header_diagrams.md #5 -- quick sort: partition step
-// ? SEE DIAGRAM: images/cpp_diagrams.md #2 -- partition(): scan, swap, place pivot (with code)
+// ? SEE DIAGRAM: images/cpp_diagrams.md #7 -- partition(): scan, swap, place pivot (with code)
 //
 
 // ---------------------------------------------------------------------------
@@ -154,7 +166,7 @@ void quick_sort(std::vector<int>& data) {
 //
 // ? SEE DIAGRAM: images/header_diagrams.md #6 -- heap sort phase 1: build the max-heap
 // ? SEE DIAGRAM: images/header_diagrams.md #7 -- heap sort phase 2: extract max repeatedly
-// ? SEE DIAGRAM: images/cpp_diagrams.md #3 -- heapify_down(): sink node to correct level (with code)
+// ? SEE DIAGRAM: images/cpp_diagrams.md #8 -- heapify_down(): sink node to correct level (with code)
 //
 
 // ---------------------------------------------------------------------------
