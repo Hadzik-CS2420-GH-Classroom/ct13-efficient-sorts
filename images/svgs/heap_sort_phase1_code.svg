@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 560" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <!-- Sort badge -->
+  <rect x="730" y="6" width="120" height="20" rx="10" fill="#16a085" opacity="0.85"/>
+  <text x="790" y="20" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="'Segoe UI', Arial, sans-serif">HEAP SORT</text>
+
+  <!-- Title -->
+  <text x="430" y="28" text-anchor="middle" fill="#1a1a1a" font-size="22" font-weight="bold">Phase 1: Build the Max-Heap</text>
+  <text x="430" y="48" text-anchor="middle" fill="#555" font-size="13">Call heapify_down on every non-leaf node (i=2,1,0). Data: [38, 55, 32, 95, 62, 27, 43]</text>
+
+  <!-- The loop code -->
+  <rect x="30" y="62" width="800" height="26" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="80" fill="#c586c0">for</tspan><tspan fill="#ddd"> (</tspan><tspan fill="#4ec9b0">int</tspan><tspan fill="#ddd"> i = n/2-1; i &gt;= 0; --i)  heapify_down(data, n, i);</tspan><tspan fill="#888">  // i = 2, 1, 0</tspan>
+  </text>
+
+  <!-- Column headers -->
+  <text x="195" y="106" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">CODE</text>
+  <text x="620" y="106" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">DATA STATE</text>
+
+  <!-- Row backgrounds -->
+  <rect x="20" y="112" width="820" height="110" rx="0" fill="#f9f9f9"/>
+  <rect x="20" y="222" width="820" height="110" rx="0" fill="white"/>
+  <rect x="20" y="332" width="820" height="110" rx="0" fill="#f9f9f9"/>
+
+  <!-- ================================================================ -->
+  <!-- STEP 1: heapify_down(data, 7, 2)                                -->
+  <!-- ================================================================ -->
+  <text x="30" y="128" font-size="12" fill="#16a085" font-weight="bold">heapify_down(data, 7, 2)</text>
+  <text x="280" y="128" font-size="10" fill="#555">Fix node [2]=32. Children: [5]=27, [6]=43.</text>
+
+  <rect x="30" y="136" width="380" height="50" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="152" fill="#888">// index=2, left=5(27), right=6(43)</tspan>
+    <tspan x="40" y="166" fill="#888">// 43 &gt; 32 → largest=6</tspan>
+    <tspan x="40" y="180" fill="#ddd">swap(data[2], data[6]);</tspan><tspan fill="#888"> // 32 is now a leaf → done</tspan>
+  </text>
+
+  <!-- Before array -->
+  <text x="430" y="138" font-size="10" fill="#888" font-weight="bold">Before:</text>
+  <rect x="430" y="144" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="443" y="157" text-anchor="middle" fill="white" font-size="8" font-weight="bold">38</text>
+  <rect x="460" y="144" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="473" y="157" text-anchor="middle" fill="white" font-size="8" font-weight="bold">55</text>
+  <rect x="490" y="144" width="26" height="18" rx="3" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="503" y="157" text-anchor="middle" fill="white" font-size="8" font-weight="bold">32</text>
+  <rect x="520" y="144" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="533" y="157" text-anchor="middle" fill="white" font-size="8">95</text>
+  <rect x="550" y="144" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="563" y="157" text-anchor="middle" fill="white" font-size="8">62</text>
+  <rect x="580" y="144" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="593" y="157" text-anchor="middle" fill="white" font-size="8">27</text>
+  <rect x="610" y="144" width="26" height="18" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="2"/>
+  <text x="623" y="157" text-anchor="middle" fill="white" font-size="8" font-weight="bold">43</text>
+  <text x="503" y="170" text-anchor="middle" font-size="6" fill="#e74c3c">[2]</text>
+  <text x="623" y="170" text-anchor="middle" font-size="6" fill="#27ae60">[6]</text>
+
+  <!-- After array -->
+  <text x="430" y="186" font-size="10" fill="#27ae60" font-weight="bold">After:</text>
+  <rect x="430" y="192" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="443" y="205" text-anchor="middle" fill="white" font-size="8" font-weight="bold">38</text>
+  <rect x="460" y="192" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="473" y="205" text-anchor="middle" fill="white" font-size="8" font-weight="bold">55</text>
+  <rect x="490" y="192" width="26" height="18" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="2"/>
+  <text x="503" y="205" text-anchor="middle" fill="white" font-size="8" font-weight="bold">43</text>
+  <rect x="520" y="192" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="533" y="205" text-anchor="middle" fill="white" font-size="8">95</text>
+  <rect x="550" y="192" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="563" y="205" text-anchor="middle" fill="white" font-size="8">62</text>
+  <rect x="580" y="192" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="593" y="205" text-anchor="middle" fill="white" font-size="8">27</text>
+  <rect x="610" y="192" width="26" height="18" rx="3" fill="#e67e22" stroke="#ca6f1e" stroke-width="2"/>
+  <text x="623" y="205" text-anchor="middle" fill="white" font-size="8" font-weight="bold">32</text>
+  <text x="503" y="218" text-anchor="middle" font-size="6" fill="#27ae60">&#x2191; rose</text>
+  <text x="623" y="218" text-anchor="middle" font-size="6" fill="#e67e22">&#x2191; sank</text>
+
+  <!-- ================================================================ -->
+  <!-- STEP 2: heapify_down(data, 7, 1)                                -->
+  <!-- ================================================================ -->
+  <text x="30" y="238" font-size="12" fill="#16a085" font-weight="bold">heapify_down(data, 7, 1)</text>
+  <text x="280" y="238" font-size="10" fill="#555">Fix node [1]=55. Children: [3]=95, [4]=62.</text>
+
+  <rect x="30" y="246" width="380" height="50" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="262" fill="#888">// index=1, left=3(95), right=4(62)</tspan>
+    <tspan x="40" y="276" fill="#888">// 95 &gt; 55 → largest=3</tspan>
+    <tspan x="40" y="290" fill="#ddd">swap(data[1], data[3]);</tspan><tspan fill="#888"> // recurse: 55 &gt; children → done</tspan>
+  </text>
+
+  <!-- Before array -->
+  <text x="430" y="248" font-size="10" fill="#888" font-weight="bold">Before:</text>
+  <rect x="430" y="254" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="443" y="267" text-anchor="middle" fill="white" font-size="8" font-weight="bold">38</text>
+  <rect x="460" y="254" width="26" height="18" rx="3" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="473" y="267" text-anchor="middle" fill="white" font-size="8" font-weight="bold">55</text>
+  <rect x="490" y="254" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="503" y="267" text-anchor="middle" fill="white" font-size="8">43</text>
+  <rect x="520" y="254" width="26" height="18" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="2"/>
+  <text x="533" y="267" text-anchor="middle" fill="white" font-size="8" font-weight="bold">95</text>
+  <rect x="550" y="254" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="563" y="267" text-anchor="middle" fill="white" font-size="8">62</text>
+  <rect x="580" y="254" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="593" y="267" text-anchor="middle" fill="white" font-size="8">27</text>
+  <rect x="610" y="254" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="623" y="267" text-anchor="middle" fill="white" font-size="8">32</text>
+  <text x="473" y="280" text-anchor="middle" font-size="6" fill="#e74c3c">[1]</text>
+  <text x="533" y="280" text-anchor="middle" font-size="6" fill="#27ae60">[3]</text>
+
+  <!-- After array -->
+  <text x="430" y="296" font-size="10" fill="#27ae60" font-weight="bold">After:</text>
+  <rect x="430" y="302" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="443" y="315" text-anchor="middle" fill="white" font-size="8" font-weight="bold">38</text>
+  <rect x="460" y="302" width="26" height="18" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="2"/>
+  <text x="473" y="315" text-anchor="middle" fill="white" font-size="8" font-weight="bold">95</text>
+  <rect x="490" y="302" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="503" y="315" text-anchor="middle" fill="white" font-size="8">43</text>
+  <rect x="520" y="302" width="26" height="18" rx="3" fill="#e67e22" stroke="#ca6f1e" stroke-width="2"/>
+  <text x="533" y="315" text-anchor="middle" fill="white" font-size="8" font-weight="bold">55</text>
+  <rect x="550" y="302" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="563" y="315" text-anchor="middle" fill="white" font-size="8">62</text>
+  <rect x="580" y="302" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="593" y="315" text-anchor="middle" fill="white" font-size="8">27</text>
+  <rect x="610" y="302" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="623" y="315" text-anchor="middle" fill="white" font-size="8">32</text>
+  <text x="473" y="328" text-anchor="middle" font-size="6" fill="#27ae60">&#x2191; rose</text>
+  <text x="533" y="328" text-anchor="middle" font-size="6" fill="#e67e22">&#x2191; sank</text>
+
+  <!-- ================================================================ -->
+  <!-- STEP 3: heapify_down(data, 7, 0) — two swaps                   -->
+  <!-- ================================================================ -->
+  <text x="30" y="348" font-size="12" fill="#16a085" font-weight="bold">heapify_down(data, 7, 0)</text>
+  <text x="280" y="348" font-size="10" fill="#555">Fix root [0]=38. Two swaps: 38 sinks [0]→[1]→[4].</text>
+
+  <rect x="30" y="356" width="380" height="64" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="372" fill="#888">// index=0: 95 &gt; 38 → swap(data[0], data[1])</tspan>
+    <tspan x="40" y="386" fill="#888">// recurse [1]: 62 &gt; 38 → swap(data[1], data[4])</tspan>
+    <tspan x="40" y="400" fill="#888">// recurse [4]: 38 is leaf → done</tspan>
+    <tspan x="40" y="414" fill="#ddd">swap(0,1); swap(1,4);</tspan><tspan fill="#888"> // 38 sinks 2 levels</tspan>
+  </text>
+
+  <!-- Before array -->
+  <text x="430" y="358" font-size="10" fill="#888" font-weight="bold">Before:</text>
+  <rect x="430" y="364" width="26" height="18" rx="3" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="443" y="377" text-anchor="middle" fill="white" font-size="8" font-weight="bold">38</text>
+  <rect x="460" y="364" width="26" height="18" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="2"/>
+  <text x="473" y="377" text-anchor="middle" fill="white" font-size="8" font-weight="bold">95</text>
+  <rect x="490" y="364" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="503" y="377" text-anchor="middle" fill="white" font-size="8">43</text>
+  <rect x="520" y="364" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="533" y="377" text-anchor="middle" fill="white" font-size="8">55</text>
+  <rect x="550" y="364" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="563" y="377" text-anchor="middle" fill="white" font-size="8">62</text>
+  <rect x="580" y="364" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="593" y="377" text-anchor="middle" fill="white" font-size="8">27</text>
+  <rect x="610" y="364" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="623" y="377" text-anchor="middle" fill="white" font-size="8">32</text>
+  <text x="443" y="390" text-anchor="middle" font-size="6" fill="#e74c3c">[0]</text>
+  <text x="473" y="390" text-anchor="middle" font-size="6" fill="#27ae60">[1]</text>
+
+  <!-- After array (max-heap!) -->
+  <text x="430" y="406" font-size="10" fill="#27ae60" font-weight="bold">After (max-heap!):</text>
+  <rect x="430" y="412" width="26" height="18" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="2"/>
+  <text x="443" y="425" text-anchor="middle" fill="white" font-size="8" font-weight="bold">95</text>
+  <rect x="460" y="412" width="26" height="18" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="473" y="425" text-anchor="middle" fill="white" font-size="8" font-weight="bold">62</text>
+  <rect x="490" y="412" width="26" height="18" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="503" y="425" text-anchor="middle" fill="white" font-size="8" font-weight="bold">43</text>
+  <rect x="520" y="412" width="26" height="18" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="533" y="425" text-anchor="middle" fill="white" font-size="8" font-weight="bold">55</text>
+  <rect x="550" y="412" width="26" height="18" rx="3" fill="#e67e22" stroke="#ca6f1e" stroke-width="2"/>
+  <text x="563" y="425" text-anchor="middle" fill="white" font-size="8" font-weight="bold">38</text>
+  <rect x="580" y="412" width="26" height="18" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="593" y="425" text-anchor="middle" fill="white" font-size="8" font-weight="bold">27</text>
+  <rect x="610" y="412" width="26" height="18" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="623" y="425" text-anchor="middle" fill="white" font-size="8" font-weight="bold">32</text>
+  <text x="443" y="438" text-anchor="middle" font-size="6" fill="#27ae60">max!</text>
+  <text x="563" y="438" text-anchor="middle" font-size="6" fill="#e67e22">&#x2191; sank</text>
+
+  <!-- ===== END STATE ===== -->
+  <rect x="30" y="456" width="800" height="52" rx="8" fill="#f4f6f7" stroke="#95a5a6" stroke-width="1.5"/>
+  <text x="430" y="476" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">Phase 1 complete: [95, 62, 43, 55, 38, 27, 32] — valid max-heap</text>
+  <text x="430" y="496" text-anchor="middle" font-size="11" fill="#555">data[0]=95 is the maximum. Every parent &#x2265; its children. Ready for Phase 2.</text>
+
+  <!-- Footer -->
+  <rect x="30" y="520" width="800" height="28" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="430" y="540" text-anchor="middle" fill="#333" font-size="11" font-weight="bold">3 calls to heapify_down — one per non-leaf node. Build time: O(n). See diagram #20 for the full heapify_down mechanics.</text>
+</svg>

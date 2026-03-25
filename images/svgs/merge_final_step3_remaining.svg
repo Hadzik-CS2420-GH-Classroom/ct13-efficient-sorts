@@ -7,7 +7,7 @@
 
   <!-- Title -->
   <text x="430" y="28" text-anchor="middle" fill="#1a1a1a" font-size="22" font-weight="bold">merge() Step 3: Copy Remaining Elements</text>
-  <text x="430" y="48" text-anchor="middle" fill="#555" font-size="13">When one half runs out, copy whatever is left from the other half. Only ONE loop runs.</text>
+  <text x="430" y="48" text-anchor="middle" fill="#555" font-size="13">merge(data, 0, 1, 3) — left_half exhausted, right_half has [95] remaining</text>
 
   <!-- Column headers -->
   <text x="195" y="72" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">CODE</text>
@@ -28,8 +28,8 @@
   <line x1="380" y1="111" x2="438" y2="111" stroke="#bdc3c7" stroke-width="1.5"/>
   <polygon points="438,107 446,111 438,115" fill="#bdc3c7"/>
 
-  <text x="456" y="111" font-size="10" fill="#888">i = 1, left_half.size() = 1</text>
-  <text x="456" y="127" font-size="10" fill="#e74c3c" font-weight="bold">1 &lt; 1 is false — loop does NOT run</text>
+  <text x="456" y="111" font-size="10" fill="#888">i = 2, left_half.size() = 2</text>
+  <text x="456" y="127" font-size="10" fill="#e74c3c" font-weight="bold">2 &lt; 2 is false — loop does NOT run</text>
 
   <!-- Concrete box -->
   <rect x="30" y="132" width="350" height="50" rx="4" fill="#1a472a"/>
@@ -40,12 +40,15 @@
   </text>
 
   <text x="456" y="148" font-size="10" fill="#555" font-weight="bold">data[] unchanged:</text>
-  <rect x="456" y="154" width="36" height="20" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="474" y="168" text-anchor="middle" fill="white" font-size="10" font-weight="bold">38</text>
-  <rect x="496" y="154" width="36" height="20" rx="3" fill="white" stroke="#bdc3c7" stroke-width="1.5" stroke-dasharray="4,2"/>
-  <text x="514" y="168" text-anchor="middle" fill="#bdc3c7" font-size="10">?</text>
-  <text x="474" y="182" text-anchor="middle" font-size="7" fill="#888">data[0]</text>
-  <text x="514" y="182" text-anchor="middle" font-size="7" fill="#888">data[1]</text>
+  <rect x="456" y="154" width="30" height="18" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="471" y="167" text-anchor="middle" fill="white" font-size="9" font-weight="bold">32</text>
+  <rect x="490" y="154" width="30" height="18" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="505" y="167" text-anchor="middle" fill="white" font-size="9" font-weight="bold">38</text>
+  <rect x="524" y="154" width="30" height="18" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="539" y="167" text-anchor="middle" fill="white" font-size="9" font-weight="bold">55</text>
+  <rect x="558" y="154" width="30" height="18" rx="3" fill="white" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="573" y="167" text-anchor="middle" fill="#bdc3c7" font-size="9">?</text>
+  <text x="573" y="182" text-anchor="middle" font-size="7" fill="#888">data[3]</text>
 
   <!-- ===== ROW 2: Second while loop (right_half cleanup) ===== -->
   <text x="30" y="220" font-size="10" fill="#555" font-style="italic">Loop 2: Copy any remaining elements from right_half into data[k].</text>
@@ -58,56 +61,57 @@
   <line x1="380" y1="239" x2="438" y2="239" stroke="#bdc3c7" stroke-width="1.5"/>
   <polygon points="438,235 446,239 438,243" fill="#bdc3c7"/>
 
-  <text x="456" y="239" font-size="10" fill="#888">j = 0, right_half.size() = 1</text>
-  <text x="456" y="255" font-size="10" fill="#27ae60" font-weight="bold">0 &lt; 1 is true — loop runs!</text>
+  <text x="456" y="239" font-size="10" fill="#888">j = 1, right_half.size() = 2</text>
+  <text x="456" y="255" font-size="10" fill="#27ae60" font-weight="bold">1 &lt; 2 is true — loop runs!</text>
 
   <!-- Concrete box -->
   <rect x="30" y="262" width="350" height="50" rx="4" fill="#1a472a"/>
   <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
     <tspan x="40" y="276" fill="#888">// k++ means: use k first, THEN increment</tspan>
-    <tspan x="40" y="292" fill="#8fbc8f">data[</tspan><tspan fill="#ce9178">1</tspan><tspan fill="#8fbc8f">] = right_half[</tspan><tspan fill="#ce9178">0</tspan><tspan fill="#8fbc8f">] = </tspan><tspan fill="#2ecc71" font-weight="bold">55</tspan><tspan fill="#888">   // write at k=1</tspan>
-    <tspan x="40" y="306" fill="#888">// after: k=2, j=1 — loop exits</tspan>
+    <tspan x="40" y="292" fill="#8fbc8f">data[</tspan><tspan fill="#ce9178">3</tspan><tspan fill="#8fbc8f">] = right_half[</tspan><tspan fill="#ce9178">1</tspan><tspan fill="#8fbc8f">] = </tspan><tspan fill="#2ecc71" font-weight="bold">95</tspan><tspan fill="#888">   // write at k=3</tspan>
+    <tspan x="40" y="306" fill="#888">// after: k=4, j=2 — loop exits</tspan>
   </text>
 
   <text x="456" y="276" font-size="10" fill="#555" font-weight="bold">data[] after write:</text>
-  <rect x="456" y="282" width="36" height="20" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="474" y="296" text-anchor="middle" fill="white" font-size="10" font-weight="bold">38</text>
-  <rect x="496" y="282" width="36" height="20" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="514" y="296" text-anchor="middle" fill="white" font-size="10" font-weight="bold">55</text>
-  <text x="548" y="296" font-size="11" fill="#27ae60" font-weight="bold">&#x2713;</text>
-  <text x="474" y="312" text-anchor="middle" font-size="7" fill="#888">data[0]</text>
-  <text x="514" y="312" text-anchor="middle" font-size="7" fill="#888">data[1]</text>
+  <rect x="456" y="282" width="30" height="18" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="471" y="295" text-anchor="middle" fill="white" font-size="9" font-weight="bold">32</text>
+  <rect x="490" y="282" width="30" height="18" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="505" y="295" text-anchor="middle" fill="white" font-size="9" font-weight="bold">38</text>
+  <rect x="524" y="282" width="30" height="18" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="539" y="295" text-anchor="middle" fill="white" font-size="9" font-weight="bold">55</text>
+  <rect x="558" y="282" width="30" height="18" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="573" y="295" text-anchor="middle" fill="white" font-size="9" font-weight="bold">95</text>
+  <text x="604" y="295" font-size="11" fill="#27ae60" font-weight="bold">&#x2713;</text>
+  <text x="471" y="310" text-anchor="middle" font-size="7" fill="#888">data[0]</text>
+  <text x="505" y="310" text-anchor="middle" font-size="7" fill="#888">data[1]</text>
+  <text x="539" y="310" text-anchor="middle" font-size="7" fill="#888">data[2]</text>
+  <text x="573" y="310" text-anchor="middle" font-size="7" fill="#888">data[3]</text>
 
   <!-- ===== END STATE: Three vectors after Step 3 ===== -->
   <rect x="30" y="344" width="800" height="100" rx="8" fill="#f4f6f7" stroke="#95a5a6" stroke-width="1.5"/>
   <text x="430" y="364" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">After Step 3: state of the 3 vectors</text>
 
-  <!-- data[] -->
   <rect x="56" y="374" width="10" height="10" rx="2" fill="#27ae60" stroke="#219a52" stroke-width="1"/>
   <text font-family="'Consolas', 'Courier New', monospace" font-size="11">
-    <tspan x="72" y="384" fill="#27ae60" font-weight="bold">data[]</tspan><tspan fill="#888">       [</tspan><tspan fill="#27ae60" font-weight="bold">38, 55</tspan><tspan fill="#888">]  — fully sorted! merge() is done</tspan>
+    <tspan x="72" y="384" fill="#27ae60" font-weight="bold">data[]</tspan><tspan fill="#888">       [</tspan><tspan fill="#27ae60" font-weight="bold">32, 38, 55, 95</tspan><tspan fill="#888">]  — fully sorted! merge() is done</tspan>
   </text>
 
-  <!-- left_half -->
   <rect x="56" y="396" width="10" height="10" rx="2" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1"/>
   <text font-family="'Consolas', 'Courier New', monospace" font-size="11">
-    <tspan x="72" y="406" fill="#bdc3c7" font-weight="bold">left_half</tspan><tspan fill="#888">    [38]  — all elements placed into data[] (done in Step 2)</tspan>
+    <tspan x="72" y="406" fill="#bdc3c7" font-weight="bold">left_half</tspan><tspan fill="#888">    [38, 55]  — all elements placed into data[] (done in Step 2)</tspan>
   </text>
 
-  <!-- right_half -->
   <rect x="56" y="418" width="10" height="10" rx="2" fill="#dfe6e9" stroke="#bdc3c7" stroke-width="1"/>
   <text font-family="'Consolas', 'Courier New', monospace" font-size="11">
-    <tspan x="72" y="428" fill="#bdc3c7" font-weight="bold">right_half</tspan><tspan fill="#888">   [55]  — all elements placed into data[] (done in Step 3)</tspan>
+    <tspan x="72" y="428" fill="#bdc3c7" font-weight="bold">right_half</tspan><tspan fill="#888">   [32, 95]  — all elements placed into data[] (Steps 2 + 3)</tspan>
   </text>
 
   <!-- ===== CALLOUTS ===== -->
-  <!-- Why two loops -->
   <rect x="30" y="458" width="400" height="52" rx="8" fill="#fef9e7" stroke="#f39c12" stroke-width="1.5"/>
   <text x="230" y="478" text-anchor="middle" font-size="11" font-weight="bold" fill="#e67e22">Why two cleanup loops?</text>
   <text x="230" y="494" text-anchor="middle" font-size="10" fill="#555">We don't know which half will have leftovers.</text>
   <text x="230" y="506" text-anchor="middle" font-size="10" fill="#555">Only ONE loop runs — the other's condition is already false.</text>
 
-  <!-- What happens next -->
   <rect x="440" y="458" width="390" height="52" rx="8" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5"/>
   <text x="635" y="478" text-anchor="middle" font-size="11" font-weight="bold" fill="#2980b9">What happens to left_half and right_half?</text>
   <text x="635" y="494" text-anchor="middle" font-size="10" fill="#555">They're local variables — automatically destroyed when</text>
@@ -115,6 +119,6 @@
 
   <!-- Footer -->
   <rect x="30" y="524" width="800" height="56" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
-  <text x="430" y="544" text-anchor="middle" fill="#333" font-size="11" font-weight="bold">merge() complete — data[left..right] is now sorted. Control returns to merge_sort_recursive().</text>
-  <text x="430" y="562" text-anchor="middle" fill="#555" font-size="11">Back in the trace: this was merge(data, 0, 0, 1). Next: recursive(data, 2, 3) processes the right side.</text>
+  <text x="430" y="544" text-anchor="middle" fill="#333" font-size="11" font-weight="bold">merge() complete — data[0..3] is now [32, 38, 55, 95]. The entire array is sorted!</text>
+  <text x="430" y="562" text-anchor="middle" fill="#555" font-size="11">This was the final merge. merge_sort_recursive() returns and merge_sort() is done.</text>
 </svg>

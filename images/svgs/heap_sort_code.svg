@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 480" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <!-- Sort badge -->
+  <rect x="730" y="6" width="120" height="20" rx="10" fill="#16a085" opacity="0.85"/>
+  <text x="790" y="20" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="'Segoe UI', Arial, sans-serif">HEAP SORT</text>
+
+  <!-- Title -->
+  <text x="430" y="28" text-anchor="middle" fill="#1a1a1a" font-size="22" font-weight="bold">heap_sort(): Two Phases, One Helper</text>
+  <text x="430" y="48" text-anchor="middle" fill="#555" font-size="13">Both phases call heapify_down() — the only helper function. Data: [38, 55, 32, 95, 62, 27, 43]</text>
+
+  <!-- Column headers -->
+  <text x="195" y="72" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">CODE</text>
+  <text x="640" y="72" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">WHAT HAPPENS</text>
+
+  <!-- Row backgrounds -->
+  <rect x="20" y="78" width="820" height="76" rx="0" fill="#f9f9f9"/>
+  <rect x="20" y="154" width="820" height="110" rx="0" fill="white"/>
+  <rect x="20" y="264" width="820" height="110" rx="0" fill="#f9f9f9"/>
+
+  <!-- ===== ROW 1: Setup ===== -->
+  <text x="30" y="92" font-size="10" fill="#555" font-style="italic">Setup: get the size, guard against trivial input.</text>
+
+  <rect x="30" y="98" width="350" height="40" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="114" fill="#4ec9b0">int</tspan><tspan fill="#ddd"> n = data.size();</tspan><tspan fill="#888">  // n = 7</tspan>
+    <tspan x="40" y="130" fill="#c586c0">if</tspan><tspan fill="#ddd"> (n &lt;= 1) </tspan><tspan fill="#c586c0">return</tspan><tspan fill="#ddd">;</tspan>
+  </text>
+
+  <line x1="380" y1="115" x2="438" y2="115" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="438,111 446,115 438,119" fill="#bdc3c7"/>
+
+  <text x="456" y="110" font-size="11" fill="#555">7 elements — proceed.</text>
+  <text x="456" y="126" font-size="11" fill="#555">Array: [38, 55, 32, 95, 62, 27, 43]</text>
+  <text x="456" y="142" font-size="10" fill="#888">This is the same data from the header diagrams.</text>
+
+  <!-- ===== ROW 2: Phase 1 — Build max-heap ===== -->
+  <text x="30" y="170" font-size="10" fill="#555" font-style="italic">Phase 1: Build max-heap. Call heapify_down on every non-leaf node (n/2-1 down to 0).</text>
+
+  <rect x="30" y="176" width="350" height="40" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="192" fill="#c586c0">for</tspan><tspan fill="#ddd"> (</tspan><tspan fill="#4ec9b0">int</tspan><tspan fill="#ddd"> i = n/2-1; i &gt;= 0; --i)</tspan><tspan fill="#888"> // i=2,1,0</tspan>
+    <tspan x="60" y="208" fill="#dcdcaa">heapify_down</tspan><tspan fill="#ddd">(data, n, i);</tspan>
+  </text>
+
+  <line x1="380" y1="195" x2="438" y2="195" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="438,191 446,195 438,199" fill="#bdc3c7"/>
+
+  <text x="456" y="188" font-size="11" fill="#16a085" font-weight="bold">Build the max-heap from bottom up.</text>
+  <text x="456" y="204" font-size="10" fill="#555">n/2-1 = 2. Start at last non-leaf, work toward root:</text>
+  <text x="456" y="220" font-size="10" fill="#555">  heapify_down(data, 7, <tspan font-weight="bold">2</tspan>) → fix node [2]=32</text>
+  <text x="456" y="234" font-size="10" fill="#555">  heapify_down(data, 7, <tspan font-weight="bold">1</tspan>) → fix node [1]=55</text>
+  <text x="456" y="248" font-size="10" fill="#555">  heapify_down(data, 7, <tspan font-weight="bold">0</tspan>) → fix node [0]=38</text>
+  <text x="456" y="262" font-size="10" fill="#27ae60" font-weight="bold">After: [95, 62, 43, 55, 38, 27, 32] — max-heap!</text>
+
+  <!-- ===== ROW 3: Phase 2 — Extract max repeatedly ===== -->
+  <text x="30" y="280" font-size="10" fill="#555" font-style="italic">Phase 2: Extract max repeatedly. Swap root (max) to end, shrink heap, re-heapify.</text>
+
+  <rect x="30" y="286" width="350" height="50" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="302" fill="#c586c0">for</tspan><tspan fill="#ddd"> (</tspan><tspan fill="#4ec9b0">int</tspan><tspan fill="#ddd"> i = n-1; i &gt;= 1; --i) {</tspan>
+    <tspan x="60" y="318" fill="#dcdcaa">swap</tspan><tspan fill="#ddd">(data[0], data[i]);</tspan><tspan fill="#888"> // max to end</tspan>
+    <tspan x="60" y="334" fill="#dcdcaa">heapify_down</tspan><tspan fill="#ddd">(data, i, 0);</tspan><tspan fill="#888">  // fix root</tspan>
+  </text>
+
+  <line x1="380" y1="311" x2="438" y2="311" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="438,307 446,311 438,315" fill="#bdc3c7"/>
+
+  <text x="456" y="296" font-size="11" fill="#e67e22" font-weight="bold">Extract max one at a time.</text>
+  <text x="456" y="312" font-size="10" fill="#555">Each iteration: swap data[0] (the max) with last unsorted.</text>
+  <text x="456" y="326" font-size="10" fill="#555">Shrink heap by 1 — the max is now in its final position.</text>
+  <text x="456" y="340" font-size="10" fill="#555">heapify_down on the new root to restore the heap.</text>
+  <text x="456" y="354" font-size="10" fill="#555">Repeat 6 times (n-1 extractions).</text>
+  <text x="456" y="370" font-size="10" fill="#27ae60" font-weight="bold">After: [27, 32, 38, 43, 55, 62, 95] — sorted!</text>
+
+  <!-- ===== END STATE ===== -->
+  <rect x="30" y="386" width="800" height="44" rx="8" fill="#f4f6f7" stroke="#95a5a6" stroke-width="1.5"/>
+  <text x="430" y="406" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">Heap sort = Phase 1 (build heap, O(n)) + Phase 2 (extract max × n, O(n log n))</text>
+  <text x="430" y="422" text-anchor="middle" font-size="11" fill="#555">Total: O(n log n). Space: O(1) — the heap IS the array, no extra allocation needed.</text>
+
+  <!-- Callout -->
+  <rect x="30" y="440" width="800" height="34" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="430" y="462" text-anchor="middle" fill="#333" font-size="11" font-weight="bold">Both phases call the same helper: heapify_down(). That's the only other function heap sort needs.</text>
+</svg>

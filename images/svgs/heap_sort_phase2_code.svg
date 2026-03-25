@@ -1,0 +1,222 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 660" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <!-- Sort badge -->
+  <rect x="730" y="6" width="120" height="20" rx="10" fill="#16a085" opacity="0.85"/>
+  <text x="790" y="20" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="'Segoe UI', Arial, sans-serif">HEAP SORT</text>
+
+  <!-- Title -->
+  <text x="430" y="28" text-anchor="middle" fill="#1a1a1a" font-size="22" font-weight="bold">Phase 2: Extract Max Repeatedly</text>
+  <text x="430" y="48" text-anchor="middle" fill="#555" font-size="13">Swap root (max) to end, shrink heap, heapify_down on root. Starting: [95, 62, 43, 55, 38, 27, 32]</text>
+
+  <!-- The loop code -->
+  <rect x="30" y="62" width="800" height="36" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="78" fill="#c586c0">for</tspan><tspan fill="#ddd"> (</tspan><tspan fill="#4ec9b0">int</tspan><tspan fill="#ddd"> i = n-1; i &gt;= 1; --i) {</tspan>
+    <tspan x="60" y="92" fill="#dcdcaa">swap</tspan><tspan fill="#ddd">(data[0], data[i]);  </tspan><tspan fill="#dcdcaa">heapify_down</tspan><tspan fill="#ddd">(data, i, 0); }</tspan><tspan fill="#888"> // 6 iterations</tspan>
+  </text>
+
+  <!-- Column headers -->
+  <text x="195" y="116" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">CODE</text>
+  <text x="620" y="116" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">DATA STATE</text>
+
+  <!-- Row backgrounds -->
+  <rect x="20" y="122" width="820" height="110" rx="0" fill="#f9f9f9"/>
+  <rect x="20" y="232" width="820" height="110" rx="0" fill="white"/>
+  <rect x="20" y="342" width="820" height="110" rx="0" fill="#f9f9f9"/>
+  <rect x="20" y="452" width="820" height="56" rx="0" fill="white"/>
+
+  <!-- ================================================================ -->
+  <!-- i=6: Extract 95                                                  -->
+  <!-- ================================================================ -->
+  <text x="30" y="138" font-size="12" fill="#16a085" font-weight="bold">i=6: Extract 95</text>
+  <text x="180" y="138" font-size="10" fill="#555">Swap data[0]=95 with data[6]=32. Shrink heap to 6. Fix root.</text>
+
+  <rect x="30" y="146" width="380" height="50" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="162" fill="#dcdcaa">swap</tspan><tspan fill="#ddd">(data[0], data[6]);</tspan><tspan fill="#888">   // 95↔32</tspan>
+    <tspan x="40" y="176" fill="#dcdcaa">heapify_down</tspan><tspan fill="#ddd">(data, 6, 0);</tspan><tspan fill="#888">  // fix root (heap is now 6 elements)</tspan>
+    <tspan x="40" y="190" fill="#888">// 32 sinks: swap with 62, then with 38</tspan>
+  </text>
+
+  <!-- Before array -->
+  <text x="430" y="148" font-size="10" fill="#888" font-weight="bold">Before:</text>
+  <rect x="430" y="154" width="26" height="18" rx="3" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="443" y="167" text-anchor="middle" fill="white" font-size="8" font-weight="bold">95</text>
+  <rect x="460" y="154" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="473" y="167" text-anchor="middle" fill="white" font-size="8">62</text>
+  <rect x="490" y="154" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="503" y="167" text-anchor="middle" fill="white" font-size="8">43</text>
+  <rect x="520" y="154" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="533" y="167" text-anchor="middle" fill="white" font-size="8">55</text>
+  <rect x="550" y="154" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="563" y="167" text-anchor="middle" fill="white" font-size="8">38</text>
+  <rect x="580" y="154" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="593" y="167" text-anchor="middle" fill="white" font-size="8">27</text>
+  <rect x="610" y="154" width="26" height="18" rx="3" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="623" y="167" text-anchor="middle" fill="white" font-size="8" font-weight="bold">32</text>
+  <text x="443" y="180" text-anchor="middle" font-size="6" fill="#e74c3c">[0]</text>
+  <text x="623" y="180" text-anchor="middle" font-size="6" fill="#e74c3c">[6]</text>
+
+  <!-- After array -->
+  <text x="430" y="196" font-size="10" fill="#27ae60" font-weight="bold">After:</text>
+  <rect x="430" y="202" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="443" y="215" text-anchor="middle" fill="white" font-size="8" font-weight="bold">62</text>
+  <rect x="460" y="202" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="473" y="215" text-anchor="middle" fill="white" font-size="8">55</text>
+  <rect x="490" y="202" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="503" y="215" text-anchor="middle" fill="white" font-size="8">43</text>
+  <rect x="520" y="202" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="533" y="215" text-anchor="middle" fill="white" font-size="8">32</text>
+  <rect x="550" y="202" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="563" y="215" text-anchor="middle" fill="white" font-size="8">38</text>
+  <rect x="580" y="202" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="593" y="215" text-anchor="middle" fill="white" font-size="8">27</text>
+  <line x1="604" y1="202" x2="604" y2="220" stroke="#27ae60" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <rect x="610" y="200" width="26" height="22" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  <text x="623" y="215" text-anchor="middle" fill="white" font-size="8" font-weight="bold">95</text>
+  <text x="623" y="230" text-anchor="middle" font-size="6" fill="#27ae60" font-weight="bold">FINAL</text>
+
+  <!-- ================================================================ -->
+  <!-- i=5: Extract 62                                                  -->
+  <!-- ================================================================ -->
+  <text x="30" y="248" font-size="12" fill="#16a085" font-weight="bold">i=5: Extract 62</text>
+  <text x="180" y="248" font-size="10" fill="#555">Swap data[0]=62 with data[5]=27. Shrink heap to 5. Fix root.</text>
+
+  <rect x="30" y="256" width="380" height="50" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="272" fill="#dcdcaa">swap</tspan><tspan fill="#ddd">(data[0], data[5]);</tspan><tspan fill="#888">   // 62↔27</tspan>
+    <tspan x="40" y="286" fill="#dcdcaa">heapify_down</tspan><tspan fill="#ddd">(data, 5, 0);</tspan><tspan fill="#888">  // fix root (heap is now 5 elements)</tspan>
+    <tspan x="40" y="300" fill="#888">// 27 sinks: swap with 55, then with 38</tspan>
+  </text>
+
+  <!-- Before array -->
+  <text x="430" y="258" font-size="10" fill="#888" font-weight="bold">Before:</text>
+  <rect x="430" y="264" width="26" height="18" rx="3" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="443" y="277" text-anchor="middle" fill="white" font-size="8" font-weight="bold">62</text>
+  <rect x="460" y="264" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="473" y="277" text-anchor="middle" fill="white" font-size="8">55</text>
+  <rect x="490" y="264" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="503" y="277" text-anchor="middle" fill="white" font-size="8">43</text>
+  <rect x="520" y="264" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="533" y="277" text-anchor="middle" fill="white" font-size="8">32</text>
+  <rect x="550" y="264" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="563" y="277" text-anchor="middle" fill="white" font-size="8">38</text>
+  <rect x="580" y="264" width="26" height="18" rx="3" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="593" y="277" text-anchor="middle" fill="white" font-size="8" font-weight="bold">27</text>
+  <line x1="604" y1="264" x2="604" y2="282" stroke="#27ae60" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <rect x="610" y="264" width="26" height="18" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="623" y="277" text-anchor="middle" fill="white" font-size="8">95</text>
+  <text x="443" y="290" text-anchor="middle" font-size="6" fill="#e74c3c">[0]</text>
+  <text x="593" y="290" text-anchor="middle" font-size="6" fill="#e74c3c">[5]</text>
+
+  <!-- After array -->
+  <text x="430" y="306" font-size="10" fill="#27ae60" font-weight="bold">After:</text>
+  <rect x="430" y="312" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="443" y="325" text-anchor="middle" fill="white" font-size="8" font-weight="bold">55</text>
+  <rect x="460" y="312" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="473" y="325" text-anchor="middle" fill="white" font-size="8">38</text>
+  <rect x="490" y="312" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="503" y="325" text-anchor="middle" fill="white" font-size="8">43</text>
+  <rect x="520" y="312" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="533" y="325" text-anchor="middle" fill="white" font-size="8">32</text>
+  <rect x="550" y="312" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="563" y="325" text-anchor="middle" fill="white" font-size="8">27</text>
+  <line x1="574" y1="312" x2="574" y2="330" stroke="#27ae60" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <rect x="580" y="310" width="26" height="22" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  <text x="593" y="325" text-anchor="middle" fill="white" font-size="8" font-weight="bold">62</text>
+  <rect x="610" y="310" width="26" height="22" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  <text x="623" y="325" text-anchor="middle" fill="white" font-size="8" font-weight="bold">95</text>
+  <text x="608" y="340" text-anchor="middle" font-size="6" fill="#27ae60" font-weight="bold">sorted &#x2192;</text>
+
+  <!-- ================================================================ -->
+  <!-- i=4: Extract 55                                                  -->
+  <!-- ================================================================ -->
+  <text x="30" y="358" font-size="12" fill="#16a085" font-weight="bold">i=4: Extract 55</text>
+  <text x="180" y="358" font-size="10" fill="#555">Swap data[0]=55 with data[4]=27. Shrink heap to 4. Fix root.</text>
+
+  <rect x="30" y="366" width="380" height="50" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="382" fill="#dcdcaa">swap</tspan><tspan fill="#ddd">(data[0], data[4]);</tspan><tspan fill="#888">   // 55↔27</tspan>
+    <tspan x="40" y="396" fill="#dcdcaa">heapify_down</tspan><tspan fill="#ddd">(data, 4, 0);</tspan><tspan fill="#888">  // fix root (heap is now 4 elements)</tspan>
+    <tspan x="40" y="410" fill="#888">// 27 sinks: swap with 43</tspan>
+  </text>
+
+  <!-- Before array -->
+  <text x="430" y="368" font-size="10" fill="#888" font-weight="bold">Before:</text>
+  <rect x="430" y="374" width="26" height="18" rx="3" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="443" y="387" text-anchor="middle" fill="white" font-size="8" font-weight="bold">55</text>
+  <rect x="460" y="374" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="473" y="387" text-anchor="middle" fill="white" font-size="8">38</text>
+  <rect x="490" y="374" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="503" y="387" text-anchor="middle" fill="white" font-size="8">43</text>
+  <rect x="520" y="374" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="533" y="387" text-anchor="middle" fill="white" font-size="8">32</text>
+  <rect x="550" y="374" width="26" height="18" rx="3" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="563" y="387" text-anchor="middle" fill="white" font-size="8" font-weight="bold">27</text>
+  <line x1="574" y1="374" x2="574" y2="392" stroke="#27ae60" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <rect x="580" y="374" width="26" height="18" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="593" y="387" text-anchor="middle" fill="white" font-size="8">62</text>
+  <rect x="610" y="374" width="26" height="18" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="623" y="387" text-anchor="middle" fill="white" font-size="8">95</text>
+  <text x="443" y="400" text-anchor="middle" font-size="6" fill="#e74c3c">[0]</text>
+  <text x="563" y="400" text-anchor="middle" font-size="6" fill="#e74c3c">[4]</text>
+
+  <!-- After array -->
+  <text x="430" y="416" font-size="10" fill="#27ae60" font-weight="bold">After:</text>
+  <rect x="430" y="422" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="443" y="435" text-anchor="middle" fill="white" font-size="8" font-weight="bold">43</text>
+  <rect x="460" y="422" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="473" y="435" text-anchor="middle" fill="white" font-size="8">38</text>
+  <rect x="490" y="422" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="503" y="435" text-anchor="middle" fill="white" font-size="8">27</text>
+  <rect x="520" y="422" width="26" height="18" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="533" y="435" text-anchor="middle" fill="white" font-size="8">32</text>
+  <line x1="544" y1="422" x2="544" y2="440" stroke="#27ae60" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <rect x="550" y="420" width="26" height="22" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  <text x="563" y="435" text-anchor="middle" fill="white" font-size="8" font-weight="bold">55</text>
+  <rect x="580" y="420" width="26" height="22" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  <text x="593" y="435" text-anchor="middle" fill="white" font-size="8" font-weight="bold">62</text>
+  <rect x="610" y="420" width="26" height="22" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  <text x="623" y="435" text-anchor="middle" fill="white" font-size="8" font-weight="bold">95</text>
+  <text x="593" y="450" text-anchor="middle" font-size="6" fill="#27ae60" font-weight="bold">sorted &#x2192;</text>
+  <text x="430" y="450" font-size="9" fill="#888">Sorted region grows from right. 3 more iterations finish.</text>
+
+  <!-- ================================================================ -->
+  <!-- Remaining: i=3,2,1                                               -->
+  <!-- ================================================================ -->
+  <text x="30" y="468" font-size="10" fill="#555" font-style="italic">i=3,2,1: Same pattern — swap root to end, shrink heap, heapify_down. Each places one more element.</text>
+
+  <rect x="30" y="474" width="380" height="22" rx="4" fill="#1a472a"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="40" y="490" fill="#888">// 3 more iterations... same swap + heapify_down pattern</tspan>
+  </text>
+
+  <text x="430" y="484" font-size="10" fill="#27ae60" font-weight="bold">Final result:</text>
+  <rect x="430" y="490" width="26" height="18" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  <text x="443" y="503" text-anchor="middle" fill="white" font-size="8" font-weight="bold">27</text>
+  <rect x="460" y="490" width="26" height="18" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  <text x="473" y="503" text-anchor="middle" fill="white" font-size="8" font-weight="bold">32</text>
+  <rect x="490" y="490" width="26" height="18" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  <text x="503" y="503" text-anchor="middle" fill="white" font-size="8" font-weight="bold">38</text>
+  <rect x="520" y="490" width="26" height="18" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  <text x="533" y="503" text-anchor="middle" fill="white" font-size="8" font-weight="bold">43</text>
+  <rect x="550" y="490" width="26" height="18" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  <text x="563" y="503" text-anchor="middle" fill="white" font-size="8" font-weight="bold">55</text>
+  <rect x="580" y="490" width="26" height="18" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  <text x="593" y="503" text-anchor="middle" fill="white" font-size="8" font-weight="bold">62</text>
+  <rect x="610" y="490" width="26" height="18" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  <text x="623" y="503" text-anchor="middle" fill="white" font-size="8" font-weight="bold">95</text>
+  <text x="650" y="503" font-size="11" fill="#27ae60" font-weight="bold">&#x2713;</text>
+
+  <!-- ===== END STATE ===== -->
+  <rect x="30" y="524" width="800" height="52" rx="8" fill="#f4f6f7" stroke="#95a5a6" stroke-width="1.5"/>
+  <text x="430" y="544" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">Phase 2 complete: [27, 32, 38, 43, 55, 62, 95] — fully sorted!</text>
+  <text x="430" y="564" text-anchor="middle" font-size="11" fill="#555">6 iterations. Each swaps the max to the end and calls heapify_down to fix the root.</text>
+
+  <!-- Footer -->
+  <rect x="30" y="588" width="800" height="56" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="430" y="606" text-anchor="middle" fill="#333" font-size="11" font-weight="bold">Phase 2 is like selection sort, but finding the max is O(log n) instead of O(n).</text>
+  <text x="430" y="624" text-anchor="middle" fill="#555" font-size="11">Total: O(n) Phase 1 + O(n log n) Phase 2 = <tspan font-weight="bold" fill="#16a085">O(n log n)</tspan>. Space: O(1) — all in-place.</text>
+  <text x="430" y="640" text-anchor="middle" fill="#555" font-size="10" font-style="italic">heap_sort() is done! The sorted region (green) grew from right to left until the entire array was sorted.</text>
+</svg>

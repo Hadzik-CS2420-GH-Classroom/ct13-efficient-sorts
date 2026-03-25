@@ -7,7 +7,7 @@
 
   <!-- Title -->
   <text x="430" y="28" text-anchor="middle" fill="#1a1a1a" font-size="22" font-weight="bold">merge() Step 1: Copy Halves to Temp Vectors</text>
-  <text x="430" y="48" text-anchor="middle" fill="#555" font-size="13">Line-by-line: each line of code and what it does to the data</text>
+  <text x="430" y="48" text-anchor="middle" fill="#555" font-size="13">Now merging the full array: merge(data, 0, 1, 3) — the final merge in the trace</text>
 
   <!-- Column headers -->
   <text x="195" y="72" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">CODE</text>
@@ -22,21 +22,25 @@
   <!-- ===== ROW 1: Function signature ===== -->
   <rect x="30" y="88" width="350" height="26" rx="4" fill="#2d2d2d"/>
   <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
-    <tspan x="40" y="106" fill="#c586c0">void</tspan><tspan fill="#dcdcaa"> merge</tspan><tspan fill="#ddd">(data, </tspan><tspan fill="#ce9178">left=0</tspan><tspan fill="#ddd">, </tspan><tspan fill="#ce9178">mid=0</tspan><tspan fill="#ddd">, </tspan><tspan fill="#ce9178">right=1</tspan><tspan fill="#ddd">)</tspan>
+    <tspan x="40" y="106" fill="#c586c0">void</tspan><tspan fill="#dcdcaa"> merge</tspan><tspan fill="#ddd">(data, </tspan><tspan fill="#ce9178">left=0</tspan><tspan fill="#ddd">, </tspan><tspan fill="#ce9178">mid=1</tspan><tspan fill="#ddd">, </tspan><tspan fill="#ce9178">right=3</tspan><tspan fill="#ddd">)</tspan>
   </text>
 
   <!-- Connector line -->
   <line x1="380" y1="101" x2="430" y2="101" stroke="#bdc3c7" stroke-width="1.5"/>
   <polygon points="430,97 438,101 430,105" fill="#bdc3c7"/>
 
-  <!-- Data: full subarray [38, 55] -->
+  <!-- Data: full array [38, 55, 32, 95] -->
   <rect x="440" y="88" width="44" height="24" rx="4" fill="#95a5a6" stroke="#7f8c8d" stroke-width="1.5"/>
   <text x="462" y="105" text-anchor="middle" fill="white" font-size="11" font-weight="bold">38</text>
   <rect x="488" y="88" width="44" height="24" rx="4" fill="#95a5a6" stroke="#7f8c8d" stroke-width="1.5"/>
   <text x="510" y="105" text-anchor="middle" fill="white" font-size="11" font-weight="bold">55</text>
+  <rect x="536" y="88" width="44" height="24" rx="4" fill="#95a5a6" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="558" y="105" text-anchor="middle" fill="white" font-size="11" font-weight="bold">32</text>
+  <rect x="584" y="88" width="44" height="24" rx="4" fill="#95a5a6" stroke="#7f8c8d" stroke-width="1.5"/>
+  <text x="606" y="105" text-anchor="middle" fill="white" font-size="11" font-weight="bold">95</text>
   <text x="462" y="128" text-anchor="middle" font-size="8" fill="#555">left=0</text>
-  <text x="510" y="128" text-anchor="middle" font-size="8" fill="#555">right=1</text>
-  <text x="560" y="105" font-size="9" fill="#888">unsorted subarray</text>
+  <text x="606" y="128" text-anchor="middle" font-size="8" fill="#555">right=3</text>
+  <text x="660" y="105" font-size="9" fill="#888">each half already sorted</text>
 
   <!-- ===== ROW 2: mid passed in ===== -->
   <rect x="30" y="168" width="350" height="26" rx="4" fill="#2d2d2d"/>
@@ -51,15 +55,19 @@
   <!-- Data: halves colored, mid marked -->
   <rect x="440" y="168" width="44" height="24" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
   <text x="462" y="185" text-anchor="middle" fill="white" font-size="11" font-weight="bold">38</text>
-  <rect x="488" y="168" width="44" height="24" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <rect x="488" y="168" width="44" height="24" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
   <text x="510" y="185" text-anchor="middle" fill="white" font-size="11" font-weight="bold">55</text>
+  <rect x="536" y="168" width="44" height="24" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="558" y="185" text-anchor="middle" fill="white" font-size="11" font-weight="bold">32</text>
+  <rect x="584" y="168" width="44" height="24" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="606" y="185" text-anchor="middle" fill="white" font-size="11" font-weight="bold">95</text>
   <text x="462" y="206" text-anchor="middle" font-size="8" fill="#2980b9">left=0</text>
-  <text x="475" y="218" text-anchor="middle" font-size="8" fill="#333" font-weight="bold">mid=0</text>
-  <text x="510" y="206" text-anchor="middle" font-size="8" fill="#ca6f1e">right=1</text>
-  <rect x="440" y="224" width="44" height="14" rx="2" fill="#d6eaf8"/>
-  <text x="462" y="235" text-anchor="middle" font-size="8" fill="#2980b9" font-weight="bold">left [0..0]</text>
-  <rect x="488" y="224" width="44" height="14" rx="2" fill="#fdebd0"/>
-  <text x="510" y="235" text-anchor="middle" font-size="8" fill="#ca6f1e" font-weight="bold">right [1..1]</text>
+  <text x="510" y="218" text-anchor="middle" font-size="8" fill="#333" font-weight="bold">mid=1</text>
+  <text x="606" y="206" text-anchor="middle" font-size="8" fill="#ca6f1e">right=3</text>
+  <rect x="440" y="224" width="92" height="14" rx="2" fill="#d6eaf8"/>
+  <text x="486" y="235" text-anchor="middle" font-size="8" fill="#2980b9" font-weight="bold">left half [0..1]</text>
+  <rect x="536" y="224" width="92" height="14" rx="2" fill="#fdebd0"/>
+  <text x="582" y="235" text-anchor="middle" font-size="8" fill="#ca6f1e" font-weight="bold">right half [2..3]</text>
 
   <!-- ===== ROW 3: Copy left half ===== -->
   <rect x="30" y="256" width="350" height="26" rx="4" fill="#2d2d2d"/>
@@ -71,11 +79,13 @@
   <line x1="380" y1="269" x2="438" y2="269" stroke="#bdc3c7" stroke-width="1.5"/>
   <polygon points="438,265 446,269 438,273" fill="#bdc3c7"/>
 
-  <!-- Data: left_half = [38] -->
-  <text x="520" y="273" text-anchor="end" font-size="12" fill="#2980b9" font-weight="bold">left_half =</text>
-  <rect x="526" y="256" width="44" height="24" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
-  <text x="548" y="273" text-anchor="middle" fill="white" font-size="11" font-weight="bold">38</text>
-  <text x="588" y="273" font-size="9" fill="#888">new vector, copy of [0..0]</text>
+  <!-- Data: left_half = [38, 55] -->
+  <text x="530" y="273" text-anchor="end" font-size="12" fill="#2980b9" font-weight="bold">left_half =</text>
+  <rect x="536" y="256" width="44" height="24" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+  <text x="558" y="273" text-anchor="middle" fill="white" font-size="11" font-weight="bold">38</text>
+  <rect x="584" y="256" width="44" height="24" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+  <text x="606" y="273" text-anchor="middle" fill="white" font-size="11" font-weight="bold">55</text>
+  <text x="646" y="273" font-size="9" fill="#888">new vector, copy of [0..1]</text>
 
   <!-- ===== ROW 4: Copy right half ===== -->
   <rect x="30" y="322" width="350" height="26" rx="4" fill="#2d2d2d"/>
@@ -87,11 +97,13 @@
   <line x1="380" y1="335" x2="438" y2="335" stroke="#bdc3c7" stroke-width="1.5"/>
   <polygon points="438,331 446,335 438,339" fill="#bdc3c7"/>
 
-  <!-- Data: right_half = [55] -->
-  <text x="520" y="339" text-anchor="end" font-size="12" fill="#ca6f1e" font-weight="bold">right_half =</text>
-  <rect x="526" y="322" width="44" height="24" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="2"/>
-  <text x="548" y="339" text-anchor="middle" fill="white" font-size="11" font-weight="bold">55</text>
-  <text x="588" y="339" font-size="9" fill="#888">new vector, copy of [1..1]</text>
+  <!-- Data: right_half = [32, 95] -->
+  <text x="530" y="339" text-anchor="end" font-size="12" fill="#ca6f1e" font-weight="bold">right_half =</text>
+  <rect x="536" y="322" width="44" height="24" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="2"/>
+  <text x="558" y="339" text-anchor="middle" fill="white" font-size="11" font-weight="bold">32</text>
+  <rect x="584" y="322" width="44" height="24" rx="4" fill="#e67e22" stroke="#ca6f1e" stroke-width="2"/>
+  <text x="606" y="339" text-anchor="middle" fill="white" font-size="11" font-weight="bold">95</text>
+  <text x="646" y="339" font-size="9" fill="#888">new vector, copy of [2..3]</text>
 
   <!-- ===== END STATE: Three vectors summary ===== -->
   <rect x="30" y="388" width="800" height="86" rx="8" fill="#f4f6f7" stroke="#95a5a6" stroke-width="1.5"/>
@@ -100,29 +112,23 @@
   <!-- data[] -->
   <rect x="56" y="416" width="10" height="10" rx="2" fill="#95a5a6" stroke="#7f8c8d" stroke-width="1"/>
   <text font-family="'Consolas', 'Courier New', monospace" font-size="11">
-    <tspan x="72" y="426" fill="#333" font-weight="bold">data[]</tspan><tspan fill="#888">       [38, 55]  — the original array, Step 2 writes sorted results back here</tspan>
+    <tspan x="72" y="426" fill="#333" font-weight="bold">data[]</tspan><tspan fill="#888">       [38, 55, 32, 95]  — the original array, Step 2 writes sorted results back here</tspan>
   </text>
 
   <!-- left_half -->
   <rect x="56" y="436" width="10" height="10" rx="2" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
   <text font-family="'Consolas', 'Courier New', monospace" font-size="11">
-    <tspan x="72" y="446" fill="#2980b9" font-weight="bold">left_half</tspan><tspan fill="#888">    [38]  — read-only copy of the left portion</tspan>
+    <tspan x="72" y="446" fill="#2980b9" font-weight="bold">left_half</tspan><tspan fill="#888">    [38, 55]  — read-only copy of data[0..1]</tspan>
   </text>
 
   <!-- right_half -->
   <rect x="56" y="456" width="10" height="10" rx="2" fill="#e67e22" stroke="#ca6f1e" stroke-width="1"/>
   <text font-family="'Consolas', 'Courier New', monospace" font-size="11">
-    <tspan x="72" y="466" fill="#ca6f1e" font-weight="bold">right_half</tspan><tspan fill="#888">   [55]  — read-only copy of the right portion</tspan>
+    <tspan x="72" y="466" fill="#ca6f1e" font-weight="bold">right_half</tspan><tspan fill="#888">   [32, 95]  — read-only copy of data[2..3]</tspan>
   </text>
 
   <!-- ===== CALLOUTS ===== -->
-  <!-- Why copy -->
-  <rect x="30" y="486" width="380" height="44" rx="8" fill="#fef9e7" stroke="#f39c12" stroke-width="1.5"/>
-  <text x="220" y="504" text-anchor="middle" font-size="11" font-weight="bold" fill="#e67e22">Why copy first?</text>
-  <text x="220" y="520" text-anchor="middle" font-size="10" fill="#555">Step 2 overwrites data[]. Without copies, we'd lose values mid-merge.</text>
-
-  <!-- Why left, mid, and right -->
-  <rect x="430" y="486" width="400" height="44" rx="8" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="630" y="504" text-anchor="middle" font-size="11" font-weight="bold" fill="#2980b9">Why pass left, mid, and right?</text>
-  <text x="630" y="520" text-anchor="middle" font-size="10" fill="#555">Recursion works on subarrays. mid comes from merge_sort_recursive.</text>
+  <rect x="30" y="486" width="800" height="44" rx="8" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="430" y="504" text-anchor="middle" font-size="11" font-weight="bold" fill="#2980b9">This is the final merge — combining the two sorted halves into the fully sorted array.</text>
+  <text x="430" y="520" text-anchor="middle" font-size="10" fill="#555">Each half was sorted by earlier recursive calls. Now merge() interleaves them in order.</text>
 </svg>

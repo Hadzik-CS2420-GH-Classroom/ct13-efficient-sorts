@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 560" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <!-- Sort badge -->
+  <rect x="730" y="6" width="120" height="20" rx="10" fill="#8e44ad" opacity="0.85"/>
+  <text x="790" y="20" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="'Segoe UI', Arial, sans-serif">QUICK SORT</text>
+
+  <!-- Title -->
+  <text x="430" y="28" text-anchor="middle" fill="#1a1a1a" font-size="22" font-weight="bold">partition() Step 2: Scan and Swap</text>
+  <text x="430" y="48" text-anchor="middle" fill="#555" font-size="13">j scans left to right. If data[j] &lt;= pivot, grow i and swap to move it left.</text>
+
+  <!-- ===== Parameter Key ===== -->
+  <rect x="100" y="60" width="10" height="10" rx="2" fill="#2980b9" stroke="#2471a3" stroke-width="1"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="114" y="70" fill="#2980b9" font-weight="bold">i</tspan><tspan fill="#888"> boundary of "small" region</tspan>
+  </text>
+  <rect x="340" y="60" width="10" height="10" rx="2" fill="#8e44ad" stroke="#6c3483" stroke-width="1"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="354" y="70" fill="#8e44ad" font-weight="bold">j</tspan><tspan fill="#888"> scanner (left to right)</tspan>
+  </text>
+  <rect x="560" y="60" width="10" height="10" rx="2" fill="#f39c12" stroke="#e67e22" stroke-width="1"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="574" y="70" fill="#e67e22" font-weight="bold">pivot</tspan><tspan fill="#888"> = 55 (at data[3])</tspan>
+  </text>
+
+  <!-- Column headers -->
+  <text x="195" y="90" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">CODE</text>
+  <text x="620" y="90" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">DATA STATE</text>
+
+  <!-- Row backgrounds -->
+  <rect x="20" y="96" width="820" height="80" rx="0" fill="#f9f9f9"/>
+  <rect x="20" y="176" width="820" height="80" rx="0" fill="white"/>
+  <rect x="20" y="256" width="820" height="80" rx="0" fill="#f9f9f9"/>
+
+  <!-- ===== ROW 1: j=0, 38 <= 55, swap no-op ===== -->
+  <text x="30" y="112" font-size="10" fill="#555" font-style="italic">j=0: Is data[0]=38 &lt;= pivot=55?  Yes → i++, swap(data[0], data[0]) — same index, no-op.</text>
+
+  <rect x="30" y="118" width="350" height="36" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="134" fill="#ddd">data[0]=38 &lt;= 55 &#x2192; i++; swap(data[0], data[0])</tspan>
+    <tspan x="40" y="148" fill="#888">// i: -1 → 0. Swap is a no-op.</tspan>
+  </text>
+
+  <line x1="380" y1="137" x2="438" y2="137" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="438,133 446,137 438,141" fill="#bdc3c7"/>
+
+  <rect x="456" y="118" width="40" height="22" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="476" y="133" text-anchor="middle" fill="white" font-size="10" font-weight="bold">38</text>
+  <rect x="500" y="118" width="40" height="22" rx="3" fill="#95a5a6" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="520" y="133" text-anchor="middle" fill="white" font-size="10" font-weight="bold">95</text>
+  <rect x="544" y="118" width="40" height="22" rx="3" fill="#95a5a6" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="564" y="133" text-anchor="middle" fill="white" font-size="10" font-weight="bold">32</text>
+  <rect x="588" y="118" width="40" height="22" rx="3" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+  <text x="608" y="133" text-anchor="middle" fill="white" font-size="10" font-weight="bold">55</text>
+  <text x="476" y="152" text-anchor="middle" font-size="8" fill="#2980b9" font-weight="bold">i=0</text>
+  <text x="476" y="164" text-anchor="middle" font-size="8" fill="#27ae60">&#x2264; pivot</text>
+
+  <!-- ===== ROW 2: j=1, 95 > 55, skip ===== -->
+  <text x="30" y="192" font-size="10" fill="#555" font-style="italic">j=1: Is data[1]=95 &lt;= pivot=55?  No → skip. 95 stays on the "big" side.</text>
+
+  <rect x="30" y="198" width="350" height="36" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="214" fill="#ddd">data[1]=95 &gt; 55 &#x2192; skip</tspan>
+    <tspan x="40" y="228" fill="#888">// i stays at 0. No swap.</tspan>
+  </text>
+
+  <line x1="380" y1="217" x2="438" y2="217" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="438,213 446,217 438,221" fill="#bdc3c7"/>
+
+  <rect x="456" y="198" width="40" height="22" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="476" y="213" text-anchor="middle" fill="white" font-size="10" font-weight="bold">38</text>
+  <rect x="500" y="198" width="40" height="22" rx="3" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="520" y="213" text-anchor="middle" fill="white" font-size="10" font-weight="bold">95</text>
+  <rect x="544" y="198" width="40" height="22" rx="3" fill="#95a5a6" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="564" y="213" text-anchor="middle" fill="white" font-size="10" font-weight="bold">32</text>
+  <rect x="588" y="198" width="40" height="22" rx="3" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+  <text x="608" y="213" text-anchor="middle" fill="white" font-size="10" font-weight="bold">55</text>
+  <text x="476" y="232" text-anchor="middle" font-size="8" fill="#2980b9" font-weight="bold">i=0</text>
+  <text x="520" y="232" text-anchor="middle" font-size="8" fill="#e74c3c">skip!</text>
+
+  <!-- ===== ROW 3: j=2, 32 <= 55, swap data[1] and data[2] ===== -->
+  <text x="30" y="272" font-size="10" fill="#555" font-style="italic">j=2: Is data[2]=32 &lt;= pivot=55?  Yes → i++, swap(data[1], data[2]). Swap 95 and 32!</text>
+
+  <rect x="30" y="278" width="350" height="50" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="294" fill="#ddd">data[2]=32 &lt;= 55 &#x2192; i++; swap(data[1], data[2])</tspan>
+    <tspan x="40" y="310" fill="#888">// i: 0 → 1. Swap 95 and 32.</tspan>
+    <tspan x="40" y="324" fill="#888">// j=3 would be high — loop exits.</tspan>
+  </text>
+
+  <line x1="380" y1="297" x2="438" y2="297" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="438,293 446,297 438,301" fill="#bdc3c7"/>
+
+  <text x="456" y="282" font-size="10" fill="#555" font-weight="bold">After swap:</text>
+  <rect x="456" y="288" width="40" height="22" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="476" y="303" text-anchor="middle" fill="white" font-size="10" font-weight="bold">38</text>
+  <rect x="500" y="288" width="40" height="22" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="520" y="303" text-anchor="middle" fill="white" font-size="10" font-weight="bold">32</text>
+  <rect x="544" y="288" width="40" height="22" rx="3" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="564" y="303" text-anchor="middle" fill="white" font-size="10" font-weight="bold">95</text>
+  <rect x="588" y="288" width="40" height="22" rx="3" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+  <text x="608" y="303" text-anchor="middle" fill="white" font-size="10" font-weight="bold">55</text>
+  <text x="520" y="322" text-anchor="middle" font-size="8" fill="#2980b9" font-weight="bold">i=1</text>
+  <text x="650" y="303" font-size="9" fill="#27ae60" font-weight="bold">32 moved left!</text>
+
+  <!-- ===== END STATE ===== -->
+  <rect x="30" y="348" width="800" height="86" rx="8" fill="#f4f6f7" stroke="#95a5a6" stroke-width="1.5"/>
+  <text x="430" y="368" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">After Step 2: scan complete, two regions formed</text>
+
+  <rect x="56" y="378" width="10" height="10" rx="2" fill="#27ae60" stroke="#219a52" stroke-width="1"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="11">
+    <tspan x="72" y="388" fill="#27ae60" font-weight="bold">data[0..1]</tspan><tspan fill="#888">  [38, 32]  — elements &#x2264; pivot (the "small" region)</tspan>
+  </text>
+
+  <rect x="56" y="398" width="10" height="10" rx="2" fill="#e74c3c" stroke="#c0392b" stroke-width="1"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="11">
+    <tspan x="72" y="408" fill="#e74c3c" font-weight="bold">data[2]</tspan><tspan fill="#888">     [95]  — element &gt; pivot (the "big" region)</tspan>
+  </text>
+
+  <rect x="56" y="418" width="10" height="10" rx="2" fill="#f39c12" stroke="#e67e22" stroke-width="1"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="11">
+    <tspan x="72" y="428" fill="#e67e22" font-weight="bold">data[3]</tspan><tspan fill="#888">     [55]  — pivot still at data[high], Step 3 places it</tspan>
+  </text>
+
+  <!-- Callout -->
+  <rect x="30" y="448" width="400" height="44" rx="8" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="230" y="466" text-anchor="middle" font-size="11" font-weight="bold" fill="#2980b9">What does i track?</text>
+  <text x="230" y="482" text-anchor="middle" font-size="10" fill="#555">i is the last index of the "small" region. Everything data[0..i] is &#x2264; pivot.</text>
+
+  <rect x="440" y="448" width="390" height="44" rx="8" fill="#fef9e7" stroke="#f39c12" stroke-width="1.5"/>
+  <text x="635" y="466" text-anchor="middle" font-size="11" font-weight="bold" fill="#e67e22">Where does pivot go?</text>
+  <text x="635" y="482" text-anchor="middle" font-size="10" fill="#555">Right after i — at position i+1. That's what Step 3 does.</text>
+
+  <!-- Footer -->
+  <rect x="30" y="504" width="800" height="44" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="430" y="522" text-anchor="middle" fill="#333" font-size="11" font-weight="bold">3 iterations to scan 3 elements (j goes from low to high-1). Each does at most one swap.</text>
+  <text x="430" y="540" text-anchor="middle" fill="#555" font-size="10" font-style="italic">With larger arrays, more iterations — same logic. Total scan work per partition call: O(n).</text>
+</svg>

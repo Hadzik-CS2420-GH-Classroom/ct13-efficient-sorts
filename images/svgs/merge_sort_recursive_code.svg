@@ -1,6 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 420" font-family="'Segoe UI', Arial, sans-serif">
   <rect width="100%" height="100%" fill="white"/>
 
+  <!-- Sort badge -->
+  <rect x="730" y="6" width="120" height="20" rx="10" fill="#2980b9" opacity="0.85"/>
+  <text x="790" y="20" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="'Segoe UI', Arial, sans-serif">MERGE SORT</text>
+
   <!-- Title -->
   <text x="430" y="28" text-anchor="middle" fill="#1a1a1a" font-size="22" font-weight="bold">merge_sort_recursive(): The Recursion</text>
   <text x="430" y="48" text-anchor="middle" fill="#555" font-size="13">Split in half, recurse on each half, then merge the sorted halves back together</text>
@@ -69,7 +73,7 @@
   <!-- ===== ROW 5: Merge ===== -->
   <rect x="30" y="312" width="350" height="26" rx="4" fill="#2d2d2d"/>
   <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
-    <tspan x="40" y="330" fill="#dcdcaa">merge</tspan><tspan fill="#ddd">(data, left, right);</tspan>
+    <tspan x="40" y="330" fill="#dcdcaa">merge</tspan><tspan fill="#ddd">(data, left, mid, right);</tspan>
   </text>
 
   <line x1="380" y1="325" x2="438" y2="325" stroke="#bdc3c7" stroke-width="1.5"/>

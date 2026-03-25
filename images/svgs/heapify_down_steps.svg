@@ -1,0 +1,248 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 806" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <!-- Sort badge -->
+  <rect x="730" y="6" width="120" height="20" rx="10" fill="#16a085" opacity="0.85"/>
+  <text x="790" y="20" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="'Segoe UI', Arial, sans-serif">HEAP SORT</text>
+
+  <!-- Title -->
+  <text x="430" y="28" text-anchor="middle" fill="#1a1a1a" font-size="22" font-weight="bold">heapify_down(): Step-by-Step</text>
+  <text x="430" y="48" text-anchor="middle" fill="#555" font-size="13">Example: heapify_down(data, 7, 2) — the first call in Phase 1 on [38, 55, 32, 95, 62, 27, 43]</text>
+
+  <!-- Parameter key -->
+  <rect x="80" y="60" width="10" height="10" rx="2" fill="#e74c3c" stroke="#c0392b" stroke-width="1"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="94" y="70" fill="#e74c3c" font-weight="bold">index</tspan><tspan fill="#888"> node to check</tspan>
+  </text>
+  <rect x="280" y="60" width="10" height="10" rx="2" fill="#27ae60" stroke="#219a52" stroke-width="1"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="294" y="70" fill="#27ae60" font-weight="bold">largest</tspan><tspan fill="#888"> winner of comparison</tspan>
+  </text>
+  <rect x="520" y="60" width="10" height="10" rx="2" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="534" y="70" fill="#3498db" font-weight="bold">left/right</tspan><tspan fill="#888"> children (2i+1, 2i+2)</tspan>
+  </text>
+
+  <!-- ===== WHY INDEX 2? Context callout ===== -->
+  <rect x="30" y="82" width="800" height="68" rx="8" fill="#fef9e7" stroke="#f39c12" stroke-width="1.5"/>
+  <text x="430" y="98" text-anchor="middle" font-size="11" font-weight="bold" fill="#e67e22">Why does Phase 1 start at index 2?</text>
+  <text x="50" y="114" font-size="10" fill="#555">The loop is: <tspan font-family="'Consolas', monospace" fill="#333">for (i = n/2-1; i &gt;= 0; --i)</tspan>. With n=7: n/2-1 = <tspan font-weight="bold">2</tspan>. Index 2 is the <tspan font-weight="bold">last non-leaf</tspan> node.</text>
+  <text x="50" y="130" font-size="10" fill="#555">Leaf nodes [3]-[6] have no children — nothing to fix. We only need to heapify nodes that <tspan font-weight="bold">have children</tspan>.</text>
+
+  <!-- Mini array showing leaf vs non-leaf -->
+  <rect x="566" y="132" width="24" height="14" rx="2" fill="#e67e22" stroke="#ca6f1e" stroke-width="1"/>
+  <text x="578" y="143" text-anchor="middle" fill="white" font-size="7" font-weight="bold">38</text>
+  <rect x="594" y="132" width="24" height="14" rx="2" fill="#e67e22" stroke="#ca6f1e" stroke-width="1"/>
+  <text x="606" y="143" text-anchor="middle" fill="white" font-size="7" font-weight="bold">55</text>
+  <rect x="622" y="132" width="24" height="14" rx="2" fill="#e67e22" stroke="#ca6f1e" stroke-width="1"/>
+  <text x="634" y="143" text-anchor="middle" fill="white" font-size="7" font-weight="bold">32</text>
+  <rect x="650" y="132" width="24" height="14" rx="2" fill="#bdc3c7" stroke="#95a5a6" stroke-width="1"/>
+  <text x="662" y="143" text-anchor="middle" fill="white" font-size="7">95</text>
+  <rect x="678" y="132" width="24" height="14" rx="2" fill="#bdc3c7" stroke="#95a5a6" stroke-width="1"/>
+  <text x="690" y="143" text-anchor="middle" fill="white" font-size="7">62</text>
+  <rect x="706" y="132" width="24" height="14" rx="2" fill="#bdc3c7" stroke="#95a5a6" stroke-width="1"/>
+  <text x="718" y="143" text-anchor="middle" fill="white" font-size="7">27</text>
+  <rect x="734" y="132" width="24" height="14" rx="2" fill="#bdc3c7" stroke="#95a5a6" stroke-width="1"/>
+  <text x="746" y="143" text-anchor="middle" fill="white" font-size="7">43</text>
+  <text x="606" y="156" text-anchor="middle" font-size="7" fill="#e67e22">non-leaf [0-2]</text>
+  <text x="704" y="156" text-anchor="middle" font-size="7" fill="#888">leaf [3-6]</text>
+
+  <!-- Column headers -->
+  <text x="195" y="170" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">CODE</text>
+  <text x="620" y="170" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">DATA STATE</text>
+
+  <!-- Row backgrounds -->
+  <rect x="20" y="176" width="820" height="76" rx="0" fill="#f9f9f9"/>
+  <rect x="20" y="252" width="820" height="76" rx="0" fill="white"/>
+  <rect x="20" y="328" width="820" height="76" rx="0" fill="#f9f9f9"/>
+  <rect x="20" y="404" width="820" height="76" rx="0" fill="white"/>
+  <rect x="20" y="480" width="820" height="76" rx="0" fill="#f9f9f9"/>
+
+  <!-- ===== ROW 1: Initialize — largest = index ===== -->
+  <text x="30" y="192" font-size="10" fill="#555" font-style="italic">Step 1: Start by assuming the parent is the largest of the three.</text>
+
+  <rect x="30" y="198" width="380" height="26" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="216" fill="#4ec9b0">int</tspan><tspan fill="#ddd"> largest = index;</tspan><tspan fill="#888">  // largest = 2 (starts as parent)</tspan>
+  </text>
+
+  <line x1="410" y1="211" x2="458" y2="211" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="458,207 466,211 458,215" fill="#bdc3c7"/>
+
+  <text x="480" y="194" font-size="10" fill="#555">Checking node [2]=<tspan font-weight="bold" fill="#e74c3c">32</tspan></text>
+  <text x="480" y="210" font-size="10" fill="#555">Assume 32 is the largest (for now).</text>
+  <text x="480" y="226" font-size="10" fill="#888">Next: check its children.</text>
+
+  <!-- ===== ROW 2: Find children ===== -->
+  <text x="30" y="268" font-size="10" fill="#555" font-style="italic">Step 2: Calculate the children's indices using the formula.</text>
+
+  <rect x="30" y="274" width="380" height="36" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="290" fill="#4ec9b0">int</tspan><tspan fill="#ddd"> left  = 2 * 2 + 1;</tspan><tspan fill="#888">  // left = 5</tspan>
+    <tspan x="40" y="304" fill="#4ec9b0">int</tspan><tspan fill="#ddd"> right = 2 * 2 + 2;</tspan><tspan fill="#888">  // right = 6</tspan>
+  </text>
+
+  <line x1="410" y1="293" x2="458" y2="293" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="458,289 466,293 458,297" fill="#bdc3c7"/>
+
+  <!-- Show parent and children in array -->
+  <text x="480" y="276" font-size="10" fill="#555" font-weight="bold">Parent and children in the array:</text>
+  <rect x="480" y="282" width="30" height="20" rx="3" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="495" y="296" text-anchor="middle" fill="white" font-size="9" font-weight="bold">32</text>
+  <text x="495" y="312" text-anchor="middle" font-size="7" fill="#e74c3c">[2] parent</text>
+  <text x="530" y="293" font-size="12" fill="#888">&#x2190;</text>
+  <rect x="556" y="282" width="30" height="20" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="571" y="296" text-anchor="middle" fill="white" font-size="9" font-weight="bold">27</text>
+  <text x="571" y="312" text-anchor="middle" font-size="7" fill="#3498db">[5] left</text>
+  <rect x="600" y="282" width="30" height="20" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="615" y="296" text-anchor="middle" fill="white" font-size="9" font-weight="bold">43</text>
+  <text x="615" y="312" text-anchor="middle" font-size="7" fill="#3498db">[6] right</text>
+
+  <!-- Mini tree snippet -->
+  <line x1="720" y1="282" x2="700" y2="300" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="720" y1="282" x2="740" y2="300" stroke="#bdc3c7" stroke-width="1.5"/>
+  <circle cx="720" cy="278" r="10" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="720" y="282" text-anchor="middle" fill="white" font-size="8" font-weight="bold">32</text>
+  <circle cx="700" cy="310" r="9" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="700" y="314" text-anchor="middle" fill="white" font-size="7">27</text>
+  <circle cx="740" cy="310" r="9" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="740" y="314" text-anchor="middle" fill="white" font-size="7">43</text>
+
+  <!-- ===== ROW 3: Compare left child ===== -->
+  <text x="30" y="344" font-size="10" fill="#555" font-style="italic">Step 3: Is the left child bigger than the current largest?</text>
+
+  <rect x="30" y="350" width="380" height="36" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="366" fill="#c586c0">if</tspan><tspan fill="#ddd"> (left &lt; heap_size &amp;&amp; data[5] &gt; data[2])</tspan>
+    <tspan x="40" y="380" fill="#888">// 5 &lt; 7? Yes. 27 &gt; 32? </tspan><tspan fill="#e74c3c" font-weight="bold">No.</tspan><tspan fill="#888"> largest stays 2.</tspan>
+  </text>
+
+  <line x1="410" y1="369" x2="458" y2="369" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="458,365 466,369 458,373" fill="#bdc3c7"/>
+
+  <rect x="480" y="350" width="350" height="36" rx="4" fill="#1a472a"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="490" y="366" fill="#888">// data[left] = data[5] = 27</tspan>
+    <tspan x="490" y="380" fill="#888">// 27 &gt; 32? No → largest stays at </tspan><tspan fill="#e74c3c" font-weight="bold">2</tspan><tspan fill="#888"> (parent wins so far)</tspan>
+  </text>
+
+  <!-- ===== ROW 4: Compare right child ===== -->
+  <text x="30" y="420" font-size="10" fill="#555" font-style="italic">Step 4: Is the right child bigger than the current largest?</text>
+
+  <rect x="30" y="426" width="380" height="36" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="442" fill="#c586c0">if</tspan><tspan fill="#ddd"> (right &lt; heap_size &amp;&amp; data[6] &gt; data[2])</tspan>
+    <tspan x="40" y="456" fill="#888">// 6 &lt; 7? Yes. 43 &gt; 32? </tspan><tspan fill="#27ae60" font-weight="bold">Yes!</tspan><tspan fill="#888"> largest = 6.</tspan>
+  </text>
+
+  <line x1="410" y1="445" x2="458" y2="445" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="458,441 466,445 458,449" fill="#bdc3c7"/>
+
+  <rect x="480" y="426" width="350" height="36" rx="4" fill="#1a472a"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="490" y="442" fill="#888">// data[right] = data[6] = 43</tspan>
+    <tspan x="490" y="456" fill="#8fbc8f">// 43 &gt; 32? Yes! → largest = </tspan><tspan fill="#2ecc71" font-weight="bold">6</tspan><tspan fill="#8fbc8f"> (right child wins)</tspan>
+  </text>
+
+  <!-- ===== ROW 5: Swap decision ===== -->
+  <text x="30" y="496" font-size="10" fill="#555" font-style="italic">Step 5: largest != index → the parent isn't the biggest. Swap and recurse.</text>
+
+  <rect x="30" y="502" width="380" height="36" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="518" fill="#c586c0">if</tspan><tspan fill="#ddd"> (largest != index) {</tspan><tspan fill="#888">  // 6 != 2 → true!</tspan>
+    <tspan x="60" y="532" fill="#dcdcaa">swap</tspan><tspan fill="#ddd">(data[2], data[6]);</tspan><tspan fill="#888"> // swap 32 and 43</tspan>
+  </text>
+
+  <line x1="410" y1="521" x2="458" y2="521" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="458,517 466,521 458,525" fill="#bdc3c7"/>
+
+  <rect x="480" y="502" width="350" height="36" rx="4" fill="#1a472a"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="490" y="518" fill="#8fbc8f">swap(data[</tspan><tspan fill="#ce9178">2</tspan><tspan fill="#8fbc8f">], data[</tspan><tspan fill="#ce9178">6</tspan><tspan fill="#8fbc8f">]);</tspan><tspan fill="#888"> // 32↔43</tspan>
+    <tspan x="490" y="532" fill="#8fbc8f">heapify_down(data, 7, </tspan><tspan fill="#ce9178">6</tspan><tspan fill="#8fbc8f">);</tspan><tspan fill="#888"> // recurse at 6</tspan>
+  </text>
+
+  <text x="480" y="552" font-size="9" fill="#888">Recurse at [6]: 32 is now a leaf (no children in bounds) → done!</text>
+
+  <!-- ===== SUMMARY: Before/After with arrays and trees ===== -->
+  <rect x="20" y="568" width="820" height="176" rx="8" fill="#f4f6f7" stroke="#95a5a6" stroke-width="1.5"/>
+  <text x="430" y="588" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">Result of heapify_down(data, 7, 2)</text>
+
+  <!-- ===== BEFORE side ===== -->
+  <text x="180" y="606" text-anchor="middle" font-size="10" font-weight="bold" fill="#888">Before</text>
+
+  <!-- Before array -->
+  <rect x="56" y="612" width="24" height="14" rx="2" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="68" y="623" text-anchor="middle" fill="white" font-size="7" font-weight="bold">38</text>
+  <rect x="84" y="612" width="24" height="14" rx="2" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="96" y="623" text-anchor="middle" fill="white" font-size="7" font-weight="bold">55</text>
+  <rect x="112" y="612" width="24" height="14" rx="2" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="124" y="623" text-anchor="middle" fill="white" font-size="7" font-weight="bold">32</text>
+  <rect x="140" y="612" width="24" height="14" rx="2" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="152" y="623" text-anchor="middle" fill="white" font-size="7">95</text>
+  <rect x="168" y="612" width="24" height="14" rx="2" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="180" y="623" text-anchor="middle" fill="white" font-size="7">62</text>
+  <rect x="196" y="612" width="24" height="14" rx="2" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="208" y="623" text-anchor="middle" fill="white" font-size="7">27</text>
+  <rect x="224" y="612" width="24" height="14" rx="2" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="236" y="623" text-anchor="middle" fill="white" font-size="7" font-weight="bold">43</text>
+  <text x="124" y="636" text-anchor="middle" font-size="6" fill="#e74c3c">[2]</text>
+  <text x="236" y="636" text-anchor="middle" font-size="6" fill="#27ae60">[6]</text>
+
+  <!-- Before mini tree -->
+  <line x1="180" y1="654" x2="150" y2="668" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="180" y1="654" x2="210" y2="668" stroke="#bdc3c7" stroke-width="1.5"/>
+  <circle cx="180" cy="650" r="10" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="180" y="654" text-anchor="middle" fill="white" font-size="8" font-weight="bold">32</text>
+  <circle cx="150" cy="678" r="9" fill="#bdc3c7"/>
+  <text x="150" y="682" text-anchor="middle" fill="white" font-size="7">27</text>
+  <circle cx="210" cy="678" r="9" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="210" y="682" text-anchor="middle" fill="white" font-size="7" font-weight="bold">43</text>
+  <text x="232" y="682" font-size="7" fill="#27ae60">largest</text>
+
+  <!-- Arrow -->
+  <text x="290" y="666" font-size="18" fill="#e74c3c">&#x2192;</text>
+
+  <!-- ===== AFTER side ===== -->
+  <text x="400" y="606" text-anchor="middle" font-size="10" font-weight="bold" fill="#888">After</text>
+
+  <!-- After array -->
+  <rect x="276" y="612" width="24" height="14" rx="2" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="288" y="623" text-anchor="middle" fill="white" font-size="7" font-weight="bold">38</text>
+  <rect x="304" y="612" width="24" height="14" rx="2" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="316" y="623" text-anchor="middle" fill="white" font-size="7" font-weight="bold">55</text>
+  <rect x="332" y="612" width="24" height="14" rx="2" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="344" y="623" text-anchor="middle" fill="white" font-size="7" font-weight="bold">43</text>
+  <rect x="360" y="612" width="24" height="14" rx="2" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="372" y="623" text-anchor="middle" fill="white" font-size="7">95</text>
+  <rect x="388" y="612" width="24" height="14" rx="2" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="400" y="623" text-anchor="middle" fill="white" font-size="7">62</text>
+  <rect x="416" y="612" width="24" height="14" rx="2" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="428" y="623" text-anchor="middle" fill="white" font-size="7">27</text>
+  <rect x="444" y="612" width="24" height="14" rx="2" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="456" y="623" text-anchor="middle" fill="white" font-size="7" font-weight="bold">32</text>
+  <text x="344" y="636" text-anchor="middle" font-size="6" fill="#27ae60">[2]</text>
+  <text x="456" y="636" text-anchor="middle" font-size="6" fill="#e67e22">[6]</text>
+
+  <!-- After mini tree -->
+  <line x1="400" y1="654" x2="370" y2="668" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="400" y1="654" x2="430" y2="668" stroke="#bdc3c7" stroke-width="1.5"/>
+  <circle cx="400" cy="650" r="10" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="400" y="654" text-anchor="middle" fill="white" font-size="8" font-weight="bold">43</text>
+  <circle cx="370" cy="678" r="9" fill="#bdc3c7"/>
+  <text x="370" y="682" text-anchor="middle" fill="white" font-size="7">27</text>
+  <circle cx="430" cy="678" r="9" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="430" y="682" text-anchor="middle" fill="white" font-size="7" font-weight="bold">32</text>
+  <text x="452" y="682" font-size="7" fill="#e67e22">sank</text>
+
+  <!-- Summary text -->
+  <text x="520" y="632" font-size="10" fill="#555">43 was the largest child → swapped with parent 32.</text>
+  <text x="520" y="648" font-size="10" fill="#555">32 sank to [6] (a leaf). Heap property restored</text>
+  <text x="520" y="664" font-size="10" fill="#555">for this subtree. Move on to next non-leaf node.</text>
+  <text x="520" y="680" font-size="10" fill="#555">Next call: heapify_down(data, 7, <tspan font-weight="bold">1</tspan>).</text>
+
+  <!-- Footer -->
+  <rect x="30" y="756" width="800" height="40" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="430" y="774" text-anchor="middle" fill="#333" font-size="11" font-weight="bold">This same process repeats for every heapify_down call — find children, compare, swap if needed, recurse.</text>
+  <text x="430" y="790" text-anchor="middle" fill="#555" font-size="11">At most log n comparisons (height of tree). Each comparison is O(1). Total: O(log n) per call.</text>
+</svg>

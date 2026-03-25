@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <!-- Sort badge -->
+  <rect x="730" y="6" width="120" height="20" rx="10" fill="#8e44ad" opacity="0.85"/>
+  <text x="790" y="20" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="'Segoe UI', Arial, sans-serif">QUICK SORT</text>
+
+  <!-- Title -->
+  <text x="430" y="28" text-anchor="middle" fill="#1a1a1a" font-size="22" font-weight="bold">partition() Step 3: Place Pivot in Final Position</text>
+  <text x="430" y="48" text-anchor="middle" fill="#555" font-size="13">Swap pivot into position i+1. Everything left is &#x2264; pivot, everything right is &gt; pivot.</text>
+
+  <!-- Column headers -->
+  <text x="195" y="72" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">CODE</text>
+  <text x="620" y="72" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">DATA STATE</text>
+
+  <!-- Row backgrounds -->
+  <rect x="20" y="78" width="820" height="66" rx="0" fill="#f9f9f9"/>
+  <rect x="20" y="144" width="820" height="80" rx="0" fill="white"/>
+
+  <!-- ===== ROW 1: Before — state from Step 2 ===== -->
+  <text x="30" y="92" font-size="10" fill="#555" font-style="italic">Coming from Step 2: i=1, pivot=55 still at data[3]. Pivot belongs at i+1 = index 2.</text>
+
+  <rect x="30" y="98" width="350" height="36" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="114" fill="#888">// Before: data = [38, 32, 95, 55]</tspan>
+    <tspan x="40" y="128" fill="#888">// i=1, pivot at data[high]=data[3]</tspan>
+  </text>
+
+  <line x1="380" y1="115" x2="438" y2="115" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="438,111 446,115 438,119" fill="#bdc3c7"/>
+
+  <rect x="456" y="98" width="40" height="22" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="476" y="113" text-anchor="middle" fill="white" font-size="10" font-weight="bold">38</text>
+  <rect x="500" y="98" width="40" height="22" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="520" y="113" text-anchor="middle" fill="white" font-size="10" font-weight="bold">32</text>
+  <rect x="544" y="98" width="40" height="22" rx="3" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="564" y="113" text-anchor="middle" fill="white" font-size="10" font-weight="bold">95</text>
+  <rect x="588" y="98" width="40" height="22" rx="3" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+  <text x="608" y="113" text-anchor="middle" fill="white" font-size="10" font-weight="bold">55</text>
+  <text x="520" y="132" text-anchor="middle" font-size="8" fill="#2980b9" font-weight="bold">i=1</text>
+  <text x="564" y="132" text-anchor="middle" font-size="8" fill="#888">i+1=2</text>
+  <text x="608" y="132" text-anchor="middle" font-size="8" fill="#e67e22" font-weight="bold">pivot</text>
+
+  <!-- ===== ROW 2: Swap and return ===== -->
+  <text x="30" y="160" font-size="10" fill="#555" font-style="italic">Swap data[i+1] with data[high] — pivot moves to its final sorted position. Return i+1.</text>
+
+  <rect x="30" y="166" width="350" height="50" rx="4" fill="#1a472a"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="40" y="182" fill="#8fbc8f">swap(data[</tspan><tspan fill="#ce9178">2</tspan><tspan fill="#8fbc8f">], data[</tspan><tspan fill="#ce9178">3</tspan><tspan fill="#8fbc8f">]);</tspan><tspan fill="#888">  // swap 95 and 55</tspan>
+    <tspan x="40" y="198" fill="#c586c0">return</tspan><tspan fill="#8fbc8f"> i + 1;</tspan><tspan fill="#888">             // return 2</tspan>
+    <tspan x="40" y="212" fill="#888">// pivot 55 is now at index 2 — its FINAL position</tspan>
+  </text>
+
+  <line x1="380" y1="191" x2="438" y2="191" stroke="#27ae60" stroke-width="1.5"/>
+  <polygon points="438,187 446,191 438,195" fill="#27ae60"/>
+
+  <text x="456" y="170" font-size="10" fill="#555" font-weight="bold">After swap:</text>
+  <rect x="456" y="176" width="40" height="22" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="476" y="191" text-anchor="middle" fill="white" font-size="10" font-weight="bold">38</text>
+  <rect x="500" y="176" width="40" height="22" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="520" y="191" text-anchor="middle" fill="white" font-size="10" font-weight="bold">32</text>
+  <rect x="544" y="173" width="40" height="28" rx="3" fill="#f39c12" stroke="#e67e22" stroke-width="3"/>
+  <text x="564" y="192" text-anchor="middle" fill="white" font-size="10" font-weight="bold">55</text>
+  <rect x="588" y="176" width="40" height="22" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="608" y="191" text-anchor="middle" fill="white" font-size="10" font-weight="bold">95</text>
+  <text x="564" y="214" text-anchor="middle" font-size="9" fill="#e67e22" font-weight="bold">FINAL SPOT</text>
+
+  <!-- Region labels -->
+  <rect x="456" y="220" width="84" height="14" rx="2" fill="#d5f5e3"/>
+  <text x="498" y="231" text-anchor="middle" font-size="8" fill="#27ae60" font-weight="bold">&#x2264; pivot</text>
+  <rect x="544" y="220" width="40" height="14" rx="2" fill="#fdebd0"/>
+  <text x="564" y="231" text-anchor="middle" font-size="8" fill="#e67e22" font-weight="bold">pivot</text>
+  <rect x="588" y="220" width="40" height="14" rx="2" fill="#d6eaf8"/>
+  <text x="608" y="231" text-anchor="middle" font-size="8" fill="#2980b9" font-weight="bold">&gt; pivot</text>
+
+  <!-- ===== END STATE ===== -->
+  <rect x="30" y="248" width="800" height="100" rx="8" fill="#f4f6f7" stroke="#95a5a6" stroke-width="1.5"/>
+  <text x="430" y="268" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">After Step 3: partition() returns 2</text>
+
+  <rect x="56" y="280" width="10" height="10" rx="2" fill="#27ae60" stroke="#219a52" stroke-width="1"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="11">
+    <tspan x="72" y="290" fill="#27ae60" font-weight="bold">data[0..1]</tspan><tspan fill="#888">  [38, 32]  — all &#x2264; 55, need sorting → recursive(data, 0, 1)</tspan>
+  </text>
+
+  <rect x="56" y="300" width="10" height="10" rx="2" fill="#f39c12" stroke="#e67e22" stroke-width="1"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="11">
+    <tspan x="72" y="310" fill="#e67e22" font-weight="bold">data[2]</tspan><tspan fill="#888">     [55]  — pivot in FINAL position, never touched again</tspan>
+  </text>
+
+  <rect x="56" y="320" width="10" height="10" rx="2" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="11">
+    <tspan x="72" y="330" fill="#2980b9" font-weight="bold">data[3]</tspan><tspan fill="#888">     [95]  — all &gt; 55, need sorting → recursive(data, 3, 3) (base case)</tspan>
+  </text>
+
+  <!-- Callouts -->
+  <rect x="30" y="362" width="400" height="44" rx="8" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="230" y="380" text-anchor="middle" font-size="11" font-weight="bold" fill="#2980b9">Key insight: pivot is DONE.</text>
+  <text x="230" y="396" text-anchor="middle" font-size="10" fill="#555">55 will never move again. Each partition permanently places one element.</text>
+
+  <rect x="440" y="362" width="390" height="44" rx="8" fill="#fef9e7" stroke="#f39c12" stroke-width="1.5"/>
+  <text x="635" y="380" text-anchor="middle" font-size="11" font-weight="bold" fill="#e67e22">What happens next?</text>
+  <text x="635" y="396" text-anchor="middle" font-size="10" fill="#555">Back in the trace: recurse left [38, 32], then right [95] (base case).</text>
+
+  <!-- Footer -->
+  <rect x="30" y="418" width="800" height="34" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="430" y="440" text-anchor="middle" fill="#333" font-size="11" font-weight="bold">partition() complete — returned pivot_idx=2. Control returns to quick_sort_recursive().</text>
+</svg>

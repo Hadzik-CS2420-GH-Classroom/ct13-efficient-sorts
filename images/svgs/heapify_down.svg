@@ -1,98 +1,195 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 540" font-family="'Segoe UI', Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 620" font-family="'Segoe UI', Arial, sans-serif">
   <rect width="100%" height="100%" fill="white"/>
 
-  <!-- Title -->
-  <text x="430" y="30" text-anchor="middle" fill="#1a1a1a" font-size="24" font-weight="bold">Heapify Down: Restoring the Max-Heap</text>
-  <text x="430" y="50" text-anchor="middle" fill="#555" font-size="13">Compare node with children. If a child is larger, swap and continue sinking.</text>
+  <!-- Sort badge -->
+  <rect x="730" y="6" width="120" height="20" rx="10" fill="#16a085" opacity="0.85"/>
+  <text x="790" y="20" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="'Segoe UI', Arial, sans-serif">HEAP SORT</text>
 
-  <!-- ===== CODE BLOCK ===== -->
-  <rect x="30" y="64" width="800" height="146" rx="8" fill="#2d2d2d"/>
-  <text font-family="'Consolas', 'Courier New', monospace" font-size="11" fill="#ddd">
-    <tspan x="50" y="84" fill="#c586c0">void</tspan><tspan fill="#dcdcaa"> heapify_down</tspan><tspan fill="#ddd">(vector&lt;int&gt;&amp; data, </tspan><tspan fill="#4ec9b0">int</tspan><tspan fill="#ddd"> heap_size, </tspan><tspan fill="#4ec9b0">int</tspan><tspan fill="#ddd"> index) {</tspan>
-    <tspan x="70" y="100" fill="#4ec9b0">int</tspan><tspan fill="#ddd"> largest = index;</tspan>
-    <tspan x="70" y="116" fill="#4ec9b0">int</tspan><tspan fill="#ddd"> left  = 2 * index + 1;</tspan><tspan fill="#888">  // left child</tspan>
-    <tspan x="70" y="132" fill="#4ec9b0">int</tspan><tspan fill="#ddd"> right = 2 * index + 2;</tspan><tspan fill="#888">  // right child</tspan>
-    <tspan x="70" y="152" fill="#c586c0">if</tspan><tspan fill="#ddd"> (left &lt; heap_size &amp;&amp; data[left] &gt; data[largest])  largest = left;</tspan>
-    <tspan x="70" y="168" fill="#c586c0">if</tspan><tspan fill="#ddd"> (right &lt; heap_size &amp;&amp; data[right] &gt; data[largest]) largest = right;</tspan>
-    <tspan x="70" y="188" fill="#c586c0">if</tspan><tspan fill="#ddd"> (largest != index) { </tspan><tspan fill="#dcdcaa">swap</tspan><tspan fill="#ddd">(data[index], data[largest]);</tspan>
-    <tspan x="90" y="200" fill="#dcdcaa">heapify_down</tspan><tspan fill="#ddd">(data, heap_size, largest); }</tspan><tspan fill="#888"> // recurse</tspan>
+  <!-- Title -->
+  <text x="430" y="28" text-anchor="middle" fill="#1a1a1a" font-size="22" font-weight="bold">heapify_down(): Restoring the Max-Heap</text>
+  <text x="430" y="48" text-anchor="middle" fill="#555" font-size="13">Example: heapify_down(data, 7, 0) on [38, 95, 43, 55, 62, 27, 32] — fix the root</text>
+
+  <!-- ===== Parameter Key ===== -->
+  <rect x="80" y="60" width="10" height="10" rx="2" fill="#e74c3c" stroke="#c0392b" stroke-width="1"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="94" y="70" fill="#e74c3c" font-weight="bold">index</tspan><tspan fill="#888"> node to check</tspan>
+  </text>
+  <rect x="280" y="60" width="10" height="10" rx="2" fill="#27ae60" stroke="#219a52" stroke-width="1"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="294" y="70" fill="#27ae60" font-weight="bold">largest</tspan><tspan fill="#888"> biggest of parent + children</tspan>
+  </text>
+  <rect x="560" y="60" width="10" height="10" rx="2" fill="#888" stroke="#666" stroke-width="1"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="574" y="70" fill="#888" font-weight="bold">left = 2i+1</tspan><tspan fill="#888">  right = 2i+2</tspan>
   </text>
 
-  <!-- ===== VISUAL: BEFORE (left side) ===== -->
-  <text x="200" y="234" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">Before heapify_down(0)</text>
+  <!-- Column headers -->
+  <text x="195" y="90" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">CODE</text>
+  <text x="640" y="90" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">TREE STATE</text>
 
-  <!-- Tree edges -->
-  <line x1="200" y1="272" x2="130" y2="320" stroke="#bdc3c7" stroke-width="1.5"/>
-  <line x1="200" y1="272" x2="270" y2="320" stroke="#bdc3c7" stroke-width="1.5"/>
-  <line x1="130" y1="354" x2="100" y2="400" stroke="#bdc3c7" stroke-width="1.5"/>
+  <!-- Row backgrounds -->
+  <rect x="20" y="96" width="820" height="90" rx="0" fill="#f9f9f9"/>
+  <rect x="20" y="186" width="820" height="90" rx="0" fill="white"/>
+  <rect x="20" y="276" width="820" height="100" rx="0" fill="#f9f9f9"/>
+  <rect x="20" y="376" width="820" height="100" rx="0" fill="white"/>
 
-  <!-- Dashed swap path -->
-  <line x1="215" y1="262" x2="260" y2="318" stroke="#e74c3c" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <!-- ===== ROW 1: Find children, compare ===== -->
+  <text x="30" y="112" font-size="10" fill="#555" font-style="italic">Step 1: Start at index=0. Find children: left=1, right=2. Compare all three.</text>
 
-  <!-- Node 0 (55) red -->
-  <text x="200" y="245" text-anchor="middle" font-size="9" fill="#888">[0]</text>
-  <rect x="174" y="248" width="52" height="32" rx="4" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
-  <text x="200" y="269" text-anchor="middle" font-size="15" font-weight="bold" fill="white">55</text>
+  <rect x="30" y="118" width="350" height="50" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="134" fill="#4ec9b0">int</tspan><tspan fill="#ddd"> largest = 0;</tspan><tspan fill="#888">  // start: parent</tspan>
+    <tspan x="40" y="148" fill="#4ec9b0">int</tspan><tspan fill="#ddd"> left = 1, right = 2;</tspan>
+    <tspan x="40" y="162" fill="#888">// data[0]=38, data[1]=95, data[2]=43</tspan>
+  </text>
 
-  <!-- Node 1 (62) blue -->
-  <text x="130" y="317" text-anchor="middle" font-size="9" fill="#888">[1]</text>
-  <rect x="104" y="320" width="52" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="130" y="341" text-anchor="middle" font-size="15" font-weight="bold" fill="white">62</text>
+  <!-- Mini tree: index=0 highlighted -->
+  <line x1="590" y1="126" x2="540" y2="152" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="590" y1="126" x2="640" y2="152" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="540" y1="174" x2="510" y2="196" stroke="#bdc3c7" stroke-width="1"/>
+  <line x1="540" y1="174" x2="570" y2="196" stroke="#bdc3c7" stroke-width="1"/>
+  <line x1="640" y1="174" x2="610" y2="196" stroke="#bdc3c7" stroke-width="1"/>
+  <line x1="640" y1="174" x2="670" y2="196" stroke="#bdc3c7" stroke-width="1"/>
 
-  <!-- Node 2 (72) green, largest child -->
-  <text x="270" y="317" text-anchor="middle" font-size="9" fill="#888">[2]</text>
-  <rect x="244" y="320" width="52" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="2.5"/>
-  <text x="270" y="341" text-anchor="middle" font-size="15" font-weight="bold" fill="white">72</text>
-  <text x="310" y="342" font-size="10" fill="#219a52">largest</text>
+  <!-- Root: 38 (red, being checked) -->
+  <rect x="572" y="110" width="36" height="22" rx="4" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="590" y="125" text-anchor="middle" fill="white" font-size="10" font-weight="bold">38</text>
+  <text x="590" y="106" text-anchor="middle" font-size="7" fill="#888">[0]</text>
 
-  <!-- Node 3 (38) blue -->
-  <text x="100" y="397" text-anchor="middle" font-size="9" fill="#888">[3]</text>
-  <rect x="74" y="400" width="52" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="100" y="421" text-anchor="middle" font-size="15" font-weight="bold" fill="white">38</text>
+  <!-- Left child: 95 -->
+  <rect x="522" y="152" width="36" height="22" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="540" y="167" text-anchor="middle" fill="white" font-size="10" font-weight="bold">95</text>
+  <text x="540" y="148" text-anchor="middle" font-size="7" fill="#888">[1]</text>
 
-  <!-- Code annotation pointing to tree -->
-  <text x="60" y="460" font-size="10" fill="#e74c3c">55 &lt; 72, so largest = right</text>
-  <text x="60" y="474" font-size="10" fill="#e74c3c">swap(data[0], data[2])</text>
+  <!-- Right child: 43 -->
+  <rect x="622" y="152" width="36" height="22" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="640" y="167" text-anchor="middle" fill="white" font-size="10" font-weight="bold">43</text>
+  <text x="640" y="148" text-anchor="middle" font-size="7" fill="#888">[2]</text>
 
-  <!-- ===== ARROW ===== -->
-  <line x1="395" y1="340" x2="455" y2="340" stroke="#e74c3c" stroke-width="2.5"/>
-  <polygon points="455,334 465,340 455,346" fill="#e74c3c"/>
-  <text x="430" y="330" text-anchor="middle" font-size="12" font-weight="bold" fill="#e74c3c">swap</text>
-  <text x="430" y="356" text-anchor="middle" font-size="11" fill="#555">then recurse</text>
+  <!-- Remaining nodes (small, gray) -->
+  <rect x="496" y="192" width="28" height="16" rx="3" fill="#bdc3c7"/>
+  <text x="510" y="204" text-anchor="middle" fill="white" font-size="8">55</text>
+  <rect x="556" y="192" width="28" height="16" rx="3" fill="#bdc3c7"/>
+  <text x="570" y="204" text-anchor="middle" fill="white" font-size="8">62</text>
+  <rect x="596" y="192" width="28" height="16" rx="3" fill="#bdc3c7"/>
+  <text x="610" y="204" text-anchor="middle" fill="white" font-size="8">27</text>
+  <rect x="656" y="192" width="28" height="16" rx="3" fill="#bdc3c7"/>
+  <text x="670" y="204" text-anchor="middle" fill="white" font-size="8">32</text>
 
-  <!-- ===== VISUAL: AFTER (right side) ===== -->
-  <text x="660" y="234" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">After heapify_down(0)</text>
+  <text x="710" y="140" font-size="9" fill="#888">38 is the root</text>
+  <text x="710" y="154" font-size="9" fill="#888">children: 95, 43</text>
 
-  <!-- Tree edges -->
-  <line x1="660" y1="272" x2="590" y2="320" stroke="#bdc3c7" stroke-width="1.5"/>
-  <line x1="660" y1="272" x2="730" y2="320" stroke="#bdc3c7" stroke-width="1.5"/>
-  <line x1="590" y1="354" x2="560" y2="400" stroke="#bdc3c7" stroke-width="1.5"/>
+  <!-- ===== ROW 2: Find largest ===== -->
+  <text x="30" y="202" font-size="10" fill="#555" font-style="italic">Step 2: Is left child (95) bigger than parent (38)? Yes → largest=1. Right child (43)? No.</text>
 
-  <!-- Node 0 (72) green -->
-  <text x="660" y="245" text-anchor="middle" font-size="9" fill="#888">[0]</text>
-  <rect x="634" y="248" width="52" height="32" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
-  <text x="660" y="269" text-anchor="middle" font-size="15" font-weight="bold" fill="white">72</text>
+  <rect x="30" y="208" width="350" height="50" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="224" fill="#c586c0">if</tspan><tspan fill="#ddd"> (data[1]=95 &gt; data[0]=38) largest = 1;</tspan><tspan fill="#888"> // yes!</tspan>
+    <tspan x="40" y="240" fill="#c586c0">if</tspan><tspan fill="#ddd"> (data[2]=43 &gt; data[1]=95) largest = 2;</tspan><tspan fill="#888"> // no</tspan>
+    <tspan x="40" y="256" fill="#888">// largest = 1 (the left child, 95)</tspan>
+  </text>
 
-  <!-- Node 1 (62) blue -->
-  <text x="590" y="317" text-anchor="middle" font-size="9" fill="#888">[1]</text>
-  <rect x="564" y="320" width="52" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="590" y="341" text-anchor="middle" font-size="15" font-weight="bold" fill="white">62</text>
+  <!-- Green box -->
+  <rect x="30" y="262" width="350" height="22" rx="4" fill="#1a472a"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="40" y="278" fill="#8fbc8f">largest = 1 (data[1] = </tspan><tspan fill="#2ecc71" font-weight="bold">95</tspan><tspan fill="#8fbc8f">)  — parent is NOT the largest</tspan>
+  </text>
 
-  <!-- Node 2 (55) blue (sank down) -->
-  <text x="730" y="317" text-anchor="middle" font-size="9" fill="#888">[2]</text>
-  <rect x="704" y="320" width="52" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="730" y="341" text-anchor="middle" font-size="15" font-weight="bold" fill="white">55</text>
+  <text x="456" y="220" font-size="10" fill="#27ae60" font-weight="bold">95 is the largest of the three.</text>
+  <text x="456" y="236" font-size="10" fill="#555">Parent 38 is smaller → heap property violated.</text>
+  <text x="456" y="252" font-size="10" fill="#555">Need to swap parent with largest child.</text>
 
-  <!-- Node 3 (38) blue -->
-  <text x="560" y="397" text-anchor="middle" font-size="9" fill="#888">[3]</text>
-  <rect x="534" y="400" width="52" height="32" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1.5"/>
-  <text x="560" y="421" text-anchor="middle" font-size="15" font-weight="bold" fill="white">38</text>
+  <!-- ===== ROW 3: Swap and recurse ===== -->
+  <text x="30" y="296" font-size="10" fill="#555" font-style="italic">Step 3: largest != index → swap data[0] and data[1], then recurse at index 1.</text>
 
-  <text x="790" y="342" font-size="10" fill="#888">55 has no children</text>
-  <text x="790" y="356" font-size="10" fill="#888">in bounds, done!</text>
+  <rect x="30" y="302" width="350" height="50" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10" fill="#ddd">
+    <tspan x="40" y="318" fill="#dcdcaa">swap</tspan><tspan fill="#ddd">(data[0], data[1]);</tspan><tspan fill="#888"> // swap 38 and 95</tspan>
+    <tspan x="40" y="334" fill="#dcdcaa">heapify_down</tspan><tspan fill="#ddd">(data, 7, 1);</tspan><tspan fill="#888">  // recurse at 1</tspan>
+    <tspan x="40" y="348" fill="#888">// 38 sinks down, 95 rises to root</tspan>
+  </text>
+
+  <!-- Tree after swap -->
+  <line x1="590" y1="310" x2="540" y2="336" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="590" y1="310" x2="640" y2="336" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="540" y1="358" x2="510" y2="378" stroke="#bdc3c7" stroke-width="1"/>
+  <line x1="540" y1="358" x2="570" y2="378" stroke="#bdc3c7" stroke-width="1"/>
+  <line x1="640" y1="358" x2="610" y2="378" stroke="#bdc3c7" stroke-width="1"/>
+  <line x1="640" y1="358" x2="670" y2="378" stroke="#bdc3c7" stroke-width="1"/>
+
+  <!-- Root: 95 (green, fixed) -->
+  <rect x="572" y="294" width="36" height="22" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="2"/>
+  <text x="590" y="309" text-anchor="middle" fill="white" font-size="10" font-weight="bold">95</text>
+
+  <!-- Left child: 38 (red, now being checked by recursion) -->
+  <rect x="522" y="336" width="36" height="22" rx="4" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+  <text x="540" y="351" text-anchor="middle" fill="white" font-size="10" font-weight="bold">38</text>
+  <text x="540" y="332" text-anchor="middle" font-size="7" fill="#e74c3c">recurse here</text>
+
+  <!-- Right child: 43 -->
+  <rect x="622" y="336" width="36" height="22" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="640" y="351" text-anchor="middle" fill="white" font-size="10" font-weight="bold">43</text>
+
+  <!-- Children of node 1 -->
+  <rect x="496" y="374" width="28" height="16" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="510" y="386" text-anchor="middle" fill="white" font-size="8">55</text>
+  <rect x="556" y="374" width="28" height="16" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="570" y="386" text-anchor="middle" fill="white" font-size="8">62</text>
+  <rect x="596" y="374" width="28" height="16" rx="3" fill="#bdc3c7"/>
+  <text x="610" y="386" text-anchor="middle" fill="white" font-size="8">27</text>
+  <rect x="656" y="374" width="28" height="16" rx="3" fill="#bdc3c7"/>
+  <text x="670" y="386" text-anchor="middle" fill="white" font-size="8">32</text>
+
+  <text x="710" y="316" font-size="9" fill="#27ae60" font-weight="bold">95 at root &#x2713;</text>
+  <text x="710" y="332" font-size="9" fill="#e74c3c">38 sank to [1]</text>
+  <text x="710" y="346" font-size="9" fill="#888">children: 55, 62</text>
+  <text x="710" y="360" font-size="9" fill="#888">62 > 38 → swap again</text>
+
+  <!-- ===== ROW 4: Recursion result ===== -->
+  <text x="30" y="396" font-size="10" fill="#555" font-style="italic">Recursion: heapify_down(data, 7, 1) → 38's children are 55 and 62. 62 is largest → swap. Then 38 is a leaf → done.</text>
+
+  <rect x="30" y="402" width="350" height="50" rx="4" fill="#1a472a"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="40" y="418" fill="#888">// At index 1: data[1]=38, left=data[3]=55, right=data[4]=62</tspan>
+    <tspan x="40" y="434" fill="#8fbc8f">swap(data[1], data[4]);</tspan><tspan fill="#888"> // swap 38 and 62</tspan>
+    <tspan x="40" y="448" fill="#888">// heapify_down(data, 7, 4) → 38 is a leaf, done!</tspan>
+  </text>
+
+  <!-- Final tree -->
+  <line x1="590" y1="410" x2="540" y2="436" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="590" y1="410" x2="640" y2="436" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="540" y1="458" x2="510" y2="474" stroke="#bdc3c7" stroke-width="1"/>
+  <line x1="540" y1="458" x2="570" y2="474" stroke="#bdc3c7" stroke-width="1"/>
+
+  <!-- Root: 95 -->
+  <rect x="572" y="394" width="36" height="22" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="590" y="409" text-anchor="middle" fill="white" font-size="10" font-weight="bold">95</text>
+
+  <!-- Node 1: 62 -->
+  <rect x="522" y="436" width="36" height="22" rx="4" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="540" y="451" text-anchor="middle" fill="white" font-size="10" font-weight="bold">62</text>
+
+  <!-- Node 2: 43 -->
+  <rect x="622" y="436" width="36" height="22" rx="4" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="640" y="451" text-anchor="middle" fill="white" font-size="10" font-weight="bold">43</text>
+
+  <!-- Node 3: 55, Node 4: 38 (sank here) -->
+  <rect x="496" y="470" width="28" height="16" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="510" y="482" text-anchor="middle" fill="white" font-size="8">55</text>
+  <rect x="556" y="470" width="28" height="16" rx="3" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="570" y="482" text-anchor="middle" fill="white" font-size="8" font-weight="bold">38</text>
+
+  <text x="710" y="420" font-size="9" fill="#27ae60" font-weight="bold">62 at [1] &#x2713;</text>
+  <text x="710" y="436" font-size="9" fill="#e67e22">38 sank to [4]</text>
+  <text x="710" y="452" font-size="9" fill="#888">38 is a leaf — done!</text>
 
   <!-- Footer -->
-  <rect x="30" y="490" width="800" height="40" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
-  <text x="430" y="510" text-anchor="middle" fill="#333" font-size="12" font-weight="bold">left = 2*i+1, right = 2*i+2. Compare parent with both children, swap with largest if needed.</text>
-  <text x="430" y="524" text-anchor="middle" fill="#555" font-size="12">Runs in O(log n), at most the height of the tree.</text>
+  <rect x="30" y="498" width="800" height="56" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="430" y="518" text-anchor="middle" fill="#333" font-size="11" font-weight="bold">38 sank from root [0] → [1] → [4]. Two swaps = two levels of the tree = O(log n).</text>
+  <text x="430" y="536" text-anchor="middle" fill="#555" font-size="11">left = 2*i+1, right = 2*i+2. Compare parent with both children, swap with largest, recurse.</text>
+
+  <!-- Callout -->
+  <rect x="30" y="564" width="800" height="44" rx="8" fill="#fef9e7" stroke="#f39c12" stroke-width="1.5"/>
+  <text x="430" y="582" text-anchor="middle" font-size="11" font-weight="bold" fill="#e67e22">Why "down"?</text>
+  <text x="430" y="598" text-anchor="middle" font-size="10" fill="#555">The small element sinks DOWN through the tree until it's bigger than both children (or reaches a leaf).</text>
 </svg>

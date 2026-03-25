@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 560" font-family="'Segoe UI', Arial, sans-serif">
+  <rect width="100%" height="100%" fill="white"/>
+
+  <!-- Sort badge -->
+  <rect x="730" y="6" width="120" height="20" rx="10" fill="#8e44ad" opacity="0.85"/>
+  <text x="790" y="20" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="'Segoe UI', Arial, sans-serif">QUICK SORT</text>
+
+  <!-- Title -->
+  <text x="430" y="28" text-anchor="middle" fill="#1a1a1a" font-size="22" font-weight="bold">quick_sort_recursive(): Tracing the Calls</text>
+  <text x="430" y="48" text-anchor="middle" fill="#555" font-size="13">Watch the recursion partition [38, 55, 32, 95] — pivot lands, then recurse each side</text>
+
+  <!-- Column headers -->
+  <text x="195" y="72" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">CALL</text>
+  <text x="600" y="72" text-anchor="middle" fill="#888" font-size="11" font-weight="bold">DATA STATE</text>
+
+  <!-- Row backgrounds -->
+  <rect x="20" y="78" width="820" height="56" rx="0" fill="#f9f9f9"/>
+  <rect x="20" y="134" width="820" height="46" rx="0" fill="white"/>
+  <rect x="20" y="180" width="820" height="56" rx="0" fill="#f9f9f9"/>
+  <rect x="20" y="236" width="820" height="46" rx="0" fill="white"/>
+  <rect x="20" y="282" width="820" height="46" rx="0" fill="#f9f9f9"/>
+  <rect x="20" y="328" width="820" height="46" rx="0" fill="white"/>
+  <rect x="20" y="374" width="820" height="46" rx="0" fill="#f9f9f9"/>
+  <rect x="20" y="420" width="820" height="46" rx="0" fill="white"/>
+
+  <!-- ===== CALL 1: recursive(0, 3) — partition picks pivot 55 ===== -->
+  <rect x="30" y="86" width="330" height="22" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="40" y="102" fill="#dcdcaa">quick_sort_recursive</tspan><tspan fill="#ddd">(data, 0, 3)</tspan>
+  </text>
+
+  <line x1="370" y1="97" x2="430" y2="97" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="430,93 438,97 430,101" fill="#bdc3c7"/>
+
+  <!-- Data: unsorted -->
+  <rect x="446" y="86" width="36" height="22" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="464" y="101" text-anchor="middle" fill="white" font-size="10" font-weight="bold">38</text>
+  <rect x="486" y="86" width="36" height="22" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="504" y="101" text-anchor="middle" fill="white" font-size="10" font-weight="bold">55</text>
+  <rect x="526" y="86" width="36" height="22" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="544" y="101" text-anchor="middle" fill="white" font-size="10" font-weight="bold">32</text>
+  <rect x="566" y="86" width="36" height="22" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="584" y="101" text-anchor="middle" fill="white" font-size="10" font-weight="bold">95</text>
+
+  <text x="620" y="101" font-size="10" fill="#888">partition → pivot = 55</text>
+
+  <!-- ===== PARTITION RESULT 1: 55 in final position ===== -->
+  <rect x="50" y="142" width="310" height="22" rx="4" fill="#1a472a"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="60" y="158" fill="#888">&#x21B3; </tspan><tspan fill="#2ecc71">partition</tspan><tspan fill="#8fbc8f">(data, 0, 3) → pivot_idx = 2</tspan>
+  </text>
+
+  <line x1="370" y1="153" x2="430" y2="153" stroke="#27ae60" stroke-width="1.5"/>
+  <polygon points="430,149 438,153 430,157" fill="#27ae60"/>
+
+  <rect x="446" y="142" width="36" height="22" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="464" y="157" text-anchor="middle" fill="white" font-size="10" font-weight="bold">38</text>
+  <rect x="486" y="142" width="36" height="22" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="504" y="157" text-anchor="middle" fill="white" font-size="10" font-weight="bold">32</text>
+  <rect x="526" y="142" width="36" height="22" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  <text x="544" y="157" text-anchor="middle" fill="white" font-size="10" font-weight="bold">55</text>
+  <rect x="566" y="142" width="36" height="22" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="584" y="157" text-anchor="middle" fill="white" font-size="10" font-weight="bold">95</text>
+
+  <text x="620" y="157" font-size="10" fill="#27ae60" font-weight="bold">55 in final spot!</text>
+
+  <!-- ===== CALL 2: recursive(0, 1) — left side ===== -->
+  <rect x="50" y="188" width="310" height="22" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="60" y="204" fill="#888">&#x21B3; </tspan><tspan fill="#dcdcaa">recursive</tspan><tspan fill="#ddd">(data, 0, 1)</tspan>
+  </text>
+
+  <line x1="370" y1="199" x2="430" y2="199" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="430,195 438,199 430,203" fill="#bdc3c7"/>
+
+  <rect x="446" y="188" width="36" height="22" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="464" y="203" text-anchor="middle" fill="white" font-size="10" font-weight="bold">38</text>
+  <rect x="486" y="188" width="36" height="22" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="504" y="203" text-anchor="middle" fill="white" font-size="10" font-weight="bold">32</text>
+
+  <text x="540" y="203" font-size="10" fill="#888">partition → pivot = 32</text>
+
+  <!-- ===== PARTITION RESULT 2: 32 in final position ===== -->
+  <rect x="70" y="244" width="290" height="22" rx="4" fill="#1a472a"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="80" y="260" fill="#888">&#x21B3; </tspan><tspan fill="#2ecc71">partition</tspan><tspan fill="#8fbc8f">(data, 0, 1) → pivot_idx = 0</tspan>
+  </text>
+
+  <line x1="370" y1="255" x2="430" y2="255" stroke="#27ae60" stroke-width="1.5"/>
+  <polygon points="430,251 438,255 430,259" fill="#27ae60"/>
+
+  <rect x="446" y="244" width="36" height="22" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+  <text x="464" y="259" text-anchor="middle" fill="white" font-size="10" font-weight="bold">32</text>
+  <rect x="486" y="244" width="36" height="22" rx="3" fill="#3498db" stroke="#2980b9" stroke-width="1"/>
+  <text x="504" y="259" text-anchor="middle" fill="white" font-size="10" font-weight="bold">38</text>
+
+  <text x="540" y="259" font-size="10" fill="#27ae60" font-weight="bold">32 in final spot!</text>
+
+  <!-- ===== BASE CASES for (0, -1) and (1, 1) ===== -->
+  <rect x="70" y="290" width="290" height="22" rx="4" fill="#444"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="80" y="306" fill="#888">&#x21B3; &#x21B3; recursive(0, -1) and recursive(1, 1)</tspan>
+  </text>
+
+  <line x1="370" y1="301" x2="430" y2="301" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="430,297 438,301 430,305" fill="#bdc3c7"/>
+
+  <rect x="446" y="290" width="36" height="22" rx="3" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="464" y="305" text-anchor="middle" fill="white" font-size="10" font-weight="bold">32</text>
+  <rect x="486" y="290" width="36" height="22" rx="3" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="504" y="305" text-anchor="middle" fill="white" font-size="10" font-weight="bold">38</text>
+  <text x="540" y="305" font-size="10" fill="#e74c3c">both base cases</text>
+
+  <!-- ===== Left side done ===== -->
+  <rect x="50" y="336" width="310" height="22" rx="4" fill="#1a472a"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="60" y="352" fill="#888">&#x21B3; </tspan><tspan fill="#2ecc71">left side done</tspan>
+  </text>
+
+  <line x1="370" y1="347" x2="430" y2="347" stroke="#27ae60" stroke-width="1.5"/>
+  <polygon points="430,343 438,347 430,351" fill="#27ae60"/>
+
+  <rect x="446" y="336" width="36" height="22" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="464" y="351" text-anchor="middle" fill="white" font-size="10" font-weight="bold">32</text>
+  <rect x="486" y="336" width="36" height="22" rx="3" fill="#27ae60" stroke="#219a52" stroke-width="1.5"/>
+  <text x="504" y="351" text-anchor="middle" fill="white" font-size="10" font-weight="bold">38</text>
+  <text x="540" y="351" font-size="10" fill="#27ae60" font-weight="bold">[32, 38] sorted</text>
+
+  <!-- ===== CALL 3: recursive(3, 3) — right side, base case ===== -->
+  <rect x="50" y="382" width="310" height="22" rx="4" fill="#2d2d2d"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="60" y="398" fill="#888">&#x21B3; </tspan><tspan fill="#dcdcaa">recursive</tspan><tspan fill="#ddd">(data, 3, 3)</tspan>
+  </text>
+
+  <line x1="370" y1="393" x2="430" y2="393" stroke="#bdc3c7" stroke-width="1.5"/>
+  <polygon points="430,389 438,393 430,397" fill="#bdc3c7"/>
+
+  <rect x="446" y="382" width="36" height="22" rx="3" fill="#e67e22" stroke="#ca6f1e" stroke-width="1.5"/>
+  <text x="464" y="397" text-anchor="middle" fill="white" font-size="10" font-weight="bold">95</text>
+  <text x="500" y="397" font-size="10" fill="#e74c3c" font-weight="bold">BASE CASE (1 element)</text>
+
+  <!-- ===== FINAL RESULT ===== -->
+  <rect x="30" y="428" width="330" height="22" rx="4" fill="#1a472a"/>
+  <text font-family="'Consolas', 'Courier New', monospace" font-size="10">
+    <tspan x="40" y="444" fill="#2ecc71">done!</tspan>
+  </text>
+
+  <line x1="370" y1="439" x2="430" y2="439" stroke="#27ae60" stroke-width="1.5"/>
+  <polygon points="430,435 438,439 430,443" fill="#27ae60"/>
+
+  <rect x="446" y="428" width="36" height="22" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="464" y="443" text-anchor="middle" fill="white" font-size="10" font-weight="bold">32</text>
+  <rect x="486" y="428" width="36" height="22" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="504" y="443" text-anchor="middle" fill="white" font-size="10" font-weight="bold">38</text>
+  <rect x="526" y="428" width="36" height="22" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="544" y="443" text-anchor="middle" fill="white" font-size="10" font-weight="bold">55</text>
+  <rect x="566" y="428" width="36" height="22" rx="3" fill="#2ecc71" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="584" y="443" text-anchor="middle" fill="white" font-size="10" font-weight="bold">95</text>
+  <text x="620" y="443" font-size="11" fill="#27ae60" font-weight="bold">&#x2713; fully sorted!</text>
+
+  <!-- Footer -->
+  <rect x="30" y="466" width="800" height="80" rx="8" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="430" y="486" text-anchor="middle" fill="#333" font-size="11" font-weight="bold">The pattern: partition first (green rows), then recurse on each side.</text>
+  <text x="430" y="504" text-anchor="middle" fill="#555" font-size="11">Green rows = partition() placing a pivot in its final position. Orange = base case (nothing to do).</text>
+  <text x="430" y="522" text-anchor="middle" fill="#555" font-size="11">Key difference from merge sort: work happens on the way DOWN (partition), not on the way UP (merge).</text>
+  <text x="430" y="538" text-anchor="middle" fill="#555" font-size="11">With 4 elements: 2 partitions. Each partition is O(n). Average: log n levels = O(n log n).</text>
+</svg>
