@@ -29,30 +29,40 @@
 //   - the step-by-step diagrams show exactly why we copy before merging
 //
 static void merge(std::vector<int>& data, int left, int mid, int right) {
-    // TODO 1a: Merge two sorted halves
+    // Step 1: Copy both halves into temp vectors
     // ? SEE DIAGRAM: images/cpp_diagrams.md #5 -- step 1 (2-element merge)
     // ? SEE DIAGRAM: images/cpp_diagrams.md #8 -- step 1 (4-element final merge)
-    //
-    //   Step 1: Copy both halves into temp vectors
-    //     - vector<int> left_half(data.begin()+left, data.begin()+mid+1)
-    //     - vector<int> right_half(data.begin()+mid+1, data.begin()+right+1)
-    //
+    std::vector<int> left_half(data.begin() + left, data.begin() + mid + 1);
+    std::vector<int> right_half(data.begin() + mid + 1, data.begin() + right + 1);
+
+    // Step 2: Merge back -- compare fronts, pick smaller
     // ? SEE DIAGRAM: images/cpp_diagrams.md #6 -- step 2 (2-element merge)
     // ? SEE DIAGRAM: images/cpp_diagrams.md #9 -- step 2 (4-element final merge)
-    //
-    //   Step 2: Use three indices (i for left_half, j for right_half, k starting at left)
-    //     - while both halves have elements: compare front of each, pick smaller into data[k++]
-    //
+    int i = 0, j = 0, k = left;
+    while (i < static_cast<int>(left_half.size()) && j < static_cast<int>(right_half.size())) {
+        if (left_half[i] <= right_half[j]) {
+            data[k++] = left_half[i++];
+        } else {
+            data[k++] = right_half[j++];
+        }
+    }
+
+    // Step 3: Copy any remaining elements
     // ? SEE DIAGRAM: images/cpp_diagrams.md #7 -- step 3 (2-element merge)
     // ? SEE DIAGRAM: images/cpp_diagrams.md #10 -- step 3 (4-element final merge)
-    //
-    //   Step 3: Copy any remaining elements from left_half, then from right_half
+    while (i < static_cast<int>(left_half.size())) {
+        data[k++] = left_half[i++];
+    }
+    while (j < static_cast<int>(right_half.size())) {
+        data[k++] = right_half[j++];
+    }
 }
 
 // ---------------------------------------------------------------------------
 // 1b. merge_sort_recursive() -- divide and conquer
 // ---------------------------------------------------------------------------
 //
+// ? SEE DIAGRAM: images/header_diagrams.md #4 -- merge sort: divide and conquer tree (big picture)
 // ? SEE DIAGRAM: images/cpp_diagrams.md #3 -- merge_sort_recursive(): the recursion (code)
 // ? SEE DIAGRAM: images/cpp_diagrams.md #4 -- merge_sort_recursive(): tracing the calls
 //
@@ -62,12 +72,12 @@ static void merge(std::vector<int>& data, int left, int mid, int right) {
 //   - total: O(n) * O(log n) = O(n log n)
 //
 static void merge_sort_recursive(std::vector<int>& data, int left, int right) {
-    // TODO 1b: Recursive merge sort
-    //   - base case: if left >= right, return (0 or 1 elements)
-    //   - find the midpoint: mid = left + (right - left) / 2
-    //   - recursively sort the left half:  merge_sort_recursive(data, left, mid)
-    //   - recursively sort the right half: merge_sort_recursive(data, mid + 1, right)
-    //   - merge the two sorted halves:     merge(data, left, mid, right)
+    if (left >= right) return;
+
+    int mid = left + (right - left) / 2;
+    merge_sort_recursive(data, left, mid);
+    merge_sort_recursive(data, mid + 1, right);
+    merge(data, left, mid, right);
 }
 
 // Public wrapper
@@ -98,24 +108,23 @@ void merge_sort(std::vector<int>& data) {
 //   - two equal elements on opposite sides of the pivot can end up reversed
 //
 static int partition(std::vector<int>& data, int low, int high) {
-    // TODO 2a: Partition the array around a pivot
-    //
-    //   Step 1: Median-of-three pivot selection
-    //     - int mid = low + (high - low) / 2
-    //     - sort data[low], data[mid], data[high] so median ends up at data[high]
-    //       if data[mid] < data[low]: swap(data[low], data[mid])
-    //       if data[high] < data[low]: swap(data[low], data[high])
-    //       if data[mid] < data[high]: swap(data[mid], data[high])
-    //     - now data[high] holds the median -- use it as the pivot
-    //     - int pivot = data[high]
-    //
-    //   Step 2: Partition
-    //     - int i = low - 1  (i tracks the boundary of "elements <= pivot")
-    //     - for j from low to high-1:
-    //         if data[j] <= pivot: increment i, swap data[i] and data[j]
-    //     - swap data[i+1] and data[high] (put pivot in its final position)
-    //     - return i + 1 (the pivot's index)
-    return low;  // placeholder
+    // Step 1: Median-of-three pivot selection
+    int mid = low + (high - low) / 2;
+    if (data[mid] < data[low]) std::swap(data[low], data[mid]);
+    if (data[high] < data[low]) std::swap(data[low], data[high]);
+    if (data[mid] < data[high]) std::swap(data[mid], data[high]);
+    int pivot = data[high];
+
+    // Step 2: Partition
+    int i = low - 1;
+    for (int j = low; j < high; ++j) {
+        if (data[j] <= pivot) {
+            ++i;
+            std::swap(data[i], data[j]);
+        }
+    }
+    std::swap(data[i + 1], data[high]);
+    return i + 1;
 }
 
 // ---------------------------------------------------------------------------
@@ -131,11 +140,11 @@ static int partition(std::vector<int>& data, int low, int high) {
 //     (median-of-three makes this extremely unlikely)
 //
 static void quick_sort_recursive(std::vector<int>& data, int low, int high) {
-    // TODO 2b: Recursive quick sort
-    //   - base case: if low >= high, return
-    //   - int pivot_idx = partition(data, low, high)
-    //   - recursively sort left:  quick_sort_recursive(data, low, pivot_idx - 1)
-    //   - recursively sort right: quick_sort_recursive(data, pivot_idx + 1, high)
+    if (low >= high) return;
+
+    int pivot_idx = partition(data, low, high);
+    quick_sort_recursive(data, low, pivot_idx - 1);
+    quick_sort_recursive(data, pivot_idx + 1, high);
 }
 
 // Public wrapper
@@ -168,15 +177,17 @@ void quick_sort(std::vector<int>& data) {
 //   - time per call: O(log n) -- at most the height of the tree
 //
 static void heapify_down(std::vector<int>& data, int heap_size, int index) {
-    // TODO 3a: Restore max-heap property from index downward
-    //   - int largest = index
-    //   - int left = 2 * index + 1
-    //   - int right = 2 * index + 2
-    //   - if left < heap_size AND data[left] > data[largest]: largest = left
-    //   - if right < heap_size AND data[right] > data[largest]: largest = right
-    //   - if largest != index:
-    //       swap data[index] and data[largest]
-    //       heapify_down(data, heap_size, largest)  // recurse on the swapped child
+    int largest = index;
+    int left = 2 * index + 1;
+    int right = 2 * index + 2;
+
+    if (left < heap_size && data[left] > data[largest]) largest = left;
+    if (right < heap_size && data[right] > data[largest]) largest = right;
+
+    if (largest != index) {
+        std::swap(data[index], data[largest]);
+        heapify_down(data, heap_size, largest);
+    }
 }
 
 // ---------------------------------------------------------------------------
@@ -195,14 +206,16 @@ void heap_sort(std::vector<int>& data) {
     int n = static_cast<int>(data.size());
     if (n <= 1) return;
 
-    // TODO 3b-phase1: Build max-heap
-    //   - for i from n/2 - 1 down to 0:
-    //       heapify_down(data, n, i)
+    // Phase 1: Build max-heap
+    for (int i = n / 2 - 1; i >= 0; --i) {
+        heapify_down(data, n, i);
+    }
 
-    // TODO 3b-phase2: Extract max repeatedly
-    //   - for i from n-1 down to 1:
-    //       swap data[0] and data[i]   (move max to its final position)
-    //       heapify_down(data, i, 0)   (restore heap on the shrunk portion)
+    // Phase 2: Extract max repeatedly
+    for (int i = n - 1; i >= 1; --i) {
+        std::swap(data[0], data[i]);
+        heapify_down(data, i, 0);
+    }
 }
 
 // ? SEE DIAGRAM: images/header_diagrams.md #8 -- side-by-side comparison (time, space, stability)
