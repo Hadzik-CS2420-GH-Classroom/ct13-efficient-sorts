@@ -1,0 +1,260 @@
+<!-- Canvas LMS HTML Fragment -- paste into the Rich Content Editor (HTML view) -->
+
+<h2>&#x1F468;&#x200D;&#x1F4BB; Code-Together 13: O(n log n) Sorting Algorithms</h2>
+
+<h3>&#x1F3AF; Overview</h3>
+<p>An in-class code-together activity introducing <strong>efficient sorting algorithms</strong> &mdash; merge sort, quick sort, and heap sort. These divide-and-conquer algorithms achieve <strong>O(n log n)</strong> time by splitting the problem in half at each level, doing O(n) work per level. Students walk through the instructor-provided <code>EfficientSorts.cpp</code> implementation and complete TODOs in <code>main.cpp</code> to exercise each algorithm. The scenario: sorting exam scores.</p>
+
+<h3>&#x1F4D6; Learning Objectives</h3>
+<p>By completing this activity, you will be able to:</p>
+<ul>
+    <li>Implement <strong>merge sort</strong>: split the array, recursively sort each half, merge two sorted halves with the two-pointer technique</li>
+    <li>Implement <strong>quick sort</strong>: choose a pivot (median-of-three), partition elements around it, recursively sort each side</li>
+    <li>Implement <strong>heap sort</strong>: build a max-heap in-place, repeatedly extract the max to produce sorted output</li>
+    <li>Explain why all three are <strong>O(n log n)</strong> &mdash; log n levels of recursion/extraction, O(n) work per level</li>
+    <li>Compare <strong>space tradeoffs</strong>: merge sort uses O(n) extra space, quick sort uses O(log n) stack, heap sort uses O(1)</li>
+    <li>Explain <strong>stability</strong>: merge sort is stable; quick sort and heap sort are not</li>
+</ul>
+
+<h3>&#x1F680; Getting Started</h3>
+
+<h4>Step 1: Accept the Assignment</h4>
+<p>Click the button below to create your personal repository:</p>
+<p><a style="display: inline-block; padding: 10px 24px; font-size: 1em; font-weight: 600; color: #fff; background-color: #0b874b; border-radius: 4px; text-decoration: none;" href="https://classroom.github.com/a/W3mx_I-_" target="_blank" rel="noopener">Accept Assignment on GitHub</a></p>
+
+<div style="padding: 14px 18px; border-radius: 4px; margin-bottom: 16px; background-color: #fcf8e3; border: 1px solid #faebcc; color: #8a6d3b;">
+    <strong>Repository Access Issue?</strong><br />
+    If you don&#x2019;t see the repository after accepting, check your email for the GitHub invite.
+</div>
+
+<h4>Step 2: Clone in Visual Studio</h4>
+<ol>
+    <li>Open <strong>Visual Studio</strong></li>
+    <li>On the start window, click <strong>&#x201C;Clone a repository&#x201D;</strong></li>
+    <li>Paste your repository URL (from GitHub) into the <strong>Repository location</strong> field</li>
+    <li>Choose a local path and click <strong>Clone</strong></li>
+    <li>Visual Studio should automatically detect the CMake project and configure it</li>
+</ol>
+
+<div style="padding: 14px 18px; border-radius: 4px; margin-bottom: 16px; background-color: #d9edf7; border: 1px solid #bce8f1; color: #31708f;">
+    Follow the <strong>Troubleshooting</strong> section at the bottom if CMake does not configure automatically.
+</div>
+
+<h4>Step 3: Wait for CMake Configuration</h4>
+<p>Visual Studio will automatically run CMake. Watch the <strong>Output</strong> window (<em>View &rarr; Output</em>, select <em>&#x201C;Show output from: CMake&#x201D;</em>) until you see:</p>
+<pre style="background-color: #1e1e1e; color: #d4d4d4; padding: 16px 20px; border-radius: 4px; overflow-x: auto; font-family: 'Menlo', 'Monaco', 'Consolas', 'Courier New', monospace; font-size: 0.875em; line-height: 1.6;">CMake generation finished.</pre>
+
+<h3>&#x1F4DD; What You&#x2019;ll Do</h3>
+<p>Open each source file and complete the <code>TODO</code> comments. The <code>EfficientSorts.cpp</code> contains the full sort implementations with <strong>DISCUSSION</strong> comments explaining the &ldquo;why.&rdquo; The <code>main.cpp</code> TODOs have you call and exercise each sort. We&#x2019;ll work through these together in class.</p>
+
+<h3>&#x1F4DA; Teaching Order</h3>
+<p>Work through the files in order:</p>
+
+<h4>1. <code>EfficientSorts.h</code> &mdash; Function declarations</h4>
+<p>Walk through the header. Compare to CT12&rsquo;s quadratic sorts: same interface (<code>vector&lt;int&gt;&amp;</code>), dramatically different internals.</p>
+<table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; text-align: left; background-color: #f5f5f5; font-weight: 700;">Section</th>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; text-align: left; background-color: #f5f5f5; font-weight: 700;">What You&#x2019;ll Learn</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;"><code>merge_sort()</code></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">O(n log n) always, O(n) space, stable. Split/merge strategy.</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;"><code>quick_sort()</code></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">O(n log n) avg, O(n&sup2;) worst, O(log n) space, not stable. Partition strategy.</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;"><code>heap_sort()</code></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">O(n log n) always, O(1) space, not stable. Max-heap + extract strategy.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>2. <code>EfficientSorts.cpp</code> &mdash; Sort implementations (0 TODOs)</h4>
+<p>All code is given &mdash; students follow along as the instructor walks through each method.</p>
+<table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; text-align: left; background-color: #f5f5f5; font-weight: 700;">Section</th>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; text-align: left; background-color: #f5f5f5; font-weight: 700;">What You&#x2019;ll Learn</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">1. <code>merge()</code> helper</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Copy halves into temp vectors, merge with two pointers, <code>&lt;=</code> for stability</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">2. <code>merge_sort_recursive()</code></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Base case (left &gt;= right), find mid, recurse left, recurse right, merge</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">3. <code>partition()</code> helper</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Median-of-three pivot selection, scan with i/j pointers, place pivot</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">4. <code>quick_sort_recursive()</code></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Base case (low &gt;= high), partition, recurse left side, recurse right side</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">5. <code>heapify_down()</code> helper</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Compare with children (2i+1, 2i+2), swap with largest, recurse</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">6. <code>heap_sort()</code></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Phase 1: build max-heap (bottom-up). Phase 2: extract max repeatedly.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>3. <code>main.cpp</code> &mdash; Exam Score Sorter (4 TODOs)</h4>
+<table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; text-align: left; background-color: #f5f5f5; font-weight: 700;">Section</th>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; text-align: left; background-color: #f5f5f5; font-weight: 700;">What You&#x2019;ll Learn</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">TODO 1 &mdash; Merge sort demo</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Sort exam scores with merge sort; observe before/after output</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">TODO 2 &mdash; Quick sort demo</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Same data, different algorithm; same result, different internal process</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">TODO 3 &mdash; Heap sort demo</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Same data, third algorithm; O(1) space, O(n log n) guaranteed</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">TODO 4 &mdash; Compare all three</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Sort the same array with all three and print side-by-side</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>&#x1F5BC;&#xFE0F; Diagrams</h3>
+<p>Diagrams are included in the <code>images/</code> folder and referenced in the source code comments. These help visualize what&#x2019;s happening:</p>
+<table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; text-align: left; background-color: #f5f5f5; font-weight: 700;">Diagram</th>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; text-align: left; background-color: #f5f5f5; font-weight: 700;">Shows</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;"><code>efficient_sorts_overview</code></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">The three O(n log n) sorts at a glance: strategy, time, space, stability</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;"><code>nlogn_vs_quadratic</code></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Growth comparison: why O(n log n) matters at scale vs O(n&sup2;)</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;"><code>nlogn_why</code></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Divide-and-conquer: log n levels &times; O(n) work per level</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;"><code>merge_sort_tree</code></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Full recursion tree: split down, merge back up</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;"><code>merge_step</code></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Two-pointer merge of two sorted halves into one</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;"><code>partition_step</code></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Partition walkthrough: pivot selection, scan, swap, place pivot</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;"><code>quick_sort_recursive_trace</code></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Full recursion trace: partition, recurse left, recurse right</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;"><code>heapify_down</code></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Sift-down operation: compare with children, swap with largest</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;"><code>heap_sort_phases</code></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Phase 1 (build heap) and Phase 2 (extract max) walkthrough</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;"><code>efficient_sorts_comparison</code></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Side-by-side table: time, space, stability for all three sorts</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>&#x1F4CA; Grading (30 points)</h3>
+<p>Your code is auto-graded by GitHub Classroom when you push. Tests check that each sort produces correctly sorted output.</p>
+<table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; background-color: #f5f5f5; font-weight: 700;">Category</th>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; background-color: #f5f5f5; font-weight: 700;">Points</th>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; background-color: #f5f5f5; font-weight: 700;">What is tested</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Build</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">2</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Project compiles without errors</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Merge Sort</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">10</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Basic, sorted, reverse, single, empty, duplicates, negatives, large dataset</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Quick Sort</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">10</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Basic, sorted, reverse, single, empty, duplicates, all-same, large, 2-element, 3-element</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Heap Sort</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">8</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Basic, sorted, reverse, single, empty, duplicates, all-same, negatives, large, 2-element</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px; font-weight: 700; background-color: #f5f5f5;"><strong>Total</strong></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px; font-weight: 700; background-color: #f5f5f5;"><strong>30</strong></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px; background-color: #f5f5f5;"></td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>&#x1F527; Troubleshooting</h3>
+
+<h4>CMake does not configure automatically</h4>
+<ol>
+    <li>Make sure you have <strong>Desktop development with C++</strong> workload installed in Visual Studio</li>
+    <li>Go to <em>Project &rarr; CMake Settings</em> and ensure the configuration is correct</li>
+    <li>Try <em>Project &rarr; Delete Cache and Reconfigure</em></li>
+    <li>Verify that <code>CMakeLists.txt</code> is in the root of your cloned repository</li>
+</ol>
+
+<h4>Tests fail to build</h4>
+<ul>
+    <li>Google Test is fetched automatically via CMake&#x2019;s <code>FetchContent</code> &mdash; make sure you have an internet connection during the first build</li>
+    <li>Do <strong>not</strong> modify header files in the <code>include/</code> folder</li>
+</ul>
+
+<h4>Running the Program</h4>
+<ol>
+    <li>In Visual Studio, select <code>ct13-efficient-sorts.exe</code> as the startup item from the dropdown</li>
+    <li>Press <strong>Ctrl+F5</strong> to run without debugging</li>
+    <li>You should see output from each section as you complete the TODOs</li>
+</ol>
+
+<div style="padding: 14px 18px; border-radius: 4px; margin-bottom: 16px; background-color: #dff0d8; border: 1px solid #d6e9c6; color: #3c763d;">
+    <strong>Tip:</strong> Look for the <code>// ! DISCUSSION:</code> comments in each file &mdash; these explain the &#x201C;why&#x201D; behind each concept. The <code>// ? SEE DIAGRAM:</code> comments point you to visual aids in the <code>images/</code> folder.
+</div>
