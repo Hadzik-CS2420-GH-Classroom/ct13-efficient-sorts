@@ -1,0 +1,275 @@
+name: Autograding Tests
+on:
+  - push
+  - repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Build Project
+      continue-on-error: true
+      run: |
+        cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+        cmake --build build --config Release
+
+    - name: Build Check (2 points)
+      id: build
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Build Check (2 points)
+        setup-command: ''
+        command: |
+          if [ -f build/run_tests ]; then
+            echo "Build successful"
+          else
+            echo "Build failed" && exit 1
+          fi
+        timeout: 10
+        max-score: 2
+
+    # ==================== Merge Sort Tests (10 points) ====================
+
+    - name: Merge Sort Basic (2 points)
+      id: merge-basic
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Merge Sort Basic (2 points)
+        setup-command: ''
+        command: |
+          if [ -f build/run_tests ]; then
+            cd build && ./run_tests --gtest_filter=MergeSort.BasicSort
+          else
+            exit 1
+          fi
+        timeout: 10
+        max-score: 2
+
+    - name: Merge Sort Already Sorted (2 points)
+      id: merge-sorted
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Merge Sort Already Sorted (2 points)
+        setup-command: ''
+        command: |
+          if [ -f build/run_tests ]; then
+            cd build && ./run_tests --gtest_filter=MergeSort.AlreadySorted
+          else
+            exit 1
+          fi
+        timeout: 10
+        max-score: 2
+
+    - name: Merge Sort Reverse Sorted (2 points)
+      id: merge-reverse
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Merge Sort Reverse Sorted (2 points)
+        setup-command: ''
+        command: |
+          if [ -f build/run_tests ]; then
+            cd build && ./run_tests --gtest_filter=MergeSort.ReverseSorted
+          else
+            exit 1
+          fi
+        timeout: 10
+        max-score: 2
+
+    - name: Merge Sort Duplicates (2 points)
+      id: merge-duplicates
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Merge Sort Duplicates (2 points)
+        setup-command: ''
+        command: |
+          if [ -f build/run_tests ]; then
+            cd build && ./run_tests --gtest_filter=MergeSort.Duplicates
+          else
+            exit 1
+          fi
+        timeout: 10
+        max-score: 2
+
+    - name: Merge Sort Edge Cases (2 points)
+      id: merge-edge
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Merge Sort Edge Cases (2 points)
+        setup-command: ''
+        command: |
+          if [ -f build/run_tests ]; then
+            cd build && ./run_tests --gtest_filter=MergeSort.SingleElement:MergeSort.EmptyVector
+          else
+            exit 1
+          fi
+        timeout: 10
+        max-score: 2
+
+    # ==================== Quick Sort Tests (10 points) ====================
+
+    - name: Quick Sort Basic (2 points)
+      id: quick-basic
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Quick Sort Basic (2 points)
+        setup-command: ''
+        command: |
+          if [ -f build/run_tests ]; then
+            cd build && ./run_tests --gtest_filter=QuickSort.BasicSort
+          else
+            exit 1
+          fi
+        timeout: 10
+        max-score: 2
+
+    - name: Quick Sort Already Sorted (2 points)
+      id: quick-sorted
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Quick Sort Already Sorted (2 points)
+        setup-command: ''
+        command: |
+          if [ -f build/run_tests ]; then
+            cd build && ./run_tests --gtest_filter=QuickSort.AlreadySorted
+          else
+            exit 1
+          fi
+        timeout: 10
+        max-score: 2
+
+    - name: Quick Sort Reverse Sorted (2 points)
+      id: quick-reverse
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Quick Sort Reverse Sorted (2 points)
+        setup-command: ''
+        command: |
+          if [ -f build/run_tests ]; then
+            cd build && ./run_tests --gtest_filter=QuickSort.ReverseSorted
+          else
+            exit 1
+          fi
+        timeout: 10
+        max-score: 2
+
+    - name: Quick Sort Duplicates (2 points)
+      id: quick-duplicates
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Quick Sort Duplicates (2 points)
+        setup-command: ''
+        command: |
+          if [ -f build/run_tests ]; then
+            cd build && ./run_tests --gtest_filter=QuickSort.Duplicates
+          else
+            exit 1
+          fi
+        timeout: 10
+        max-score: 2
+
+    - name: Quick Sort Edge Cases (2 points)
+      id: quick-edge
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Quick Sort Edge Cases (2 points)
+        setup-command: ''
+        command: |
+          if [ -f build/run_tests ]; then
+            cd build && ./run_tests --gtest_filter=QuickSort.SingleElement:QuickSort.EmptyVector
+          else
+            exit 1
+          fi
+        timeout: 10
+        max-score: 2
+
+    # ==================== Heap Sort Tests (8 points) ====================
+
+    - name: Heap Sort Basic (2 points)
+      id: heap-basic
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Heap Sort Basic (2 points)
+        setup-command: ''
+        command: |
+          if [ -f build/run_tests ]; then
+            cd build && ./run_tests --gtest_filter=HeapSort.BasicSort
+          else
+            exit 1
+          fi
+        timeout: 10
+        max-score: 2
+
+    - name: Heap Sort Already Sorted (2 points)
+      id: heap-sorted
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Heap Sort Already Sorted (2 points)
+        setup-command: ''
+        command: |
+          if [ -f build/run_tests ]; then
+            cd build && ./run_tests --gtest_filter=HeapSort.AlreadySorted
+          else
+            exit 1
+          fi
+        timeout: 10
+        max-score: 2
+
+    - name: Heap Sort Reverse Sorted (2 points)
+      id: heap-reverse
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Heap Sort Reverse Sorted (2 points)
+        setup-command: ''
+        command: |
+          if [ -f build/run_tests ]; then
+            cd build && ./run_tests --gtest_filter=HeapSort.ReverseSorted
+          else
+            exit 1
+          fi
+        timeout: 10
+        max-score: 2
+
+    - name: Heap Sort Duplicates (2 points)
+      id: heap-duplicates
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Heap Sort Duplicates (2 points)
+        setup-command: ''
+        command: |
+          if [ -f build/run_tests ]; then
+            cd build && ./run_tests --gtest_filter=HeapSort.Duplicates
+          else
+            exit 1
+          fi
+        timeout: 10
+        max-score: 2
+
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        BUILD_RESULTS:            "${{steps.build.outputs.result}}"
+        MERGE-BASIC_RESULTS:      "${{steps.merge-basic.outputs.result}}"
+        MERGE-SORTED_RESULTS:     "${{steps.merge-sorted.outputs.result}}"
+        MERGE-REVERSE_RESULTS:    "${{steps.merge-reverse.outputs.result}}"
+        MERGE-DUPLICATES_RESULTS: "${{steps.merge-duplicates.outputs.result}}"
+        MERGE-EDGE_RESULTS:       "${{steps.merge-edge.outputs.result}}"
+        QUICK-BASIC_RESULTS:      "${{steps.quick-basic.outputs.result}}"
+        QUICK-SORTED_RESULTS:     "${{steps.quick-sorted.outputs.result}}"
+        QUICK-REVERSE_RESULTS:    "${{steps.quick-reverse.outputs.result}}"
+        QUICK-DUPLICATES_RESULTS: "${{steps.quick-duplicates.outputs.result}}"
+        QUICK-EDGE_RESULTS:       "${{steps.quick-edge.outputs.result}}"
+        HEAP-BASIC_RESULTS:       "${{steps.heap-basic.outputs.result}}"
+        HEAP-SORTED_RESULTS:      "${{steps.heap-sorted.outputs.result}}"
+        HEAP-REVERSE_RESULTS:     "${{steps.heap-reverse.outputs.result}}"
+        HEAP-DUPLICATES_RESULTS:  "${{steps.heap-duplicates.outputs.result}}"
+      with:
+        runners: build,merge-basic,merge-sorted,merge-reverse,merge-duplicates,merge-edge,quick-basic,quick-sorted,quick-reverse,quick-duplicates,quick-edge,heap-basic,heap-sorted,heap-reverse,heap-duplicates
