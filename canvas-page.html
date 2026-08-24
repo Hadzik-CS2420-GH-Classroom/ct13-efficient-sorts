@@ -1,0 +1,190 @@
+<!-- Canvas LMS HTML Fragment — paste into the Rich Content Editor (HTML view) -->
+
+<h2>👨‍💻 Code-Together 13: O(n log n) Sorting Algorithms</h2>
+
+<h3>&#x1F3AF; Overview</h3>
+<p>An in-class code-together activity introducing <strong>efficient sorting algorithms</strong> -- merge sort, quick sort, and heap sort. Students implement all three in <code>EfficientSorts.cpp</code> and call them from <code>main.cpp</code> to sort exam scores. The activity covers the divide-and-conquer pattern, pivot selection, the heap data structure, space/time tradeoffs, and why these algorithms dominate over O(n^2) sorts on large datasets. Bucket sort is discussed conceptually but not implemented.</p>
+
+<h3>&#x1F4D6; Learning Objectives</h3>
+<p>By completing this activity, you will be able to:</p>
+<ul>
+    <li>Implement <strong>merge sort</strong> using the divide-in-half and merge pattern, understanding O(n) space cost</li>
+    <li>Implement <strong>quick sort</strong> with median-of-three pivot selection, understanding average vs worst case</li>
+    <li>Implement <strong>heap sort</strong> by building a max-heap and repeatedly extracting the maximum</li>
+    <li>Explain the <strong>divide-and-conquer</strong> pattern: split the problem, solve subproblems, combine results</li>
+    <li>Explain why O(n log n) is dramatically faster than O(n^2) on large datasets</li>
+    <li>Compare <strong>space/time tradeoffs</strong>: merge sort (O(n) space), quick sort (O(log n) space), heap sort (O(1) space)</li>
+    <li>Describe <strong>bucket sort</strong> conceptually: non-comparison-based, O(n+k) average, best for uniform distributions</li>
+</ul>
+
+<h3>&#x1F680; Getting Started</h3>
+
+<h4>Step 1: Fork the Repository</h4>
+<p>Click the button below to fork the assignment repository to your GitHub account:</p>
+<p><a style="display: inline-block; padding: 10px 24px; font-size: 1em; font-weight: 600; color: #fff; background-color: #0b874b; border-radius: 4px; text-decoration: none;" href="https://hadzikcs.netlify.app/gh?course=sh/CS2420&task=ct13-efficient-sorts" target="_blank" rel="noopener">Fork Repository on GitHub</a></p>
+
+<div style="padding: 14px 18px; border-radius: 4px; margin-bottom: 16px; background-color: #fcf8e3; border: 1px solid #faebcc; color: #8a6d3b;">
+    <strong>First time?</strong> You&#x2019;ll need a GitHub account. Sign in (or create one) before clicking the button above.
+</div>
+
+<h4>Step 2: Clone in Visual Studio</h4>
+<ol>
+    <li>Open <strong>Visual Studio</strong></li>
+    <li>On the start window, click <strong>&#x201C;Clone a repository&#x201D;</strong></li>
+    <li>Paste your repository URL (from GitHub) into the <strong>Repository location</strong> field</li>
+    <li>Choose a local path and click <strong>Clone</strong></li>
+    <li>Visual Studio should automatically detect the CMake project and configure it</li>
+</ol>
+
+<div style="padding: 14px 18px; border-radius: 4px; margin-bottom: 16px; background-color: #d9edf7; border: 1px solid #bce8f1; color: #31708f;">
+    Follow the <strong>Troubleshooting</strong> section at the bottom if CMake does not configure automatically.
+</div>
+
+<h4>Step 3: Wait for CMake Configuration</h4>
+<p>Visual Studio will automatically run CMake. Watch the <strong>Output</strong> window (<em>View &rarr; Output</em>, select <em>&#x201C;Show output from: CMake&#x201D;</em>) until you see:</p>
+<pre style="background-color: #1e1e1e; color: #d4d4d4; padding: 16px 20px; border-radius: 4px; overflow-x: auto; font-family: 'Menlo', 'Monaco', 'Consolas', 'Courier New', monospace; font-size: 0.875em; line-height: 1.6;">CMake generation finished.</pre>
+
+<h3>&#x1F4DD; What You&#x2019;ll Do</h3>
+<p>Open each source file and complete the <code>TODO</code> comments. Each TODO tells you what to write, and the <strong>DISCUSSION</strong> comments explain the &#x201C;why&#x201D; behind the code. We&#x2019;ll work through these together in class.</p>
+
+<h3>&#x1F4DA; Teaching Order</h3>
+<p>Work through the files in the order <code>main.cpp</code> calls them:</p>
+
+<h4>1. <code>EfficientSorts.h</code> &mdash; Function declarations</h4>
+<table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; text-align: left; background-color: #f5f5f5; font-weight: 700;">Section</th>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; text-align: left; background-color: #f5f5f5; font-weight: 700;">What You&#x2019;ll Learn</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+<h4>2. <code>EfficientSorts.cpp</code> &mdash; Sort implementations (6 TODOs)</h4>
+<table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; text-align: left; background-color: #f5f5f5; font-weight: 700;">Section</th>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; text-align: left; background-color: #f5f5f5; font-weight: 700;">What You&#x2019;ll Learn</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">TODO 1a: merge()</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">merge two sorted halves using temporary vectors</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">TODO 1b: merge_sort_recursive()</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">base case + divide + recurse + merge</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">TODO 2a: partition()</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">median-of-three pivot + rearrange around pivot</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">TODO 2b: quick_sort_recursive()</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">base case + partition + recurse each side</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">TODO 3a: heapify_down()</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">compare parent with children, swap largest, recurse</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">TODO 3b: heap_sort()</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">phase 1: build max-heap, phase 2: extract max repeatedly</td>
+        </tr>
+    </tbody>
+</table>
+<h4>3. <code>main.cpp</code> &mdash; Exam Score Sorter (4 TODOs) (4 TODOs)</h4>
+<table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; text-align: left; background-color: #f5f5f5; font-weight: 700;">Section</th>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; text-align: left; background-color: #f5f5f5; font-weight: 700;">What You&#x2019;ll Learn</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">TODO 1: Merge sort demo</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">sort and print exam scores</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">TODO 2: Quick sort demo</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">same scores, different algorithm</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">TODO 3: Heap sort demo</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">same scores, different algorithm</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">TODO 4: Larger dataset</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">sort 20 scores with all three, compare results</td>
+        </tr>
+    </tbody>
+</table>
+<h3>&#x1F4CA; Grading (30 points)</h3>
+<p>Your code is auto-graded when you push. Tests check that each TODO produces the correct output.</p>
+<table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; background-color: #f5f5f5; font-weight: 700;">Category</th>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; background-color: #f5f5f5; font-weight: 700;">Points</th>
+            <th style="border: 1px solid #c7cdd1; padding: 10px 14px; background-color: #f5f5f5; font-weight: 700;">What is tested</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Build</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">0</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Project must compile (tests won't run otherwise)</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Merge sort</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">10</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Basic, sorted, reverse, empty, duplicates, negatives, large dataset</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Quick sort</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">10</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Basic, sorted, reverse, empty, duplicates, all-same, 2/3 elements, large dataset</td>
+        </tr>
+        <tr style="background-color: #fafafa;">
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Heap sort</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">10</td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px;">Basic, sorted, reverse, empty, duplicates, all-same, negatives, large dataset</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px; font-weight: 700; background-color: #f5f5f5;"><strong>Total</strong></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px; font-weight: 700; background-color: #f5f5f5;"><strong>30</strong></td>
+            <td style="border: 1px solid #c7cdd1; padding: 10px 14px; background-color: #f5f5f5;"></td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>&#x1F527; Troubleshooting</h3>
+
+<h4>CMake does not configure automatically</h4>
+<ol>
+    <li>Make sure you have <strong>Desktop development with C++</strong> workload installed in Visual Studio</li>
+    <li>Go to <em>Project &rarr; CMake Settings</em> and ensure the configuration is correct</li>
+    <li>Try <em>Project &rarr; Delete Cache and Reconfigure</em></li>
+    <li>Verify that <code>CMakeLists.txt</code> is in the root of your cloned repository</li>
+</ol>
+
+<h4>Tests fail to build</h4>
+<ul>
+    <li>Google Test is fetched automatically via CMake&#x2019;s <code>FetchContent</code> &mdash; make sure you have an internet connection during the first build</li>
+    <li>Do <strong>not</strong> modify header files in the <code>include/</code> folder</li>
+</ul>
+
+<h4>Running the Program</h4>
+<ol>
+    <li>In Visual Studio, select <code>ct13-efficient-sorts.exe</code> as the startup item from the dropdown</li>
+    <li>Press <strong>Ctrl+F5</strong> to run without debugging</li>
+    <li>You should see output from each section as you complete the TODOs</li>
+</ol>
+
+<div style="padding: 14px 18px; border-radius: 4px; margin-bottom: 16px; background-color: #dff0d8; border: 1px solid #d6e9c6; color: #3c763d;">
+    <strong>Tip:</strong> Look for the <code>// ! DISCUSSION:</code> comments in each file &mdash; these explain the &#x201C;why&#x201D; behind each concept. The <code>// ? SEE DIAGRAM:</code> comments point you to visual aids in the <code>images/</code> folder.
+</div>
